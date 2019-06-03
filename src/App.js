@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from "react-router-dom";
+import './App.scss';
 
-function App() {
+//UI
+import UInfinity from './components/UInfinity';
+
+//Views
+import Home from './components/Home';
+import Synopsis from './components/Synopsis';
+import Cast from './components/Cast';
+import Gallery from './components/Gallery';
+import Trailer from './components/Trailer';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <UInfinity />
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route path="/sinopsis" component={Synopsis}/>
+        <Route path="/cast" component={Cast}/>
+        <Route path="/galeria" component={Gallery}/>
+        <Route path="/trailer" component={Trailer}/>
+
+        <Route component={NoMatch} />
+      </Switch>
+    </>
   );
 }
+
+const NoMatch = () => {
+  return(
+    <>
+      <h1>Not found</h1>
+    </>
+  );
+}
+
 
 export default App;
