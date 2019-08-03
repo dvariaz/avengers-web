@@ -1,0 +1,30 @@
+@import "./global.scss";
+
+.Container {
+    height: 100vh;
+    padding: $barSize 0 0;
+
+    &.CenterContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+h1.MainTitle {
+    font-size: 8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.Background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -100;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}

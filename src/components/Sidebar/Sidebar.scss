@@ -1,0 +1,42 @@
+@import "./../../settings/global.scss";
+@import "./../../settings/breakpoints.scss";
+
+aside {
+    position: fixed;
+    top: $barSize;
+    background-color: $dark-color;
+    width: $barSize;
+    height: calc(100vh - #{ $barSize });
+    border-color: rgba(255,255,255,0.3);
+    border-style: solid;
+    border-width: 0;
+    backdrop-filter: blur(4px);
+    
+    &.left {
+        left: 0;
+        border-right-width: 2px;
+    }
+    
+    &.right {
+        right: 0;
+        border-left-width: 2px;
+    }
+
+    .social{
+        display: flex;
+        flex-direction: column;
+        
+        a {
+            width: 100%;
+            padding: 1em 1.3em;
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+            &:hover {
+                background-color: rgba(255,255,255,0.2);
+            }
+        }
+    }
+}

@@ -4,7 +4,7 @@ import styles from './Synopsis.module.scss';
 class Synopsis extends Component {
     render(){
         return(
-            <div>
+            <div class="Container">
                 <h1>This is the Synopsis</h1>
             </div>
         );

@@ -1,16 +1,17 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import './App.scss';
+import './settings/container.scss';
 
 //UI
 import UInfinity from './components/UInfinity';
 
 //Views
-import Home from './components/Home';
-import Synopsis from './components/Synopsis';
-import Cast from './components/Cast';
-import Gallery from './components/Gallery';
-import Trailer from './components/Trailer';
+import Home from './pages/Home';
+import Synopsis from './pages/Synopsis';
+import Cast from './pages/Cast';
+import Gallery from './pages/Gallery';
+import Trailer from './pages/Trailer';
 
 const App = () => {
   return (
