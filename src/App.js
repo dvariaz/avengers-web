@@ -1,10 +1,13 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-import './App.scss';
+
+//Styles
 import './settings/container.scss';
+import "./settings/global.scss";
+import './App.scss';
 
 //UI
-import UInfinity from './components/UInfinity';
+import UI from './components/UI';
 
 //Views
 import Home from './pages/Home';
@@ -16,7 +19,7 @@ import Trailer from './pages/Trailer';
 const App = () => {
   return (
     <>
-      <UInfinity />
+      <UI />
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/sinopsis" component={Synopsis}/>

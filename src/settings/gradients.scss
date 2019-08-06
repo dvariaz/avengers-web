@@ -1,2 +1,48 @@
-$GrGreen: linearGradient();
-$GrOrange: linearGradient();
+$gradients: () !default;
+$gradients: map-merge((
+    "red": linear-gradient(135deg, #d50016 0%,#ff1027 100%),
+    "blue": linear-gradient(135deg, #002d95 0%,#1c43ff 100%),
+    "violet": linear-gradient(135deg, #a000cc 0%, #b602c2 100%),
+    "green": linear-gradient(135deg, #009e06 0%,#3dd733 100%),
+    "yellow": linear-gradient(135deg, #ee9d00 0%,#dabb00 100%),
+    "orange": linear-gradient(135deg, #e71d17 0%,#ea8d0e 100%),
+    "thanos": linear-gradient(135deg,#e97b24 0%, #311175 100%),
+    "spidey": linear-gradient(135deg, #dc0228 0%, #140a2d 100%),
+    "starlord": linear-gradient(135deg, #fd542d 0%, #7d21da 100%),
+    "vision": linear-gradient(135deg, #f31562 0%, #f5eb29 100%),
+    "shuri": linear-gradient(135deg, #1c4cf8 0%, #6105fe 100%),
+    "falcon": linear-gradient(135deg, #a70129 0%, #270827 100%),
+    "drax": linear-gradient(135deg, #441c75 0%, #2c9177 100%),
+    "warmachine": linear-gradient(135deg, #7e8790, #c8c9cb 100%),
+    "patt": linear-gradient(135deg, #a803e0 0%, #ff4f30 100%),
+), $gradients);
+
+// Gradient backgrounds
+@mixin bg-gradient($parent, $gradient) {
+    #{$parent} {
+      background: $gradient;
+    }
+  }
+  // Gradient text
+  @mixin text-gradient($parent, $gradient) {
+    #{$parent} {
+      background-image: $gradient;
+      color:transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+  }
+  // Gradient text
+  @mixin text-gradient($parent, $gradient) {
+    #{$parent} {
+      background-image: $gradient;
+      color:transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+  }
+
+  // Gradient Classes 
+@each $gradient, $value in $gradients {
+    @include bg-gradient(".bg-gradient-#{$gradient}", $value);
+}

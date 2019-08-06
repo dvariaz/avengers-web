@@ -1,4 +1,23 @@
 $barSize: 60px;
 
+//Tipografias
+%navFont {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: .7em;
+    color: white;
+}
+
 //Colores
 $dark-color: rgba(0,0,0,0.2);
+
+//Materiales
+
+%navMaterial {
+    background-color: $dark-color;
+    border-color: rgba(255,255,255,0.3);
+    border-style: solid;
+    backdrop-filter: blur(4px);
+}

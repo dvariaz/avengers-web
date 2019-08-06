@@ -1,16 +1,16 @@
-@import "./../../settings/global.scss";
-@import "./../../settings/breakpoints.scss";
+@import "./../../../settings/global.scss";
+@import "./../../../settings/breakpoints.scss";
 
 aside {
     position: fixed;
+    z-index: 90;
     top: $barSize;
     background-color: $dark-color;
     width: $barSize;
     height: calc(100vh - #{ $barSize });
-    border-color: rgba(255,255,255,0.3);
-    border-style: solid;
+
+    @extend %navMaterial;
     border-width: 0;
-    backdrop-filter: blur(4px);
     
     &.left {
         left: 0;
@@ -38,5 +38,16 @@ aside {
                 background-color: rgba(255,255,255,0.2);
             }
         }
+    }
+
+    .nav-language{
+        @extend %navFont;
+
+        position: absolute;
+        text-align: center;
+        bottom: 0;
+        width: 100%;
+        height: $barSize;
+        line-height: $barSize;
     }
 }

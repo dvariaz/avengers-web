@@ -13,15 +13,14 @@
 header {
     position: fixed;
     top: 0;
+    z-index: 100;
     display: flex;
     width: 100%;
     height: $barSize;
-    background-color: $dark-color;
-    border-color: rgba(255,255,255,0.3);
-    border-style: solid;
+
+    @extend %navMaterial;
     border-width: 0 0 2px 0;
 
-    backdrop-filter: blur(4px);
 }
 
 .Logo {
@@ -62,12 +61,8 @@ header {
         width: 100%;
         height: 100%;
         padding: 0 5px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-family: 'Raleway', sans-serif;
-        font-weight: 600;
-        font-size: .7em;
-        color: white;
+
+        @extend %navFont;
 
         &:hover {
             background-color: rgba(255,255,255,0.2);
