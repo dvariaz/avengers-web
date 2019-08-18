@@ -4,20 +4,20 @@ import { Link } from 'react-router-dom';
 import ArrowIcon from './../media/ChevronArrow-Icon.svg';
 
 //Styles
-import './Slider.scss';
+import './SynopsisNav.scss';
 
-class Slider extends Component {
+class SynopsisNav extends Component {
     render(){
         return(
-            <div className="Slider">
-                <a href="#" className="Slider-Controller"><img src={ ArrowIcon } /></a>
+            <div className="SynopsisNav">
+                <a href="#" className="SynopsisNav-Controller"><img src={ ArrowIcon } /></a>
                 <div className="items">
                     { this.props.children }
                 </div>
-                <a href="#" className="Slider-Controller"><img src={ ArrowIcon } /></a>
+                <a href="#" className="SynopsisNav-Controller"><img src={ ArrowIcon } /></a>
             </div>
         );
     }
 }
 
-export default Slider;
+export default SynopsisNav;

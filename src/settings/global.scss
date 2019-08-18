@@ -1,6 +1,14 @@
 $barSize: 60px;
 
 //Tipografias
+@font-face {
+    font-family: 'Draft B';
+    src: url('/public/Fonts/DraftB-Regular.woff2') format('woff2'),
+        url('/public/Fonts/DraftB-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 %navFont {
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -8,6 +16,11 @@ $barSize: 60px;
     font-weight: 600;
     font-size: .7em;
     color: white;
+}
+
+%castNavFont {
+    color: white;
+    font-family: 'Draft B', sans-serif;
 }
 
 //Colores

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 //Styles
 import './settings/container.scss';
@@ -22,9 +22,15 @@ const App = () => {
       <UI />
       <Switch>
         <Route exact path="/" component={Home}/>
-        <Route path="/sinopsis" component={Synopsis}/>
-        <Route path="/cast" component={Cast}/>
+
+        <Route path="/sinopsis/:section" component={Synopsis}/>
+        <Redirect exact from="/sinopsis" to="/sinopsis/general" />
+        
+        <Route path="/cast/:character" component={Cast}/>
+        <Redirect exact from="/cast" to="/cast/capitanamerica" />
+
         <Route path="/galeria" component={Gallery}/>
+        
         <Route path="/trailer" component={Trailer}/>
 
         <Route component={NoMatch} />

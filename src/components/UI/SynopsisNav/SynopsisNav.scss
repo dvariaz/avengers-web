@@ -1,8 +1,8 @@
 @import "./../../../settings/global.scss";
+@import "./../../../settings/colors.scss";
 
-.Slider {
+.SynopsisNav {
     position: fixed;
-    z-index: 80;
     bottom: 0;
     width: 100vw;
     padding: 0 $barSize;
@@ -13,7 +13,7 @@
     @extend %navMaterial;
     border-width: 2px 0 0;
 
-    .Slider-Controller{
+    .SynopsisNav-Controller{
         width: 40px;
         height: auto;
         display: flex;
@@ -40,7 +40,7 @@
         border-style: solid;
         border-width: 0 2px;
 
-        overflow: scroll;     
+        overflow-x: auto;     
 
         a {
             display: flex;
@@ -53,9 +53,18 @@
             max-width: 300px;
             line-height: $barSize;
             
-            &.inactive {
+            &.disabled {
                 background: transparent;
             }
+        }
+
+        // Gradient Classes 
+        @each $gradient, $value in $gradients {
+            @include bg-gradient(".bg-#{$gradient}", $value);
+        }
+
+        &::-webkit-scrollbar {
+            display: none;
         }
     }
 }

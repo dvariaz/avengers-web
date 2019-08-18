@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 //Styles
-import './../../../settings/gradients.scss';
 import './Scroller.scss';
 
 import ArrowIcon from './../media/ChevronArrow-Icon.svg';

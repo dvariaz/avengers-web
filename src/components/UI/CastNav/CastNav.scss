@@ -1,0 +1,41 @@
+@import "./../../../settings/global.scss";
+@import "./../../../settings/colors.scss";
+
+.CastNav {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background: $dark-color;
+    overflow-y: auto;
+
+    a {
+        display: flex;
+        align-items: flex-end;
+        flex: 1;
+        padding: 1em 1em 1em 2em;
+        width: 100%;
+        min-height: 120px;
+        font-size: 0.9em;
+        font-weight: 600;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        @extend %castNavFont;
+
+        &[class^='bg-glow-border-'] {
+            font-size: 1.1em;
+            border-left-style: solid;
+            border-left-width: 7px;
+        }
+    }
+
+    // Lighten Border Classes 
+    @each $color, $value in $fallbacks {
+        @include bg-glow-border(".bg-glow-border-#{$color}", $value);
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

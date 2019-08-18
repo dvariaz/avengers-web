@@ -1,14 +1,31 @@
 @import "./global.scss";
 
 .Container {
+    display: flex;
     height: 100vh;
-    padding: $barSize 0 0;
+    padding: 0;
+
+    &.Respect-TopBar {
+        padding-top: $barSize;
+    }
+
+    &.Respect-SideBars {
+        padding-left: $barSize;
+        padding-right: $barSize;
+    }
+
+    &.Respect-AllBars {
+        padding: $barSize;
+    }
 
     &.CenterContent {
-        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    &.Layout-Horizontal {
+        flex-direction: row;
     }
 }
 

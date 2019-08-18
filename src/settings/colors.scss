@@ -1,4 +1,24 @@
 $gradients: () !default;
+$fallbacks: ();
+$fallbacks: map-merge((
+  "red": #ff1027,
+  "blue": #1c43ff,
+  "violet": #b602c2,
+  "green": #3dd733,
+  "yellow": #dabb00,
+  "orange": #ea8d0e,
+  "thanos":#311175,
+  "spidey": #140a2d,
+  "starlord": #7d21da,
+  "vision": #f5eb29,
+  "shuri": #6105fe,
+  "falcon": #270827,
+  "drax": #2c9177,
+  "warmachine":#c8c9cb,
+  "patt": #ff4f30,
+  "scarlet": #A50136,
+),$fallbacks);
+
 $gradients: map-merge((
     "red": linear-gradient(135deg, #d50016 0%,#ff1027 100%),
     "blue": linear-gradient(135deg, #002d95 0%,#1c43ff 100%),
@@ -15,34 +35,37 @@ $gradients: map-merge((
     "drax": linear-gradient(135deg, #441c75 0%, #2c9177 100%),
     "warmachine": linear-gradient(135deg, #7e8790, #c8c9cb 100%),
     "patt": linear-gradient(135deg, #a803e0 0%, #ff4f30 100%),
+    "scarlet": linear-gradient(135deg, #A50136 0%, #EC003B 100%),
 ), $gradients);
+
+//Color borders
+@mixin bg-glow-border($parent, $color) {
+  #{$parent} {
+    border-color: $color;
+  }
+}
 
 // Gradient backgrounds
 @mixin bg-gradient($parent, $gradient) {
-    #{$parent} {
-      background: $gradient;
-    }
+  #{$parent} {
+    background: $gradient;
   }
-  // Gradient text
-  @mixin text-gradient($parent, $gradient) {
-    #{$parent} {
-      background-image: $gradient;
-      color:transparent;
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
+}
+// Gradient text
+@mixin text-gradient($parent, $gradient) {
+  #{$parent} {
+    background-image: $gradient;
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
   }
-  // Gradient text
-  @mixin text-gradient($parent, $gradient) {
-    #{$parent} {
-      background-image: $gradient;
-      color:transparent;
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
+}
+// Gradient text
+@mixin text-gradient($parent, $gradient) {
+  #{$parent} {
+    background-image: $gradient;
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
   }
-
-  // Gradient Classes 
-@each $gradient, $value in $gradients {
-    @include bg-gradient(".bg-gradient-#{$gradient}", $value);
 }
