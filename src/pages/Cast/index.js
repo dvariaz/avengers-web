@@ -7,8 +7,13 @@ import CastNav from './../../components/UI/CastNav';
 //Images
 import CaptainAmericaImage from './Characters/CaptainAmerica/Profile.jpeg';
 
-//Para los bordes luminosos, toca manejar las variables de color desde react
+//TODO: Para los bordes luminosos, toca manejar las variables de color desde react
 //ya que para hacer el overlay, hay que enviar el color por js, y no por sass
+
+//TODO: El elemento seleccionado debe mantener siempre arriba
+
+//FIXME: cada vez que se selecciona alguno de los elementos que se desbordan,
+//el scroll se sube automaticamente, como si fuera un F5
 
 class Cast extends Component {
     render(){

@@ -4,7 +4,7 @@ import styles from './Gallery.module.scss';
 class Gallery extends Component {
     render(){
         return(
-            <div className="Container">
+            <div className="Container Respect-TopBar Respect-SideBars">
                 <h1>This is the gallery</h1>
             </div>
         );

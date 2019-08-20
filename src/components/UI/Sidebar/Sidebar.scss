@@ -1,5 +1,6 @@
 @import "./../../../settings/global.scss";
 @import "./../../../settings/breakpoints.scss";
+@import "./../../../settings/colors.scss";
 
 aside {
     position: fixed;
@@ -37,6 +38,31 @@ aside {
             &:hover {
                 background-color: rgba(255,255,255,0.2);
             }
+        }
+
+        // Gradient Classes 
+        @each $gradient, $value in $gradients {
+            @include bg-gradient(".bg-#{$gradient}", $value);
+        }
+    }
+
+    .CastSections {
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - #{ $barSize });
+
+        a {
+            display: flex;
+            flex: 1;
+            padding: 1em 0;
+            color: white;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            writing-mode: vertical-lr;
+    
+            @extend %navFont;
         }
     }
 

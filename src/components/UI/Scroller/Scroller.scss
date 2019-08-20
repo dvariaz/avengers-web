@@ -1,4 +1,5 @@
 @import "./../../../settings/global.scss";
+@import "./../../../settings/colors.scss";
 
 .Scroller {
     width: 100%;
@@ -37,5 +38,10 @@
                 transform: rotateZ(180deg);
             }
         }
+    }
+    
+    // Gradient Classes 
+    @each $gradient, $value in $gradients {
+        @include bg-gradient(".bg-#{$gradient}", $value);
     }
 }

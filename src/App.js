@@ -26,10 +26,18 @@ const App = () => {
         <Route path="/sinopsis/:section" component={Synopsis}/>
         <Redirect exact from="/sinopsis" to="/sinopsis/general" />
         
-        <Route path="/cast/:character" component={Cast}/>
-        <Redirect exact from="/cast" to="/cast/capitanamerica" />
+        <Route path="/cast/:character/:section" component={Cast}/>
+        <Redirect exact from="/cast" to="/cast/capitanamerica/portada" />
+        <Redirect exact from="/cast/capitanamerica" to="/cast/capitanamerica/portada" />
+        <Redirect exact from="/cast/ironman" to="/cast/ironman/portada" />
+        <Redirect exact from="/cast/thor" to="/cast/thor/portada" />
+        <Redirect exact from="/cast/doctorstrange" to="/cast/doctorstrange/portada" />
+        <Redirect exact from="/cast/blackwidow" to="/cast/blackwidow/portada" />
+        <Redirect exact from="/cast/starlord" to="/cast/starlord/portada" />
+        <Redirect exact from="/cast/hulk" to="/cast/hulk/portada" />
 
-        <Route path="/galeria" component={Gallery}/>
+        <Route path="/galeria/:actor" component={Gallery}/>
+        <Redirect exact from="/galeria" to="/galeria/joshbrolin" />
         
         <Route path="/trailer" component={Trailer}/>
 

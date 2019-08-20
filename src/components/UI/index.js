@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import './UI.scss';
 
 import Sidebar from './Sidebar';
+import Scroller from './Scroller';
 
 //Media
 import Logo from './media/Avengers-Logo.svg';
@@ -14,7 +15,11 @@ import TwitterIcon from './media/social/Twitter-Icon.png';
 import InstagramIcon from './media/social/Instagram-Icon.png';
 
 class UI extends Component {
+    
     render(){
+        let currentPath = window.location.pathname.split('/');
+        let currentUrl = currentPath.slice(0, currentPath.length-1).join("/");
+        
         return(
             <>
                 <header>
@@ -38,9 +43,16 @@ class UI extends Component {
                         <a href="#"><img src={ TwitterIcon } alt="Visita Twitter"/></a>
                         <a href="#"><img src={ InstagramIcon } alt="Visita Instagram"/></a>
                     </div>
+                    <Scroller previous="hulk" next="ironman" color="red"></Scroller>
                 </Sidebar>
                 <Sidebar position="right" lang="ESP">
-
+                    {/* FIXME: El componente se debe rerenderizar cada vez que se cambie de personaje, ya que el currentUrl cambia  */}
+                    <div className="CastSections">
+                        <NavLink to={ currentUrl + "/portada" } activeClassName="active">PORTADA</NavLink>
+                        <NavLink to={ currentUrl + "/poster" } activeClassName="active">POSTER</NavLink>
+                        <NavLink to={ currentUrl + "/historia" } activeClassName="active">HISTORIA</NavLink>
+                        <NavLink to={ currentUrl + "/diseño" } activeClassName="active">DISEÑO</NavLink>
+                    </div>
                 </Sidebar>
             </>
         );
