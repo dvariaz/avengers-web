@@ -12,9 +12,9 @@ class Scroller extends Component{
         let color = this.props.color;
         return(
             <div className='Scroller'>
-                <Link to={ this.props.previous } className={ `bg-${ color }` }><img src={ ArrowIcon } /></Link>
+                <Link to={ this.props.previous } className={ `bg-${ color }` }><img src={ ArrowIcon } alt="Anterior sección"/></Link>
                 <span>Scroll</span>
-                <Link to={ this.props.next } className={ `bg-${ color }` }><img src={ ArrowIcon } /></Link>
+                <Link to={ this.props.next } className={ `bg-${ color }` }><img src={ ArrowIcon } alt="Siguiente sección"/></Link>
             </div>
         );
     }

@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
 
 //Styles
 import './Sidebar.scss';
 
 class Sidebar extends Component {
     render() {
-        let slider;
         let lang;
 
         if(this.props.lang){

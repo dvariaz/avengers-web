@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 //Styles
 import './UI.scss';
@@ -15,11 +15,11 @@ import TwitterIcon from './media/social/Twitter-Icon.png';
 import InstagramIcon from './media/social/Instagram-Icon.png';
 
 class UI extends Component {
-    
+
     render(){
-        let currentPath = window.location.pathname.split('/');
+        let currentPath = this.props.location.pathname.split('/');
         let currentUrl = currentPath.slice(0, currentPath.length-1).join("/");
-        
+
         return(
             <>
                 <header>
@@ -39,14 +39,13 @@ class UI extends Component {
                 </header>
                 <Sidebar position="left">
                     <div className="social" >
-                        <a href="#"><img src={ YoutubeIcon } alt="Visita Youtube"/></a>
-                        <a href="#"><img src={ TwitterIcon } alt="Visita Twitter"/></a>
-                        <a href="#"><img src={ InstagramIcon } alt="Visita Instagram"/></a>
+                        <a href="https://www.youtube.com/user/MARVEL" target="_blank" rel="noopener noreferrer"><img src={ YoutubeIcon } alt="Visita Youtube"/></a>
+                        <a href="https://twitter.com/Avengers" target="_blank" rel="noopener noreferrer"><img src={ TwitterIcon } alt="Visita Twitter"/></a>
+                        <a href="https://www.instagram.com/avengers" target="_blank" rel="noopener noreferrer"><img src={ InstagramIcon } alt="Visita Instagram"/></a>
                     </div>
                     <Scroller previous="hulk" next="ironman" color="red"></Scroller>
                 </Sidebar>
                 <Sidebar position="right" lang="ESP">
-                    {/* FIXME: El componente se debe rerenderizar cada vez que se cambie de personaje, ya que el currentUrl cambia  */}
                     <div className="CastSections">
                         <NavLink to={ currentUrl + "/portada" } activeClassName="active">PORTADA</NavLink>
                         <NavLink to={ currentUrl + "/poster" } activeClassName="active">POSTER</NavLink>
@@ -54,9 +53,10 @@ class UI extends Component {
                         <NavLink to={ currentUrl + "/diseño" } activeClassName="active">DISEÑO</NavLink>
                     </div>
                 </Sidebar>
+                { this.props.children }
             </>
         );
     }
 }
 
-export default UI;
+export default withRouter(UI);
