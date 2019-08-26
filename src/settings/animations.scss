@@ -1,0 +1,33 @@
+.Background {
+    opacity: 0;
+}
+
+.blur-enter {
+    opacity: 0;
+    filter: blur(10px);
+}
+
+.blur-enter-done {
+    opacity: 1;
+}
+
+.blur-enter-active {
+    opacity: 1;
+    filter: blur(0px);
+    transition: opacity 500ms, filter 1000ms;
+}
+
+.blur-exit {
+    opacity: 1;
+    filter: blur(0px);
+}
+
+.blur-exit-active {
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 500ms, filter 1000ms;
+}
+
+.blur-exit-done {
+    opacity: 0;
+}
