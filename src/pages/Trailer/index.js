@@ -4,7 +4,7 @@ import React, { Component } from "react";
 class Trailer extends Component {
     render(){
         return(
-            <div class="Container">
+            <div className="Container">
                 <h1>This is the trailer</h1>
             </div>
         );
