@@ -2,6 +2,8 @@
 
 body {
     background: black;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .Container {
@@ -24,6 +26,10 @@ body {
 
     &.Respect-AllBars {
         padding: $barSize;
+    }
+
+    &.Respect-CastNav {
+        padding-left: calc(#{$barSize} + 300px);
     }
 
     &.CenterContent {

@@ -6,6 +6,7 @@ import './UI.scss';
 
 import Sidebar from './Sidebar';
 import Scroller from './Scroller';
+import CastNav from './CastNav';
 
 //Media
 import Logo from './media/Avengers-Logo.svg';
@@ -14,11 +15,20 @@ import YoutubeIcon from './media/social/Youtube-Icon.png';
 import TwitterIcon from './media/social/Twitter-Icon.png';
 import InstagramIcon from './media/social/Instagram-Icon.png';
 
+//Images
+import ThanosImage from './../../assets/Characters/Thanos/Profile.jpg'
+import CaptainAmericaImage from './../../assets/Characters/CaptainAmerica/Profile.jpg';
+import IronManImage from './../../assets/Characters/IronMan/Profile.jpg';
+import ThorImage from './../../assets/Characters/Thor/Profile.jpg';
+import DoctorStrangeImage from './../../assets/Characters/DoctorStrange/Profile.jpg';
+
 class UI extends Component {
 
     render(){
         let currentPath = this.props.location.pathname.split('/');
         let currentUrl = currentPath.slice(0, currentPath.length-1).join("/");
+
+        //TODO: Hay que controlar el estado del CastNav, solo debe aparecer en la seccion de Cast
 
         return(
             <>
@@ -53,6 +63,17 @@ class UI extends Component {
                         <NavLink to={ currentUrl + "/diseño" } activeClassName="active">DISEÑO</NavLink>
                     </div>
                 </Sidebar>
+                
+                <CastNav>
+                    <NavLink to="/cast/thanos/portada" activeClassName="active bg-glow-border-blue" style={{ backgroundImage: `url(${ ThanosImage })` }}>THANOS</NavLink>            
+                    <NavLink to="/cast/capitanamerica/portada" activeClassName="active bg-glow-border-blue" style={{ backgroundImage: `url(${ CaptainAmericaImage })` }}>CAPITÁN AMERICA</NavLink>
+                    <NavLink to="/cast/ironman/portada" activeClassName="active bg-glow-border-red" style={ { backgroundImage: `url(${ IronManImage })` }}>IRON MAN</NavLink>
+                    <NavLink to="/cast/thor/portada" activeClassName="active bg-glow-border-vision" style={ { backgroundImage: `url(${ ThorImage })` }}>THOR</NavLink>
+                    <NavLink to="/cast/doctorstrange/portada" activeClassName="active bg-glow-border-green" style={ { backgroundImage: `url(${ DoctorStrangeImage })` }}>DOCTOR STRANGE</NavLink>
+                    <NavLink to="/cast/blackwidow/portada" activeClassName="active bg-glow-border-yellow">BLACK WIDOW</NavLink>
+                    <NavLink to="/cast/starlord/portada" activeClassName="active bg-glow-border-red">STAR LORD</NavLink>
+                    <NavLink to="/cast/hulk/portada" activeClassName="active bg-glow-border-orange">HULK</NavLink>
+                </CastNav>
                 { this.props.children }
             </>
         );
