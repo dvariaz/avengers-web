@@ -1,10 +1,15 @@
 import React, { Component } from "react";
-import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setCurrentSection } from '../../store/routing/actions.js';
+import { NavLink, withRouter } from 'react-router-dom';
 // import styles from './Synopsis.module.scss';
 
 import SynopsisNav from './../../components/UI/SynopsisNav';
 
-class Synopsis extends Component {
+class SynopsisPage extends Component {
+    componentDidMount() {
+        this.props.updateSection(this.props.location.pathname);
+    }
 
     render(){
         return(
@@ -25,4 +30,8 @@ class Synopsis extends Component {
     }
 }
 
-export default Synopsis;
+const mapDispatchToProps = (dispatch) => ({
+    updateSection: section => dispatch(setCurrentSection(section))
+});
+
+export default withRouter(connect(null,mapDispatchToProps)(SynopsisPage));

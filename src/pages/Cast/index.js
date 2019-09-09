@@ -1,4 +1,6 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { setCurrentSection } from '../../store/routing/actions.js';
 import { Redirect, Route, Switch, NavLink, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 // import styles from './Cast.module.scss';
@@ -36,40 +38,53 @@ import ChrisPattImage from './../../assets/Cast/ChrisPatt.jpg';
 //FIXME: cada vez que se selecciona alguno de los elementos que se desbordan,
 //el scroll se sube automaticamente, como si fuera un F5
 
-const Cast = ({ location, match }) => {
-    return(
-        <div className="Container Respect-TopBar Respect-SideBars Respect-CastNav Layout-Horizontal">
-            <Switch location={ location }>
-                <Route exact path={`${match.url}` } render={
-                    () => <div className="Content"><h1 style={{ color: 'white' }}>Seleccióna un personaje</h1><Background src={ TitanBackground } /></div>
-                } />
-                <Route exact path={`${match.url}/thanos/portada` } render={
-                    () => <Background src={ ThanosImage } />
-                } />
-                <Route exact path={`${match.url}/capitanamerica/portada` } render={
-                    () => <Background src={ CaptainAmericaImage } />
-                } />
-                <Route exact path={`${match.url}/ironman/portada` } render={
-                     () => <Background src={ IronManImage } />
-                } />
-                <Route exact path={`${match.url}/thor/portada` } render={
-                     () => <Background src={ ThorImage } />
-                } />
-                <Route exact path={`${match.url}/doctorstrange/portada` } render={
-                     () => <Background src={ DoctorStrangeImage } />
-                } />
-                <Route exact path={`${match.url}/blackwidow/portada` } render={
-                     () => <h1>Esto es black widow</h1> 
-                } />
-                <Route exact path={`${match.url}/starlord/portada` } render={
-                     () => <Background src={ ChrisPattImage } />
-                } />
-                <Route exact path={`${match.url}/hulk/portada` } render={
-                     () => <h1>Esto es hulk</h1> 
-                } />
-            </Switch>
-        </div>
-    );
-}
+class CastPage extends Component {
+    componentDidMount() {
+        this.props.updateSection(this.props.location.pathname);
+    }
 
-export default withRouter(Cast);
+    render() {
+        let match = this.props.match;
+        let location = this.props.location;
+
+        return(
+            <div className="Container Respect-TopBar Respect-SideBars Respect-CastNav Layout-Horizontal">
+                <Switch location={ location }>
+                    <Route exact path={`${match.url}` } render={
+                        () => <div className="Content"><h1 style={{ color: 'white' }}>Seleccióna un personaje</h1><Background src={ TitanBackground } /></div>
+                    } />
+                    <Route exact path={`${match.url}/thanos/portada` } render={
+                        () => <Background src={ ThanosImage } />
+                    } />
+                    <Route exact path={`${match.url}/capitanamerica/portada` } render={
+                        () => <Background src={ CaptainAmericaImage } />
+                    } />
+                    <Route exact path={`${match.url}/ironman/portada` } render={
+                        () => <Background src={ IronManImage } />
+                    } />
+                    <Route exact path={`${match.url}/thor/portada` } render={
+                        () => <Background src={ ThorImage } />
+                    } />
+                    <Route exact path={`${match.url}/doctorstrange/portada` } render={
+                        () => <Background src={ DoctorStrangeImage } />
+                    } />
+                    <Route exact path={`${match.url}/blackwidow/portada` } render={
+                        () => <h1>Esto es black widow</h1> 
+                    } />
+                    <Route exact path={`${match.url}/starlord/portada` } render={
+                        () => <Background src={ ChrisPattImage } />
+                    } />
+                    <Route exact path={`${match.url}/hulk/portada` } render={
+                        () => <h1>Esto es hulk</h1> 
+                    } />
+                </Switch>
+            </div>
+        );
+    }
+};
+
+const mapDispatchToProps = (dispatch) => ({
+    updateSection: section => dispatch(setCurrentSection(section))
+});
+
+export default withRouter(connect(null,mapDispatchToProps)(CastPage));

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { setCurrentSection } from '../../store/routing/actions.js';
 import { withRouter } from 'react-router-dom';
 // import styles from './Gallery.module.scss';
 
@@ -9,7 +11,11 @@ import ChrisHemsworthImage from './../../assets/Cast/ChrisHemsworth.jpg';
 import ChrisPattImage from './../../assets/Cast/ChrisPatt.jpg';
 import ScarlettJohanssonImage from './../../assets/Cast/ScarlettJohansson.jpg';
 
-class Gallery extends Component {
+class GalleryPage extends Component {
+    componentDidMount() {
+        this.props.updateSection(this.props.location.pathname);
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -53,4 +59,8 @@ class Gallery extends Component {
     }
 }
 
-export default withRouter(Gallery);
+const mapDispatchToProps = (dispatch) => ({
+    updateSection: section => dispatch(setCurrentSection(section))
+});
+
+export default withRouter(connect(null,mapDispatchToProps)(GalleryPage));

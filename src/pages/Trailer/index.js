@@ -1,7 +1,14 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { setCurrentSection } from '../../store/routing/actions.js';
+import { withRouter } from 'react-router-dom';
 // import styles from './Trailer.module.scss';
 
-class Trailer extends Component {
+class TrailerPage extends Component {
+    componentDidMount() {
+        this.props.updateSection(this.props.location.pathname);
+    }
+
     render(){
         return(
             <div className="Container">
@@ -11,4 +18,8 @@ class Trailer extends Component {
     }
 }
 
-export default Trailer;
+const mapDispatchToProps = (dispatch) => ({
+    updateSection: section => dispatch(setCurrentSection(section))
+});
+
+export default withRouter(connect(null,mapDispatchToProps)(TrailerPage));

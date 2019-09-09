@@ -1,11 +1,19 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { setCurrentSection } from '../../store/routing/actions.js';
+import { withRouter } from 'react-router-dom';
+
 import './Home.scss'
 
 import Background from './../../components/Background';
 
 import Wakanda from './../../assets/Backgrounds/Wakanda.jpg';
 
-class Home extends Component {
+class HomePage extends Component {
+    componentDidMount() {
+        this.props.updateSection(this.props.location.pathname);
+    }
+
     render(){
         return(
             <div className="Container CenterContent">
@@ -20,4 +28,8 @@ class Home extends Component {
     }
 }
 
-export default Home;
+const mapDispatchToProps = (dispatch) => ({
+    updateSection: section => dispatch(setCurrentSection(section))
+});
+
+export default withRouter(connect(null,mapDispatchToProps)(HomePage));
