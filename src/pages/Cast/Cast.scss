@@ -1,0 +1,35 @@
+@import "./../../settings/global.scss";
+
+.PageContent {
+    padding: 2em;
+    
+    &.Respect-Image {
+        width: 50%;
+    }
+
+    @extend %titleFont;
+
+    .Title {
+        font-size: 6em;
+        text-transform: uppercase;
+    }
+
+    p {
+        @extend %titleFont;
+    }
+
+    .CharacterRender {
+        position: absolute;
+        width: 700px;
+
+        &.Right {
+            right: 0;
+            bottom: 0;
+        }
+
+        &.Left {
+            left: 0;
+            bottom: 0;
+        }
+    }
+}

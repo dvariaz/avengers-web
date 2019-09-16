@@ -3,7 +3,7 @@ import { Transition } from 'react-transition-group';
 import './CastNav.scss';
 
 const castNavStyle = {
-    transition: `transform 200ms, opacity 150ms`
+    transition: 'transform 200ms ease, opacity 50ms linear ease',
 }
 
 const castNavTransitionStyles = {
@@ -13,20 +13,9 @@ const castNavTransitionStyles = {
     exited: { transform: 'translateX(-300px)', opacity: 0 }
 }
 
-//TODO: Mirar como hacer la animacion de salida
+//TODO: Al reducir el tamaño de pantalla, convertirse en menu desplegable
 
 class CastNav extends Component {
-
-    constructor(props){
-        super(props);
-        this.state = {
-            ready: false
-        }
-    }
-    
-    componentDidMount(){
-        this.setState({ ready: true });
-    }
     
     handleScroll = e => {
         let element = e.target
@@ -36,11 +25,15 @@ class CastNav extends Component {
         }
     }
 
+    componentWillUnmount(){
+        console.log('Desmontado');
+    }
+
     render(){
-        let ready = this.state.ready;
+        let ready = this.props.ready;
 
         return(
-            <Transition in={ ready } timeout={ 200 } >
+            <Transition in={ ready } timeout={ 0 }>
                 {   (state) => (
                         <div className="CastNav" onScroll={ this.handleScroll } style={{ ...castNavStyle, ...castNavTransitionStyles[state] }}>
                             { this.props.children }
