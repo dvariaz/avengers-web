@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import { Transition } from 'react-transition-group';
+import posed from 'react-pose';
 import './CastNav.scss';
 
-const castNavStyle = {
-    transition: 'transform 200ms ease, opacity 50ms linear ease',
-}
-
-const castNavTransitionStyles = {
-    entering: { transform: 'translateX(-300px)', opacity: 0 },
-    entered: { transform: 'translateX(0px)', opacity: 1 },
-    exiting: { transform: 'translateX(0px)', opacity: 1 },
-    exited: { transform: 'translateX(-300px)', opacity: 0 }
-}
-
 //TODO: Al reducir el tamaño de pantalla, convertirse en menu desplegable
+
+const PosedCastNav = posed.div({
+    disabled: {
+        transform: 'translateX(-300px)',
+        opacity: 0
+    },
+    enabled: {
+        transform: 'translateX(0px)',
+        opacity: 1
+    }
+});
 
 class CastNav extends Component {
     
@@ -33,14 +33,9 @@ class CastNav extends Component {
         let ready = this.props.ready;
 
         return(
-            <Transition in={ ready } timeout={ 0 }>
-                {   (state) => (
-                        <div className="CastNav" onScroll={ this.handleScroll } style={{ ...castNavStyle, ...castNavTransitionStyles[state] }}>
-                            { this.props.children }
-                        </div>
-                    )
-                }
-            </Transition>
+            <PosedCastNav pose={ ready ? 'enabled' : 'disabled' } className="CastNav" onScroll={ this.handleScroll }>
+                { this.props.children }
+            </PosedCastNav>
         );
     }
 }

@@ -13,9 +13,6 @@
     background: $dark-color;
     overflow-y: auto;
 
-    transform: translateX(-300px);
-    transition: transform 200ms, opacity 150ms;
-
     a {
         display: flex;
         align-items: flex-end;
