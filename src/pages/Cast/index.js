@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { setCurrentSection } from '../../store/routing/actions.js';
 import { Redirect, Route, Switch, NavLink, withRouter } from 'react-router-dom';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
-// import styles from './Cast.module.scss';
-
+import './Cast.scss';
 
 import Background from './../../components/Background';
+
+//Páginas
+import ThanosPage from './Thanos';
 
 //Images
 import ThanosImage from './../../assets/Characters/Thanos/Profile.jpg'
@@ -31,12 +32,7 @@ import ChrisPattImage from './../../assets/Cast/ChrisPatt.jpg';
 //TODO: Para los bordes luminosos, toca manejar las variables de color desde react
 //ya que para hacer el overlay, hay que enviar el color por js, y no por sass
 
-//FIXME: Evitar que el contenido se scrollee junto con el castnav
-
 //TODO: El elemento seleccionado debe mantener siempre arriba
-
-//FIXME: cada vez que se selecciona alguno de los elementos que se desbordan,
-//el scroll se sube automaticamente, como si fuera un F5
 
 class CastPage extends Component {
     componentDidMount() {
@@ -53,9 +49,7 @@ class CastPage extends Component {
                     <Route exact path={`${match.url}` } render={
                         () => <div className="Content"><h1 style={{ color: 'white' }}>Seleccióna un personaje</h1><Background src={ TitanBackground } /></div>
                     } />
-                    <Route exact path={`${match.url}/thanos/portada` } render={
-                        () => <Background src={ ThanosImage } />
-                    } />
+                    <Route exact path={`${match.url}/thanos/portada` } component={ ThanosPage } />
                     <Route exact path={`${match.url}/capitanamerica/portada` } render={
                         () => <Background src={ CaptainAmericaImage } />
                     } />

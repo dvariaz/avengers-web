@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setCurrentSection } from '../../store/routing/actions.js';
 
 //Styles
 import './UI.scss';
@@ -25,22 +24,6 @@ import ThorImage from './../../assets/Characters/Thor/Profile.jpg';
 import DoctorStrangeImage from './../../assets/Characters/DoctorStrange/Profile.jpg';
 
 class UI extends Component {
-    CastNav() {
-        if(this.props.section === 'cast') {
-            return (
-                <CastNav>
-                    <NavLink to="/cast/thanos/portada" activeClassName="active bg-glow-border-blue" style={{ backgroundImage: `url(${ ThanosImage })` }}>THANOS</NavLink>            
-                    <NavLink to="/cast/capitanamerica/portada" activeClassName="active bg-glow-border-blue" style={{ backgroundImage: `url(${ CaptainAmericaImage })` }}>CAPITÁN AMERICA</NavLink>
-                    <NavLink to="/cast/ironman/portada" activeClassName="active bg-glow-border-red" style={ { backgroundImage: `url(${ IronManImage })` }}>IRON MAN</NavLink>
-                    <NavLink to="/cast/thor/portada" activeClassName="active bg-glow-border-vision" style={ { backgroundImage: `url(${ ThorImage })` }}>THOR</NavLink>
-                    <NavLink to="/cast/doctorstrange/portada" activeClassName="active bg-glow-border-green" style={ { backgroundImage: `url(${ DoctorStrangeImage })` }}>DOCTOR STRANGE</NavLink>
-                    <NavLink to="/cast/blackwidow/portada" activeClassName="active bg-glow-border-yellow">BLACK WIDOW</NavLink>
-                    <NavLink to="/cast/starlord/portada" activeClassName="active bg-glow-border-red">STAR LORD</NavLink>
-                    <NavLink to="/cast/hulk/portada" activeClassName="active bg-glow-border-orange">HULK</NavLink>
-                </CastNav>
-            );
-        }
-    }
 
     render(){
         let currentPath = this.props.location.pathname.split('/');
@@ -72,14 +55,23 @@ class UI extends Component {
                     <Scroller previous="hulk" next="ironman" color="red"></Scroller>
                 </Sidebar>
                 <Sidebar position="right" lang="ESP">
-                    <div className="CastSections">
+                    {/* <div className="CastSections">
                         <NavLink to={ currentUrl + "/portada" } activeClassName="active">PORTADA</NavLink>
                         <NavLink to={ currentUrl + "/poster" } activeClassName="active">POSTER</NavLink>
                         <NavLink to={ currentUrl + "/historia" } activeClassName="active">HISTORIA</NavLink>
                         <NavLink to={ currentUrl + "/diseño" } activeClassName="active">DISEÑO</NavLink>
-                    </div>
+                    </div> */}
                 </Sidebar>
-                { this.CastNav() }
+                <CastNav ready={ this.props.section === 'cast' }>
+                    <NavLink to="/cast/thanos/portada" activeClassName="active bg-glow-border-blue" style={{ backgroundImage: `url(${ ThanosImage })` }}>THANOS</NavLink>            
+                    <NavLink to="/cast/capitanamerica/portada" activeClassName="active bg-glow-border-blue" style={{ backgroundImage: `url(${ CaptainAmericaImage })` }}>CAPITÁN AMERICA</NavLink>
+                    <NavLink to="/cast/ironman/portada" activeClassName="active bg-glow-border-red" style={ { backgroundImage: `url(${ IronManImage })` }}>IRON MAN</NavLink>
+                    <NavLink to="/cast/thor/portada" activeClassName="active bg-glow-border-vision" style={ { backgroundImage: `url(${ ThorImage })` }}>THOR</NavLink>
+                    <NavLink to="/cast/doctorstrange/portada" activeClassName="active bg-glow-border-green" style={ { backgroundImage: `url(${ DoctorStrangeImage })` }}>DOCTOR STRANGE</NavLink>
+                    <NavLink to="/cast/blackwidow/portada" activeClassName="active bg-glow-border-yellow">BLACK WIDOW</NavLink>
+                    <NavLink to="/cast/starlord/portada" activeClassName="active bg-glow-border-red">STAR LORD</NavLink>
+                    <NavLink to="/cast/hulk/portada" activeClassName="active bg-glow-border-orange">HULK</NavLink>
+                </CastNav>
                 { this.props.children }
             </>
         );

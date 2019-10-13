@@ -1,32 +1,21 @@
 import React, { Component } from 'react';
-import { Transition } from 'react-transition-group';
+import posed from 'react-pose';
 import './CastNav.scss';
 
-const castNavStyle = {
-    transition: `transform 200ms, opacity 150ms`
-}
+//TODO: Al reducir el tamaño de pantalla, convertirse en menu desplegable
 
-const castNavTransitionStyles = {
-    entering: { transform: 'translateX(-300px)', opacity: 0 },
-    entered: { transform: 'translateX(0px)', opacity: 1 },
-    exiting: { transform: 'translateX(0px)', opacity: 1 },
-    exited: { transform: 'translateX(-300px)', opacity: 0 }
-}
-
-//TODO: Mirar como hacer la animacion de salida
+const PosedCastNav = posed.div({
+    disabled: {
+        transform: 'translateX(-300px)',
+        opacity: 0
+    },
+    enabled: {
+        transform: 'translateX(0px)',
+        opacity: 1
+    }
+});
 
 class CastNav extends Component {
-
-    constructor(props){
-        super(props);
-        this.state = {
-            ready: false
-        }
-    }
-    
-    componentDidMount(){
-        this.setState({ ready: true });
-    }
     
     handleScroll = e => {
         let element = e.target
@@ -36,18 +25,17 @@ class CastNav extends Component {
         }
     }
 
+    componentWillUnmount(){
+        console.log('Desmontado');
+    }
+
     render(){
-        let ready = this.state.ready;
+        let ready = this.props.ready;
 
         return(
-            <Transition in={ ready } timeout={ 200 } >
-                {   (state) => (
-                        <div className="CastNav" onScroll={ this.handleScroll } style={{ ...castNavStyle, ...castNavTransitionStyles[state] }}>
-                            { this.props.children }
-                        </div>
-                    )
-                }
-            </Transition>
+            <PosedCastNav pose={ ready ? 'enabled' : 'disabled' } className="CastNav" onScroll={ this.handleScroll }>
+                { this.props.children }
+            </PosedCastNav>
         );
     }
 }

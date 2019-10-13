@@ -8,6 +8,7 @@ import ArrowIcon from './../media/ChevronArrow-Icon.svg';
 
 class Scroller extends Component{
     //TODO: Debe reaccionar al scroll
+    //TODO: Para avanzar en las paginas de forma ciclica utilizar el operador modulo % (actual + 1 % paginas_totales)
     render(){
         let color = this.props.color;
         return(
