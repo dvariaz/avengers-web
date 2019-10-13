@@ -32,8 +32,6 @@ import ChrisPattImage from './../../assets/Cast/ChrisPatt.jpg';
 //TODO: Para los bordes luminosos, toca manejar las variables de color desde react
 //ya que para hacer el overlay, hay que enviar el color por js, y no por sass
 
-//FIXME: Evitar que el contenido se scrollee junto con el castnav
-
 //TODO: El elemento seleccionado debe mantener siempre arriba
 
 class CastPage extends Component {

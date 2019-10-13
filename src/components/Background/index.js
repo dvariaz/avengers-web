@@ -4,6 +4,8 @@ import posed from 'react-pose';
 // TODO: Es posible que en los props del background reciba el nombre de la ruta, y obtenga la imagen a la que
 // pertenece la ruta (Tal vez se necesite withRouter)
 
+//TODO: Se esta ejecutando una animacion de salida y una de entrada, deberian ocurrir al mismo tiempo
+
 const PosedBackground = posed.img({
     enter:{
         filter: 'blur(0px)',
@@ -27,7 +29,7 @@ const Background = ({ src }) => {
     });
 
     return (
-        <PosedBackground pose={ ready ? 'enter' : 'exit' } className="Background" src={ src } alt="Fondo"></PosedBackground>
+        <PosedBackground pose={ ready ? 'enter' : 'exit' } className="Background" src={ src } alt="Fondo" />
     );
 }
 

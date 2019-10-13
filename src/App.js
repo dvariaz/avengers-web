@@ -22,6 +22,7 @@ import Background from './components/Background';
 //TODO: La logica de transicion debe ser distinta para los contenidos y las imagenes, el cambio de fondo solo sucede con los cambios de rutas principales,
 //mientras que los textos siempre van a desaparecer 
 
+//TODO: Tratar de que al cambiar de pose, dispare las animaciones que tengan que ejecutar los hijos (tal vez pasando el prop entre los hijos, o revisar posegroup)
 
 // TODO: Es posible que toque ubicar el background fuera de las paginas, y que se sincronice la animacion con la del router
 
