@@ -1,7 +1,7 @@
-@import "./../../../settings/global.scss";
-@import "./../../../settings/colors.scss";
+import styled from 'styled-components';
+import { navFont } from '../../../settings/mixins';
 
-.Scroller {
+const StyledScroller = styled.div`
     width: 100%;
     height: 200px;
 
@@ -10,15 +10,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+
     span{
-        color: white;
-        text-transform: uppercase;
+        ${ navFont }
+        
         display: flex;
         align-items: center;
         writing-mode: vertical-lr;
-
-        @extend %navFont;
     }
 
     a{
@@ -27,6 +25,8 @@
         align-items: center;
         height: 40px;
         overflow: hidden;
+
+        background: ${ props => props.color };
 
         img{
             width: 100%;
@@ -39,9 +39,6 @@
             }
         }
     }
-    
-    // Gradient Classes 
-    @each $gradient, $value in $gradients {
-        @include bg-gradient(".bg-#{$gradient}", $value);
-    }
-}
+`;
+
+export default StyledScroller;

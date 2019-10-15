@@ -1,0 +1,1 @@
+export const barSize = '60px';

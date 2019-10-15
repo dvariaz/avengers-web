@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-
-//Styles
-import './Sidebar.scss';
+import StyledSideBar from './StyledSidebar';
 
 class Sidebar extends Component {
     render() {
@@ -15,10 +13,10 @@ class Sidebar extends Component {
 
         return (
             <>
-                <aside className={ this.props.position }>
+                <StyledSideBar className={ this.props.position }>
                     { this.props.children }
                     { lang }
-                </aside>
+                </StyledSideBar>
             </>
         );
     }

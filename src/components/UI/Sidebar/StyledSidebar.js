@@ -1,16 +1,15 @@
-@import "./../../../settings/global.scss";
-@import "./../../../settings/breakpoints.scss";
-@import "./../../../settings/colors.scss";
+import styled from 'styled-components';
+import { barSize } from './../../../settings/global';
+import { darkGlass, glassEdge } from '../../../settings/mixins';
 
-aside {
+const StyledSidebar = styled.aside`
+    ${ darkGlass }
     position: fixed;
     z-index: 95;
-    top: $barSize;
-    background-color: $dark-color;
-    width: $barSize;
-    height: calc(100vh - #{ $barSize });
-
-    @extend %navMaterial;
+    top: ${ barSize };
+    width: ${ barSize };
+    height: calc(100vh - ${ barSize });
+    ${ glassEdge }
     border-width: 0;
     
     &.left {
@@ -39,17 +38,12 @@ aside {
                 background-color: rgba(255,255,255,0.2);
             }
         }
-
-        // Gradient Classes 
-        @each $gradient, $value in $gradients {
-            @include bg-gradient(".bg-#{$gradient}", $value);
-        }
     }
 
     .CastSections {
         display: flex;
         flex-direction: column;
-        height: calc(100% - #{ $barSize });
+        height: calc(100% - ${ barSize });
 
         a {
             display: flex;
@@ -61,19 +55,17 @@ aside {
             justify-content: center;
             align-items: center;
             writing-mode: vertical-lr;
-    
-            @extend %navFont;
         }
     }
 
     .nav-language{
-        @extend %navFont;
-
         position: absolute;
         text-align: center;
         bottom: 0;
         width: 100%;
-        height: $barSize;
-        line-height: $barSize;
+        height: ${ barSize };
+        line-height: ${ barSize };
     }
-}
+`;
+
+export default StyledSidebar;

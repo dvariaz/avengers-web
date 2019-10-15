@@ -1,5 +1,4 @@
 @import "./../../../settings/global.scss";
-@import "./../../../settings/colors.scss";
 
 .SynopsisNav {
     position: fixed;
@@ -56,11 +55,6 @@
             &.disabled {
                 background: transparent;
             }
-        }
-
-        // Gradient Classes 
-        @each $gradient, $value in $gradients {
-            @include bg-gradient(".bg-#{$gradient}", $value);
         }
 
         &::-webkit-scrollbar {

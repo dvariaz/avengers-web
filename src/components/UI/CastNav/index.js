@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import posed from 'react-pose';
-import './CastNav.scss';
+import StyledCastNav from './StyledCastNav';
 
 //TODO: Al reducir el tamaño de pantalla, convertirse en menu desplegable
 
-const PosedCastNav = posed.div({
+const PosedCastNav = posed(StyledCastNav)({
     disabled: {
         transform: 'translateX(-300px)',
         opacity: 0
@@ -21,7 +21,6 @@ class CastNav extends Component {
         let element = e.target
         if (element.scrollHeight - element.scrollTop === element.clientHeight) {
             // console.log('Movemos el CastNav');
-            // TODO: Hacer una transicion suave entre los items del castnav
         }
     }
 

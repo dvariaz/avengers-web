@@ -29,9 +29,6 @@ import ChrisPattImage from './../../assets/Cast/ChrisPatt.jpg';
 //a utilizar y su contenido a mostrar, tenga encuenta que es una vista con una navegacion mas compleja
 //Tiene subrutas para los personajes, y cada personaje tiene una subruta para sus secciones
 
-//TODO: Para los bordes luminosos, toca manejar las variables de color desde react
-//ya que para hacer el overlay, hay que enviar el color por js, y no por sass
-
 //TODO: El elemento seleccionado debe mantener siempre arriba
 
 class CastPage extends Component {

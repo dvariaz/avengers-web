@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 // import { Link } from 'react-router-dom';
 
-import ArrowIcon from './../media/ChevronArrow-Icon.svg';
+import ArrowIcon from './../../../assets/Icons/Navigation/ChevronArrow-Icon.svg';
 
 //Styles
 import './SynopsisNav.scss';
