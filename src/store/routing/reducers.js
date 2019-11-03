@@ -4,7 +4,7 @@ export default function(state = [], action) {
     switch(action.type) {
         case SET_CURRENT_SECTION:
             return {
-                current: action.payload.section
+                current: action.payload.current
             };
         default:
             return state;

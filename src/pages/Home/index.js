@@ -1,17 +1,14 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { setCurrentSection } from '../../store/routing/actions.js';
-import { withRouter } from 'react-router-dom';
 
 import './Home.scss'
 
 import Background from './../../components/Background';
 
-import Wakanda from './../../assets/Backgrounds/Wakanda.jpg';
-
 class HomePage extends Component {
     componentDidMount() {
-        this.props.updateSection(this.props.location.pathname);
+        this.props.updateSection(this.props.uri);
     }
 
     render(){
@@ -22,7 +19,7 @@ class HomePage extends Component {
                     <h2>PREMIERE MUNDIAL <strong>23 DE ABRIL</strong> NO MÁS ESPERAS</h2>
                     <a href="#watch_trailer">Ver Tráiler</a>
                 </div>
-                <Background src={ Wakanda }/>
+                <Background src="Backgrounds/Wakanda.jpg"/>
             </div>
         );
     }
@@ -32,4 +29,4 @@ const mapDispatchToProps = (dispatch) => ({
     updateSection: section => dispatch(setCurrentSection(section))
 });
 
-export default withRouter(connect(null,mapDispatchToProps)(HomePage));
+export default connect(null,mapDispatchToProps)(HomePage);

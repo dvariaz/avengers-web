@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import NavLink from './../../NavLink';
 import { navFont } from '../../../../settings/mixins';
 import styled from 'styled-components';
 
@@ -20,13 +20,8 @@ const StyledCastLink = styled(NavLink)`
     ${ navFont }
 
     border-color: ${ props => props.color };
+    border-left-style: solid;
     background-image: url("${ props => props.image }");
-
-    &.${ props => props.activeClassName } {
-        font-size: 1.1em;
-        border-left-style: solid;
-        border-left-width: 7px;
-    }
 `;
 
 export default StyledCastLink;

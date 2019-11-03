@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '@reach/router';
 import StyledScroller from './StyledScroller';
-
-import ArrowIcon from './../../../assets/Icons/Navigation/ChevronArrow-Icon.svg';
 
 class Scroller extends Component{
     //TODO: Debe reaccionar al scroll
@@ -12,9 +10,9 @@ class Scroller extends Component{
         
         return(
             <StyledScroller color={ color }>
-                <Link to={ this.props.previous } className={ `bg-${ color }` }><img src={ ArrowIcon } alt="Anterior sección"/></Link>
+                <Link to={ this.props.previous } className={ `bg-${ color }` }><img src={ `${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg` } alt="Anterior sección"/></Link>
                 <span>Scroll</span>
-                <Link to={ this.props.next } className={ `bg-${ color }` }><img src={ ArrowIcon } alt="Siguiente sección"/></Link>
+                <Link to={ this.props.next } className={ `bg-${ color }` }><img src={ `${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg` } alt="Siguiente sección"/></Link>
             </StyledScroller>
         );
     }

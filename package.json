@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "polished": "^3.4.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -12,6 +13,7 @@
     "react-scripts": "3.0.1",
     "redux": "^4.0.4",
     "styled-components": "^4.4.0",
+    "titleize": "^2.1.0",
     "typescript": "^3.6.4"
   },
   "scripts": {

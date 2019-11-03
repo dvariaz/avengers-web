@@ -1,74 +1,92 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { setCurrentSection } from '../../store/routing/actions.js';
-import { Redirect, Route, Switch, NavLink, withRouter } from 'react-router-dom';
+import { Router, navigate } from '@reach/router';
 import './Cast.scss';
 
-import Background from './../../components/Background';
-
 //Páginas
-import ThanosPage from './Thanos';
-
-//Images
-import ThanosImage from './../../assets/Characters/Thanos/Profile.jpg'
-import CaptainAmericaImage from './../../assets/Characters/CaptainAmerica/Profile.jpg';
-import IronManImage from './../../assets/Characters/IronMan/Profile.jpg';
-import ThorImage from './../../assets/Characters/Thor/Profile.jpg';
-import DoctorStrangeImage from './../../assets/Characters/DoctorStrange/Profile.jpg';
-
-import TitanBackground from './../../assets/Backgrounds/Titan.jpg';
-
-//Imagenes de prueba
-import ChrisEvansImage from './../../assets/Cast/ChrisEvans.jpg';
-import RobertDowneyJrImage from './../../assets/Cast/RobertDowneyJr.jpg';
-import ChrisHemsworthImage from './../../assets/Cast/ChrisHemsworth.jpg';
-import ChrisPattImage from './../../assets/Cast/ChrisPatt.jpg';
-
-
-//TODO: Crear componente que va entregar las subrutas, posiblemente debe recibir en sus props, las imagenes
-//a utilizar y su contenido a mostrar, tenga encuenta que es una vista con una navegacion mas compleja
-//Tiene subrutas para los personajes, y cada personaje tiene una subruta para sus secciones
+import CastCharacter from './CastCharacter';
 
 //TODO: El elemento seleccionado debe mantener siempre arriba
 
-class CastPage extends Component {
+const characters = { 
+    'thanos': {
+        name: 'Thanos',
+        profile: '',
+        photo: 'Characters/Thanos/Render.png',
+        description: '',
+        background: 'Characters/Thanos/Background.png',
+        position: 'right'
+    },
+    'capitanamerica': {
+        name: 'Capitán America',
+        profile: '',
+        photo: 'Characters/CaptainAmerica/Render.png',
+        description: '',
+        background: 'Characters/CaptainAmerica/Background.jpg',
+        position: 'right'
+    },
+    'ironman': {
+        name: 'Iron Man',
+        profile: '',
+        photo: 'Characters/IronMan/Render.png',
+        description: '',
+        background: 'Characters/IronMan/Background.jpg',
+        position: 'right'
+    },
+    'thor': {
+        name: 'Thor',
+        profile: '',
+        photo: 'Characters/Thor/Render.png',
+        description: '',
+        background: 'Characters/Thor/Background.webp',
+        position: 'right'
+    },
+    'doctorstrange': {
+        name: 'Doctor Strange',
+        profile: '',
+        photo: 'Characters/DoctorStrange/Render.png',
+        description: '',
+        background: 'Characters/DoctorStrange/Background.png',
+        position: 'left'
+    },
+    'blackwidow': {
+        name: 'Black Widow',
+        profile: 'Characters/BlackWidow/Profile.png',
+        photo: 'Characters/BlackWidow/Render.png',
+        description: '',
+        background: '',
+        position: 'right'
+    },
+    'starlord': {
+        name: 'Star Lord',
+        profile: '',
+        photo: 'Characters/StarLord/Render.png',
+        description: '',
+        background: '',
+        position: 'right'
+    },
+    'hulk': {
+        name: 'Hulk',
+        profile: '',
+        photo: 'Characters/Hulk/Render.png',
+        description: '',
+        background: '',
+        position: 'right'
+    },
+};
+
+class Cast extends Component {
     componentDidMount() {
-        this.props.updateSection(this.props.location.pathname);
+        this.props.updateSection(this.props.uri);
     }
 
     render() {
-        let match = this.props.match;
-        let location = this.props.location;
+        let { character, section } = this.props;
 
         return(
             <div className="Container Respect-TopBar Respect-SideBars Respect-CastNav Layout-Horizontal">
-                <Switch location={ location }>
-                    <Route exact path={`${match.url}` } render={
-                        () => <div className="Content"><h1 style={{ color: 'white' }}>Seleccióna un personaje</h1><Background src={ TitanBackground } /></div>
-                    } />
-                    <Route exact path={`${match.url}/thanos/portada` } component={ ThanosPage } />
-                    <Route exact path={`${match.url}/capitanamerica/portada` } render={
-                        () => <Background src={ CaptainAmericaImage } />
-                    } />
-                    <Route exact path={`${match.url}/ironman/portada` } render={
-                        () => <Background src={ IronManImage } />
-                    } />
-                    <Route exact path={`${match.url}/thor/portada` } render={
-                        () => <Background src={ ThorImage } />
-                    } />
-                    <Route exact path={`${match.url}/doctorstrange/portada` } render={
-                        () => <Background src={ DoctorStrangeImage } />
-                    } />
-                    <Route exact path={`${match.url}/blackwidow/portada` } render={
-                        () => <h1>Esto es black widow</h1> 
-                    } />
-                    <Route exact path={`${match.url}/starlord/portada` } render={
-                        () => <Background src={ ChrisPattImage } />
-                    } />
-                    <Route exact path={`${match.url}/hulk/portada` } render={
-                        () => <h1>Esto es hulk</h1> 
-                    } />
-                </Switch>
+                <CastCharacter name={ characters[character].name } photo= { characters[character].photo } background={ characters[character].background } position={ characters[character].position }/>
             </div>
         );
     }
@@ -78,4 +96,4 @@ const mapDispatchToProps = (dispatch) => ({
     updateSection: section => dispatch(setCurrentSection(section))
 });
 
-export default withRouter(connect(null,mapDispatchToProps)(CastPage));
+export default connect(null,mapDispatchToProps)(Cast);

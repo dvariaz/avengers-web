@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 class TrailerPage extends Component {
     componentDidMount() {
-        this.props.updateSection(this.props.location.pathname);
+        this.props.updateSection(this.props.uri);
     }
 
     render(){
@@ -22,4 +22,4 @@ const mapDispatchToProps = (dispatch) => ({
     updateSection: section => dispatch(setCurrentSection(section))
 });
 
-export default withRouter(connect(null,mapDispatchToProps)(TrailerPage));
+export default connect(null,mapDispatchToProps)(TrailerPage);

@@ -1,19 +1,12 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { setCurrentSection } from '../../store/routing/actions.js';
-import { withRouter } from 'react-router-dom';
+import Background from "../../components/Background/index.js";
 // import styles from './Gallery.module.scss';
-
-import JoshBrolinImage from './../../assets/Cast/JoshBrolin.jpg';
-import ChrisEvansImage from './../../assets/Cast/ChrisEvans.jpg';
-import RobertDowneyJrImage from './../../assets/Cast/RobertDowneyJr.jpg';
-import ChrisHemsworthImage from './../../assets/Cast/ChrisHemsworth.jpg';
-import ChrisPattImage from './../../assets/Cast/ChrisPatt.jpg';
-import ScarlettJohanssonImage from './../../assets/Cast/ScarlettJohansson.jpg';
 
 class GalleryPage extends Component {
     componentDidMount() {
-        this.props.updateSection(this.props.location.pathname);
+        this.props.updateSection(this.props.uri);
     }
 
     constructor(props) {
@@ -22,38 +15,39 @@ class GalleryPage extends Component {
             actors: [
                 {
                     name: 'joshbrolin',
-                    image: JoshBrolinImage
+                    image: 'Cast/JoshBrolin.jpg'
                 },
                 {
                     name: 'chrisevans',
-                    image: ChrisEvansImage
+                    image: 'Cast/ChrisEvans.jpg'
                 },
                 {
                     name: 'robertdowneyjr',
-                    image: RobertDowneyJrImage
+                    image: 'Cast/RobertDowneyJr.jpg'
                 },
                 {
                     name: 'chrishemsworth',
-                    image: ChrisHemsworthImage
+                    image: 'Cast/ChrisHemsworth.jpg'
                 },
                 {
                     name: 'chrispatt',
-                    image: ChrisPattImage
+                    image: 'Cast/ChrisPatt.jpg'
                 },
                 {
                     name: 'scarlettjohansson',
-                    image: ScarlettJohanssonImage
+                    image: 'Cast/ScarlettJohansson.jpg'
                 }
             ]
         }
     }
 
     render(){
-        let { actor } = this.props.match.params;
+        let { actor } = this.props;
+
         return(
             <div className="Container Respect-TopBar Respect-SideBars">
-                <h1>This is the gallery of { actor }</h1>
-                <img className="Background" src={ JoshBrolinImage } alt="Fondo"></img>
+                <h1>This is the gallery of {actor}</h1>
+                <Background src="Cast/JoshBrolin.jpg"/>
             </div>
         );
     }
@@ -63,4 +57,4 @@ const mapDispatchToProps = (dispatch) => ({
     updateSection: section => dispatch(setCurrentSection(section))
 });
 
-export default withRouter(connect(null,mapDispatchToProps)(GalleryPage));
+export default connect(null,mapDispatchToProps)(GalleryPage);
