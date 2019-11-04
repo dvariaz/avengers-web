@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { barSize } from '../../../settings/global';
+import { barSize, sidebarSize } from '../../../settings/global';
 
 const StyledCastNav = styled.div`
     position: absolute;
@@ -9,7 +9,7 @@ const StyledCastNav = styled.div`
     display: flex;
     flex-direction: column;
     height: calc(100vh - ${ barSize });
-    width: 300px;
+    width: ${ sidebarSize };
     overflow-y: auto;
 
     &::-webkit-scrollbar {

@@ -3,7 +3,7 @@ import posed from 'react-pose';
 
 const PosedBackground = posed.img({
     enter:{
-        filter: 'blur(0px)',
+        filter: `blur(0px)`,
         transform: 'scale(1)',
     },
     exit: {
@@ -12,7 +12,7 @@ const PosedBackground = posed.img({
     }
 })
 
-const Background = ({ src }) => {
+const Background = ({ src, blur }) => {
     let [ready, setReady] = useState(true);
 
     useEffect( () => {
@@ -24,7 +24,7 @@ const Background = ({ src }) => {
     });
 
     return (
-        <PosedBackground pose={ ready ? 'enter' : 'exit' } className="Background" src={ `${process.env.PUBLIC_URL}/Assets/${src}` } alt="Fondo" />
+        <PosedBackground pose={ ready ? 'enter' : 'exit' } className="Background" src={ `${process.env.PUBLIC_URL}/Assets/${src}` } alt="Fondo"/>
     );
 }
 

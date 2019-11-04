@@ -10,12 +10,12 @@ const poses = {
     active: {
         fontSize: '1.1em',
         borderLeftWidth: '7px',
-        backgroundSize: '100%, 100%'
+        backgroundSize: '100%, cover'
     },
     inactive: {
         fontSize: '1em',
         borderLeftWidth: '0px',
-        backgroundSize: '0%, 100%'
+        backgroundSize: '0%, cover'
     }
 };
 

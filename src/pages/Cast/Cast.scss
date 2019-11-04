@@ -1,19 +1,19 @@
 @import "./../../settings/global.scss";
 
-.CharacterData{
-    display: flex;
-    justify-content: space-between;
-
-    &.Left{
-        flex-direction: row-reverse;
-    }
-}
-
 .PageContent {
-    padding: 2em;
+    padding: 3em 5em;
+    position: relative;
     
     &.Respect-Image {
-        width: 50%;
+        width: 60%;
+    }
+
+    &.Right {
+        margin: 0 0 auto 0;
+    }
+
+    &.Left {
+        margin: 0 0 0 auto;
     }
 
     @extend %titleFont;
@@ -29,7 +29,8 @@
 }
 
 .CharacterRender {
-    position: relative;
+    position: absolute;
+    z-index: 85;
     height: 100%;
     width: 700px;
 
@@ -43,13 +44,13 @@
     }
 
     &.Left {
-        left: 0;
+        left: calc(#{$barSize} + #{$sidebarSize});
         bottom: 0;
     }
 
     img {
         position: absolute;
-        top: 0;
+        top: $barSize;
         height: 100%;
         padding-top: 1em;
     }
