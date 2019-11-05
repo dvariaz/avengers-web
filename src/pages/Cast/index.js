@@ -20,6 +20,7 @@ class Cast extends Component {
             <div className="Container Respect-TopBar Respect-SideBars Respect-CastNav Layout-Horizontal">
                 <Character 
                     name={ characters[character].name }
+                    description= { characters[character].description }
                     photo= { characters[character].photo }
                     background={ characters[character].background }
                     position={ characters[character].position }

@@ -3,6 +3,8 @@ import { Link } from '@reach/router';
 import { connect } from 'react-redux';
 import colors from './../../settings/colors';
 
+import NavLink from './NavLink';
+
 import Header from './Header';
 import Sections from './Header/Sections';
 import Sidebar from './Sidebar';
@@ -18,11 +20,11 @@ class UI extends Component {
                         <img src={ `${process.env.PUBLIC_URL}/assets/Icons/Avengers-Logo.svg` } alt="Avengers Logo"></img>
                     </div>
                     <Sections>
-                        <Link to="/">Home</Link>
-                        <Link to="/sinopsis/general">Sinopsis</Link>
-                        <Link to="/cast/thanos">Cast</Link>
-                        <Link to="/galeria/joshbrolin">Galeria</Link>
-                        <Link to="/trailer">Trailer</Link>
+                        <NavLink to="/">Home</NavLink>
+                        <NavLink to="/sinopsis/general">Sinopsis</NavLink>
+                        <NavLink to="/cast/thanos">Cast</NavLink>
+                        <NavLink to="/galeria/joshbrolin">Galeria</NavLink>
+                        <NavLink to="/trailer">Trailer</NavLink>
                     </Sections>
                     <a className='SidebarButton' href="#side_bar">
                         <img src={ `${process.env.PUBLIC_URL}/assets/Icons/Navigation/Menu-Icon.svg` } alt="Menu"></img>

@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
 
-const isActive = ({ isCurrent }) => {
-    console.log("Active");
-    return isCurrent ? { className: "active" } : null
-}
-
-class NavLink extends Component {
-    
-    render() {
-        return(
-            <>
-                <Link getProps={isActive} { ...this.props }/>
-            </>
-        );
-    }
-}
+const NavLink = (props) => (
+    <>
+        <Link { ...props }
+            getProps={({ href, location }) => {
+                let section = location.pathname.split('/')[1];
+                let to = href.split('/')[1];
+                let isCurrent = to === section;
+                return {
+                    style: {
+                        borderBottomWidth: isCurrent  ? "2px" : "0px"
+                    }
+                };
+            }}
+        />
+    </>
+);
 
 export default NavLink;

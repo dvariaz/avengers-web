@@ -13,6 +13,11 @@ const StyledHeader = styled.header`
     ${ glassEdge }
     border-width: 0 0 2px 0;
 
+    a {
+        border: solid white;
+        border-width: 0;
+    }
+
     .Logo {
         display: flex;
         justify-content: center;
