@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { setCurrentSection } from '../../store/routing/actions.js';
-import { Link } from '@reach/router';
-// import styles from './Synopsis.module.scss';
 
-import SynopsisNav from './../../components/UI/SynopsisNav';
-import Background from './../../components/Background';
+import elements from './elements';
+
+import Element from './Element';
 
 class SynopsisPage extends Component {
     componentDidMount() {
@@ -13,20 +12,11 @@ class SynopsisPage extends Component {
     }
 
     render(){
+        let { element } = this.props;
+
         return(
             <div className="Container Respect-AllBars">
-                <h1 style={{ color: 'white' }}>This is the Synopsis { this.props.element }</h1>
-                <SynopsisNav>
-                    <Link to="./../general">GENERAL</Link>
-                    <Link to="./../guantelete">GUANTELETE</Link>
-                    <Link to="./../poder">PODER</Link>
-                    <Link to="./../tiempo">TIEMPO</Link>
-                    <Link to="./../mente">MENTE</Link>
-                    <Link to="./../realidad">REALIDAD</Link>
-                    <Link to="./../alma">ALMA</Link>
-                    <Link to="./../espacio">ESPACIO</Link>
-                </SynopsisNav>
-                <Background src="Backgrounds/Galaxy.jpg"/>
+                <Element name={ elements[element].name } synopsis={ elements[element].synopsis } history={ elements[element].history } color="red" background="Backgrounds/Galaxy.jpg"/>
             </div>
         );
     }

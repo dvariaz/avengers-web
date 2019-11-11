@@ -54,7 +54,11 @@ class CastLink extends Component {
                 <Location>
                     {
                         ({ location }) => (
-                            <PosedCastLink pose={ this.isCurrent(location) ? 'active' : 'inactive' } to={ to } image={ `${process.env.PUBLIC_URL}/assets/Characters/${image}/Profile.jpg` } color={ color }>
+                            <PosedCastLink
+                                pose={ this.isCurrent(location) ? 'active' : 'inactive' } 
+                                to={ to }
+                                image={ `${process.env.PUBLIC_URL}/assets/Characters/${image}/Profile.jpg` }
+                                color={ color }>
                                 { this.props.children }
                             </PosedCastLink>
                         )

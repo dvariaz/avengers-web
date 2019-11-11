@@ -3,13 +3,14 @@ import { Link } from '@reach/router';
 import { connect } from 'react-redux';
 import colors from './../../settings/colors';
 
-import NavLink from './NavLink';
+import NavLink from './Header/SynopsisLink';
 
 import Header from './Header';
 import Sections from './Header/Sections';
 import Sidebar from './Sidebar';
 import Scroller from './Scroller';
 import CastNav from './CastNav';
+import SynopsisNav from './SynopsisNav';
 
 class UI extends Component {
     render(){
@@ -47,6 +48,7 @@ class UI extends Component {
                     </div> */}
                 </Sidebar>
                 <CastNav ready={ this.props.section === 'cast' }/>
+                <SynopsisNav ready={ this.props.section === 'sinopsis' }/>
                 { this.props.children }
             </>
         );

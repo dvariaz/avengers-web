@@ -3,7 +3,7 @@ import posed from 'react-pose';
 import styled from 'styled-components';
 import titleize from 'titleize';
 
-import Background from '../../../components/Background';
+import Background from '../../components/Background';
 
 const PosedPhoto = posed.div({
     hided: {
@@ -42,13 +42,12 @@ const Character = ({ name, description, background, photo, position, color }) =>
             <div className={`PageContent Respect-Image ${ titleize(position) }`}>
                 <Title className="Title" color={ color }>{ name }</Title>
                 { descriptionLines }
-                
             </div>
             <PosedPhoto pose={ characterVisibility } className={ `CharacterRender ${ titleize(position) }` }>
                 <img src={ `${process.env.PUBLIC_URL}/Assets/${photo}` }/>
             </PosedPhoto>
 
-            <Background src={ background } blur="10px"/>
+            <Background src={ background } blur="5px"/>
         </>
     )
 }

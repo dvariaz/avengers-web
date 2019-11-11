@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from '@reach/router';
 
-const NavLink = (props) => (
+const SynopsisLink = (props) => (
     <>
         <Link { ...props }
             getProps={({ href, location }) => {
-                let section = location.pathname.split('/')[1];
-                let to = href.split('/')[1];
+                let section = location.pathname.split('/')[2];
+                let to = href.split('/')[2];
                 let isCurrent = to === section;
                 return {
                     style: {
-                        borderBottomWidth: isCurrent  ? "2px" : "0px"
+                        background: isCurrent  ? props.color : "transparent"
                     }
                 };
             }}
@@ -18,4 +18,4 @@ const NavLink = (props) => (
     </>
 );
 
-export default NavLink;
+export default SynopsisLink;
