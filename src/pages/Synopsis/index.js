@@ -16,7 +16,13 @@ class SynopsisPage extends Component {
 
         return(
             <div className="Container Respect-AllBars">
-                <Element name={ elements[element].name } synopsis={ elements[element].synopsis } history={ elements[element].history } color="red" background="Backgrounds/Galaxy.jpg"/>
+                <Element 
+                    name={ elements[element].name }
+                    synopsis={ elements[element].synopsis }
+                    history={ elements[element].history }
+                    image={ 'Items/SoulGem.png' }
+                    color="red"
+                    background="Backgrounds/Galaxy.jpg"/>
             </div>
         );
     }

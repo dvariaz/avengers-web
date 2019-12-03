@@ -37,7 +37,8 @@ const elements = {
     'alma': {
         name: 'alma',
         synopsis: 'Tiene la capacidad de manipular tu alma, la esencia de quién eres. se alimenta de almas y otorga al portador el poder de robar, dominar, manipular o alterar las almas de los seres vivos o muertos, logrando alterar la personalidad de los seres o incluso absorbiendo al interior de la gema el alma cualquier ser vivo.',
-        history: 'Su ubicación es desconocida hasta el momento. Algunos dicen que es la fuente de poder de Wakanda, y otros dicen que esta ubicada en algun lugar secreto de Asgard.'
+        history: 'Su ubicación es desconocida hasta el momento. Algunos dicen que es la fuente de poder de Wakanda, y otros dicen que esta ubicada en algun lugar secreto de Asgard.',
+        image: '/Items/SoulGem.png'
     }
 };
 

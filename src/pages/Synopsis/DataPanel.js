@@ -10,10 +10,10 @@ const StyledDataPanel = styled.div`
     ${ 
         ({ position }) => {
             if(position === 'left'){ 
-                return `right: ${ barSize };bottom: ${ barSize };`;
+                return `left: ${ barSize };top: ${ barSize };`;
             }
             if(position === 'right'){
-                return `left: ${ barSize };top: ${ barSize };`;
+                return `right: ${ barSize };bottom: ${ barSize };`;
             }
         } 
     }
@@ -43,6 +43,18 @@ const StyledDataPanel = styled.div`
             width: 30px;
             height: 4px;
             background: ${ props => props.color };
+            animation-name: indicator-enter;
+            animation-duration: 0.4s;
+            animation-timing-function: ease-out;
+        }
+
+        @keyframes indicator-enter {
+            0% {
+                transform: translateX(-100px);
+            }
+            100% {
+                transform: translateX(0px);
+            }
         }
 
         &::after {
@@ -70,6 +82,19 @@ const StyledDataPanel = styled.div`
 
             border: 2px solid;
             border-color: ${ props => props.color };
+
+            animation-name: button-enter;
+            animation-duration: 0.4s;
+            animation-timing-function: ease-out;
+        }
+
+        @keyframes button-enter {
+            0%{
+                transform: translateX(500px);
+            }
+            100%{
+                transform: translateX(0px);
+            }
         }
     }
 `;
@@ -84,9 +109,9 @@ const PosedDataText = posed.div({
     mounted: {
         x: ({ position }) => {
             if(position === 'left'){
-                return '100%';
-            }else{
                 return '-100%';
+            }else{
+                return '100%';
             }
         }
     },
