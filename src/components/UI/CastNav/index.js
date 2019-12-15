@@ -36,14 +36,14 @@ class CastNav extends Component {
 
         return(
             <PosedCastNav pose={ ready ? 'enabled' : 'disabled' } className="CastNav" onScroll={ this.handleScroll }>
-                <CastLink to="/cast/thanos" image="Thanos" color={ colors.flat.blueViolet }>THANOS</CastLink>            
-                <CastLink to="/cast/capitanamerica" image="CaptainAmerica" color={ colors.flat.neonBlue }>CAPITÁN AMERICA</CastLink>
-                <CastLink to="/cast/ironman" image="IronMan" color={ colors.flat.torchRed }>IRON MAN</CastLink>
-                <CastLink to="/cast/thor" image="Thor" color={ colors.flat.carmine }>THOR</CastLink>
-                <CastLink to="/cast/doctorstrange" image="DoctorStrange" color={ colors.flat.torchRed }>DOCTOR STRANGE</CastLink>
-                <CastLink to="/cast/blackwidow" image="BlackWidow" color={ colors.flat.goldenPoppy }>BLACK WIDOW</CastLink>
-                <CastLink to="/cast/starlord" image="StarLord" color={ colors.flat.redOrange }>STAR LORD</CastLink>
-                <CastLink to="/cast/hulk" image="Hulk" color={ colors.flat.limeGreen }>HULK</CastLink>
+                <CastLink to="/cast/thanos" image="Thanos" color={ colors.blueViolet.flat }>THANOS</CastLink>            
+                <CastLink to="/cast/capitanamerica" image="CaptainAmerica" color={ colors.neonBlue.flat }>CAPITÁN AMERICA</CastLink>
+                <CastLink to="/cast/ironman" image="IronMan" color={ colors.torchRed.flat }>IRON MAN</CastLink>
+                <CastLink to="/cast/thor" image="Thor" color={ colors.carmine.flat }>THOR</CastLink>
+                <CastLink to="/cast/doctorstrange" image="DoctorStrange" color={ colors.torchRed.flat }>DOCTOR STRANGE</CastLink>
+                <CastLink to="/cast/blackwidow" image="BlackWidow" color={ colors.goldenPoppy.flat }>BLACK WIDOW</CastLink>
+                <CastLink to="/cast/starlord" image="StarLord" color={ colors.redOrange.flat }>STAR LORD</CastLink>
+                <CastLink to="/cast/hulk" image="Hulk" color={ colors.limeGreen.flat }>HULK</CastLink>
             </PosedCastNav>
         );
     }

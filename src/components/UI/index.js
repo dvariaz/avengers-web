@@ -37,7 +37,7 @@ class UI extends Component {
                         <a href="https://twitter.com/Avengers" target="_blank" rel="noopener noreferrer"><img src={ `${process.env.PUBLIC_URL}/assets/Icons/Social/Twitter-Icon.png` } alt="Visita Twitter"/></a>
                         <a href="https://www.instagram.com/avengers" target="_blank" rel="noopener noreferrer"><img src={ `${process.env.PUBLIC_URL}/assets/Icons/Social/Instagram-Icon.png` } alt="Visita Instagram"/></a>
                     </div>
-                    <Scroller previous="hulk" next="ironman" color={ colors.gradient.carmine }></Scroller>
+                    <Scroller previous="hulk" next="ironman" color={ colors.carmine.gradient }></Scroller>
                 </Sidebar>
                 <Sidebar position="right" lang="ESP">
                     {/* <div className="CastSections">

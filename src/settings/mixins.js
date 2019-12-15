@@ -38,11 +38,11 @@ export const bigTitle = `
 
 //Materiales
 export const darkGlass = `
-    background-color: ${ transparentize(0.8, colors.flat.black) };
+    background-color: ${ transparentize(0.8, colors.black.flat) };
     backdrop-filter: blur(4px);
 `;
 
 export const glassEdge = `
-    border-color: ${ transparentize(0.7, colors.flat.white) };
+    border-color: ${ transparentize(0.7, colors.white.flat) };
     border-style: solid;
 `;

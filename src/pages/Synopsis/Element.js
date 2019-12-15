@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import posed from 'react-pose';
+import Delay from 'react-delay';
 
 import { bigTitle } from './../../settings/mixins';
 
 import Background from './../../components/Background';
 import DataPanel from './DataPanel';
+import GraphicElement from './GraphicElement';
 
 const StyledTitle = styled.div`
     display: flex;
@@ -20,7 +22,7 @@ const StyledTitle = styled.div`
         opacity: 0;
         animation-name: element-title-enter;
         animation-duration: 0.5s;
-        animation-delay: 1s;
+        animation-delay: 1.25s;
         animation-fill-mode: forwards;
     }
 
@@ -37,40 +39,10 @@ const StyledTitle = styled.div`
 
     .Front {
         z-index: 100;
-        /* color: green; */
     }
 
     .Back {
-        z-index: 0;
-        /* color: red; */
-    }
-`;
-
-const StyledGraphic = styled.img`
-    position: absolute;
-    top: 37%;
-    left: 45%;
-
-    margin: auto;
-    height: 250px;
-
-    animation-name: element-enter;
-    animation-timing-function: ease-out;
-    animation-duration: 1.5s;
-    animation-fill-mode: forwards;
-
-    @keyframes element-enter {
-        0% {
-            opacity: 0;
-            transform: translateY(300px) rotate3d(0,1,1,45deg);
-        }
-        60% {
-            opacity: 1;
-            transform: translateY(100px) rotate3d(0,1,1,45deg);
-        }
-        100% {
-            transform: translateY(0px) rotate3d(0,1,1,15deg);
-        }
+        z-index: 40;
     }
 `;
 
@@ -78,17 +50,22 @@ const Element = ({ name, synopsis, history, color, background, image }) => {
     const [ pose, setPose ] = useState('mounted');
 
     useEffect(() => {
-        setPose('ready');
+        const dataTimer = setTimeout(() => {
+            setPose('ready');
+        }, 1000);
+
+        return () => clearTimeout(dataTimer);
     });
 
     const splitWord = (word) => {
-        let splitLength = parseInt(word.length / 2);
-        let wordMarked = [word.slice(0,splitLength),'|',word.slice(splitLength)].join('');
-        let words = wordMarked.split('|');
+        let letters = Array.from(word[0]);
+        let zinfo = word[1];
     
         return (
             <>
-                <span className="Front">{ words[0] }</span><span className="Back">{ words[1] }</span>
+                {
+                    letters.map((letter, index) => <span key={ index } className={ zinfo[index] === 'f' ? 'Front' : 'Back' }>{ letter }</span>)
+                }
             </>
         );
     };
@@ -98,23 +75,26 @@ const Element = ({ name, synopsis, history, color, background, image }) => {
 
             <StyledTitle>
                 { splitWord(name) }
-                <StyledGraphic src={ `${process.env.PUBLIC_URL}/Assets/${image}` }/>
+                <GraphicElement image={ image } color={ color.flat } />
             </StyledTitle>
+            
+            <Delay wait={ 1000 }>
+                <DataPanel
+                    pose={ pose }
+                    color={ color.flat }
+                    position={ 'left' }
+                    title={ `Sinopsis ${ name[0] }` }
+                    content={ synopsis }
+                />
+                <DataPanel
+                    pose={ pose }
+                    color="white"
+                    position={ 'right' }
+                    title={ `Historia ${ name[0] }` }
+                    content={ history }
+                />
+            </Delay>
 
-            <DataPanel
-                pose={ pose }
-                color={ color }
-                position={ 'left' }
-                title={ `Sinopsis ${ name }` }
-                content={ synopsis }
-            />
-            <DataPanel
-                pose={ pose }
-                color="white"
-                position={ 'right' }
-                title={ `Historia ${ name }` }
-                content={ history }
-            />
             <Background src={ background } blur="5px"/>
         </>
     );

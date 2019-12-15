@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { setCurrentSection } from '../../store/routing/actions.js';
 
-import elements from './elements';
+import elements from './../../data/elements';
 
 import Element from './Element';
 
@@ -21,7 +21,7 @@ class SynopsisPage extends Component {
                     synopsis={ elements[element].synopsis }
                     history={ elements[element].history }
                     image={ 'Items/SoulGem.png' }
-                    color="red"
+                    color={ elements[element].color }
                     background="Backgrounds/Galaxy.jpg"/>
             </div>
         );

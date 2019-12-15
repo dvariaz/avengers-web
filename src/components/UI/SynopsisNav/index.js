@@ -28,14 +28,14 @@ class SynopsisNav extends Component {
             <PosedSynopsisNav pose={ ready ? 'enabled' : 'disabled' } className="SynopsisNav">
                 <a href="#" className="SynopsisNav-Controller"><img src={ `${process.env.PUBLIC_URL}/Assets/Icons/Navigation/ChevronArrow-Icon.svg` } alt="Anterior sección"/></a>
                 <div className="items">
-                    <SynopsisLink to="/sinopsis/general" color={ colors.gradient.ghost }>General</SynopsisLink>
-                    <SynopsisLink to="/sinopsis/guantelete" color={ colors.gradient.persianIndigo }>Guantelete</SynopsisLink>
-                    <SynopsisLink to="/sinopsis/alma" color={ colors.gradient.gamboge }>Alma</SynopsisLink>
-                    <SynopsisLink to="/sinopsis/espacio" color={ colors.gradient.neonBlue }>Espacio</SynopsisLink>
-                    <SynopsisLink to="/sinopsis/poder" color={ colors.gradient.darkViolet }>Poder</SynopsisLink>
-                    <SynopsisLink to="/sinopsis/tiempo" color={ colors.gradient.limeGreen }>Tiempo</SynopsisLink>
-                    <SynopsisLink to="/sinopsis/mente" color={ colors.gradient.goldenPoppy }>Mente</SynopsisLink>
-                    <SynopsisLink to="/sinopsis/realidad" color={ colors.gradient.torchRed }>Realidad</SynopsisLink>
+                    <SynopsisLink to="/sinopsis/general" color={ colors.ghost.gradient }>General</SynopsisLink>
+                    <SynopsisLink to="/sinopsis/guantelete" color={ colors.persianIndigo.gradient }>Guantelete</SynopsisLink>
+                    <SynopsisLink to="/sinopsis/alma" color={ colors.gamboge.gradient }>Alma</SynopsisLink>
+                    <SynopsisLink to="/sinopsis/espacio" color={ colors.neonBlue.gradient }>Espacio</SynopsisLink>
+                    <SynopsisLink to="/sinopsis/poder" color={ colors.darkViolet.gradient }>Poder</SynopsisLink>
+                    <SynopsisLink to="/sinopsis/tiempo" color={ colors.limeGreen.gradient }>Tiempo</SynopsisLink>
+                    <SynopsisLink to="/sinopsis/mente" color={ colors.goldenPoppy.gradient }>Mente</SynopsisLink>
+                    <SynopsisLink to="/sinopsis/realidad" color={ colors.torchRed.gradient }>Realidad</SynopsisLink>
                 </div>
                 <a href="#" className="SynopsisNav-Controller"><img src={ `${process.env.PUBLIC_URL}/Assets/Icons/Navigation/ChevronArrow-Icon.svg` } alt="Siguiente sección"/></a>
             </PosedSynopsisNav>

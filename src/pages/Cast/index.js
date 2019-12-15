@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { setCurrentSection } from '../../store/routing/actions.js';
 import './Cast.scss';
 
-import characters from './characters';
+import characters from './../../data/characters';
 
 //Páginas
 import Character from './Character';

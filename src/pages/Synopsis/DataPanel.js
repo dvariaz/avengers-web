@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import posed from 'react-pose';
+import posed, { PoseGroup } from 'react-pose';
 import { barSize } from './../../settings/global';
 import { darkGlass, cardFont, buttonFont } from './../../settings/mixins';
 
@@ -17,6 +17,7 @@ const StyledDataPanel = styled.div`
             }
         } 
     }
+
     .Content {
         margin: 4em 0;
         padding: 0 2em 3em 3em;
@@ -109,9 +110,9 @@ const PosedDataText = posed.div({
     mounted: {
         x: ({ position }) => {
             if(position === 'left'){
-                return '-100%';
+                return '-120%';
             }else{
-                return '100%';
+                return '120%';
             }
         }
     },
@@ -121,17 +122,24 @@ const PosedDataText = posed.div({
     }
 });
 
-//TODO: Falta la animacion del indicador de color superior y el boton inferior
+const PosedDataPanel = posed(StyledDataPanel)({
+    mounted:{
+        opacity: 0
+    },    
+    ready: {
+        opacity: 1
+    }
+})
 
 const DataPanel = ({ pose, color, position, title, content }) => {
     return(
-        <StyledDataPanel color={ color } position={ position }>
+        <PosedDataPanel pose={ pose } color={ color } position={ position }>
             <PosedDataContent pose={ pose } position={ position } className="Content">
                 <PosedDataText position={ position }><h1>{ title }</h1></PosedDataText>
                 <PosedDataText position={ position }><p>{ content }</p></PosedDataText>
                 <button>Ver más</button>
             </PosedDataContent>
-        </StyledDataPanel>
+        </PosedDataPanel>
     );
 };
 
