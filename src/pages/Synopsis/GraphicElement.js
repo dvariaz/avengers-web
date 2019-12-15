@@ -5,16 +5,19 @@ import colors from './../../settings/colors';
 import GraphicIndicator from './GraphicIndicator';
 
 const StyledGraphic = styled.div`
-    img {
+    .Element, .Element_Effect {
         position: absolute;
-        z-index: 55;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
-
         margin: auto;
-        height: 250px;
+    }
+
+    .Element {
+        z-index: 55;
+
+        height: ${ ({ size }) => size === 'small' ? '250px' : '500px' };
 
         animation-name: element-enter;
         animation-timing-function: ease-out;
@@ -35,17 +38,36 @@ const StyledGraphic = styled.div`
             }
         }
     }
+
+    .Element_Effect {
+        z-index: 20;
+
+        height: ${ ({ size }) => size === 'small' ? '400px' : '500px' };
+
+        animation-name: element-effect-enter;
+        animation-timing-function: ease-out;
+        animation-duration: 1s;
+        animation-delay: 1.5s;
+        animation-fill-mode: both;
+
+        @keyframes element-effect-enter {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    }
 `;
 
-//TODO: Trabajarle al SVG, utilizar animaciones por defecto con etiquetas svg, las animaciones por estado
-//dejarselas a pose
-
-const GraphicElement = ({ image, color }) => {
+const GraphicElement = ({ image, effect, color, size }) => {
     return (
         <>
-            <StyledGraphic>
+            <StyledGraphic size={ size }>
+                <img className="Element_Effect" src={ `${ process.env.PUBLIC_URL }/Assets/${ effect }` } />
                 <GraphicIndicator color={ color } location={ 'Desconocido' } />
-                <img src={ `${ process.env.PUBLIC_URL }/Assets/${ image }` } />
+                <img className="Element" src={ `${ process.env.PUBLIC_URL }/Assets/${ image }` } />
             </StyledGraphic>
         </>
     );

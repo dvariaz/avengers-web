@@ -46,7 +46,7 @@ const StyledTitle = styled.div`
     }
 `;
 
-const Element = ({ name, synopsis, history, color, background, image }) => {
+const Element = ({ name, synopsis, history, color, background, image, effect, size }) => {
     const [ pose, setPose ] = useState('mounted');
 
     useEffect(() => {
@@ -75,7 +75,7 @@ const Element = ({ name, synopsis, history, color, background, image }) => {
 
             <StyledTitle>
                 { splitWord(name) }
-                <GraphicElement image={ image } color={ color.flat } />
+                <GraphicElement image={ image } effect={ effect }  size={ size } color={ color.flat } />
             </StyledTitle>
             
             <Delay wait={ 1000 }>

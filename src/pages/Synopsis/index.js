@@ -20,9 +20,11 @@ class SynopsisPage extends Component {
                     name={ elements[element].name }
                     synopsis={ elements[element].synopsis }
                     history={ elements[element].history }
-                    image={ 'Items/SoulGem.png' }
+                    image={ elements[element].image.src }
+                    effect={ elements[element].image.effect }
+                    size={ elements[element].image.size }
                     color={ elements[element].color }
-                    background="Backgrounds/Galaxy.jpg"/>
+                    background={ elements[element].background }/>
             </div>
         );
     }
