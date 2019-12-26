@@ -2,6 +2,7 @@ import colors from '../settings/colors';
 
 const elements = {
     'general': {
+        url: 'general',
         name: ['general','bbfffbb'],
         color: colors.ghost,
         synopsis: 'Los superhéroes se alían para vencer al poderoso Thanos, el peor enemigo al que se han enfrentado. Si Thanos logra reunir las seis gemas del infinito: poder, tiempo, alma, realidad, mente y espacio, nadie podrá detenerlo.',
@@ -14,8 +15,9 @@ const elements = {
         background: 'Items/General/Background.jpg'
     },
     'guantelete': {
+        url: 'guantelete',
         name: ['guantelete','bbbbfffbbb'],
-        color: colors.persianIndigo,
+        color: colors.fireEngine,
         synopsis: 'Es un poderoso guante creado por Eitri para canalizar el poder de las seis Gemas del Infinito.',
         history: 'Debido a que tanto Loki como Ronan le fallaron en su intento de encontrar y recuperar las Gemas del Infinito, Thanos decidió buscar las gemas por sí mismo. Thanos obligó a los Enanos de Nidavellir a construir el Guantelete del Infinito para él en su misión de obtener todas las Gemas del Infinito. Una vez que lo hicieron, el Titán Loco procedió a exterminar a toda la raza de los Enanos. Solo el herrero Eitri se salvó.',
         image: {
@@ -23,9 +25,10 @@ const elements = {
             size: 'big',
             effect: 'Items/Gauntlet/Effect.png'
         },
-        background: 'Items/General/Background.jpg'
+        background: 'Items/Gauntlet/Background.jpg'
     },
     'espacio': {
+        url: 'espacio',
         name: ['espacio','bbbfbbb'],
         color: colors.neonBlue,
         synopsis: 'Es el remanente de una singularidad que precede al mismo universo, el cual representa el elemento del Espacio.',
@@ -35,9 +38,10 @@ const elements = {
             size: 'small',
             effect: 'Items/SpaceGem/Effect.png'
         },
-        background: 'Items/General/Background.jpg'
+        background: 'Items/SpaceGem/Background.jpg'
     },
     'realidad': {
+        url: 'realidad',
         name: ['realidad','bbbfffff'],
         color: colors.torchRed,
         synopsis: 'También conocida como Éter es una Gema del Infinito, el remanente de una singularidad que ha existido desde antes de que comenzara el universo. Siendo una antigua y poderosa fuerza catastrófica, el Éter tiene el potencial de alterar la realidad y transformar al universo entero.',
@@ -47,9 +51,10 @@ const elements = {
             size: 'small',
             effect: 'Items/RealityGem/Effect.png'
         },
-        background: 'Items/General/Background.jpg'
+        background: 'Items/RealityGem/Background.jpg'
     },
     'poder': {
+        url: 'poder',
         name: ['poder','bbfff'],
         color: colors.darkViolet,
         synopsis: 'Representa el tejido del Poder. Almacenada en el interior del Orbe, desde 2014 estuvo en la bóveda de los Nova Corps ',
@@ -59,9 +64,10 @@ const elements = {
             size: 'small',
             effect: 'Items/PowerGem/Effect.png'
         },
-        background: 'Items/General/Background.jpg'
+        background: 'Items/PowerGem/Background.jpg'
     },
     'mente': {
+        url: 'mente',
         name: ['mente','bbfff'],
         color: colors.goldenPoppy,
         synopsis: 'Es el residuo de una singularidad que precede al mismo universo, la cual rige sobre el tejido de la Mente. La Gema de la Mente se encontraba en poder de Thanos hasta que se la entregó a Loki para que recuperara el Tesseracto en vengadores. Escondida en su cetro, le permitía manejar la mente de los humanos.',
@@ -71,9 +77,10 @@ const elements = {
             size: 'small',
             effect: 'Items/MindGem/Effect.png'
         },
-        background: 'Items/General/Background.jpg'
+        background: 'Items/MindGem/Background.jpg'
     },
     'tiempo': {
+        url: 'tiempo',
         name: ['tiempo','bbffbb'],
         color: colors.limeGreen,
         synopsis: 'Es el residuo de una singularidad que precede al mismo universo, el cual representa el tejido del Tiempo. Tiene control total sobre el tiempo, con la posibilidad de viajar a través de las eras, al pasado, presente y futuro. Su poseedor adquiere también la capacidad, además de viajar, de ver y manipular el flujo del tiempo a voluntad, congelándolo, acelerándolo o retrocediéndolo.',
@@ -82,9 +89,11 @@ const elements = {
             src: 'Items/TimeGem/Item.png',
             size: 'small',
             effect: 'Items/TimeGem/Effect.png'
-        }
+        },
+        background: 'Items/TimeGem/Background.jpg'
     },
     'alma': {
+        url: 'alma',
         name: ['alma','ffbb'],
         color: colors.gamboge,
         synopsis: 'Tiene la capacidad de manipular tu alma, la esencia de quién eres. se alimenta de almas y otorga al portador el poder de robar, dominar, manipular o alterar las almas de los seres vivos o muertos, logrando alterar la personalidad de los seres o incluso absorbiendo al interior de la gema el alma cualquier ser vivo.',
@@ -94,7 +103,7 @@ const elements = {
             size: 'small',
             effect: 'Items/SoulGem/Effect.png'
         },
-        background: 'Items/General/Background.jpg'
+        background: 'Items/SoulGem/Background.jpg'
     }
 };
 

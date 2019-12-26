@@ -95,7 +95,7 @@ const Element = ({ name, synopsis, history, color, background, image, effect, si
                 />
             </Delay>
 
-            <Background src={ background } blur="5px"/>
+            <Background src={ background } blur="2px"/>
         </>
     );
 }

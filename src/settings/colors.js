@@ -75,6 +75,10 @@ const colors = {
         flat: '#A50136',
         gradient: 'linear-gradient(135deg, #EC003B 0%, #A50136 100%)',
     },
+    fireEngine: {
+        flat: '#E71D17',
+        gradient: 'linear-gradient(135deg, #e71d17 0%, #ea8d0e 100%)',
+    }
 };
 
 module.exports = colors;
