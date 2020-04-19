@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { barSize } from './../../../settings/global';
-import { darkGlass, glassEdge } from '../../../settings/mixins';
+import { darkGlass, glassEdge, navFont } from '../../../settings/mixins';
 
 const StyledSidebar = styled.aside`
     ${ darkGlass }
@@ -65,6 +65,8 @@ const StyledSidebar = styled.aside`
         width: 100%;
         height: ${ barSize };
         line-height: ${ barSize };
+        
+        ${ navFont }
     }
 `;
 

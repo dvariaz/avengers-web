@@ -3,21 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@reach/router": "^1.2.1",
-    "polished": "^3.4.1",
-    "react": "^16.10.2",
+    "framer-motion": "^1.10.3",
+    "polished": "^3.5.1",
+    "react": "^16.13.1",
     "react-delay": "^0.1.0",
-    "react-dom": "^16.10.2",
-    "react-full-page": "^0.1.7",
-    "react-pose": "^4.0.9",
-    "react-redux": "^7.1.1",
+    "react-dom": "^16.13.1",
+    "react-pose": "^4.0.10",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.3.0",
+    "react-scripts": "3.4.1",
     "react-youtube": "^7.9.0",
-    "redux": "^4.0.4",
-    "styled-components": "^4.4.0",
+    "redux": "^4.0.5",
+    "styled-components": "^4.4.1",
     "titleize": "^2.1.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -26,7 +25,14 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "plugins": [
+      "react-hooks"
+    ],
+    "rules": {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn"
+    }
   },
   "browserslist": {
     "production": [
@@ -41,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-plugin-react-hooks": "^2.5.1",
     "node-sass": "^4.13.1",
     "redux-devtools": "^3.5.0"
   }

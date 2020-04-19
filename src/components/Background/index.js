@@ -23,7 +23,7 @@ const Background = ({ src, blur }) => {
         return () => {
             setReady(false);
         }
-    });
+    }, []);
 
     return (
         <PosedBackground pose={ ready ? 'enter' : 'exit' } className="Background" src={ `${process.env.PUBLIC_URL}/Assets/${src}` } alt="Fondo" blur={ blurProp }/>

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Router, Location } from '@reach/router';
-import posed, { PoseGroup } from 'react-pose';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { AnimatePresence } from "framer-motion";
 
 //Styles
 import './settings/container.scss';
@@ -11,47 +11,33 @@ import './App.scss';
 import UI from './components/UI';
 
 //Views
-import Home from './pages/Home';
-import Synopsis from './pages/Synopsis';
-import Cast from './pages/Cast';
-import Gallery from './pages/Gallery';
-import Trailer from './pages/Trailer';
+import HomePage from './pages/Home';
+import SynopsisPage from './pages/Synopsis';
+import CastPage from './pages/Cast';
+import GalleryPage from './pages/Gallery';
+import TrailerPage from './pages/Trailer';
 
 import Background from './components/Background';
 
-const RouteContainer = posed.div({
-  enter: { opacity: 1 },
-  exit: { opacity: 0 }
-});
-
-const PosedRouter = ({ children }) => (
-  <Location>
-    {
-      ({ location }) => (
-        <PoseGroup>
-          <RouteContainer key={ location.pathname }>
-            <Router location={ location }>{ children }</Router>
-          </RouteContainer>
-        </PoseGroup>
-      )
-    }
-  </Location>
-);
-
 const App = () => {
-
   return (
-    <>
-      <UI>
-        <PosedRouter>
-          <Home path="/"/>
-          <Synopsis path="sinopsis/:element"/>
-          <Cast path="cast/:character"></Cast>
-          <Gallery path="galeria/:actor"/>
-          <Trailer path="trailer"/>
-        </PosedRouter>
-      </UI>
-    </>
+    <Router>
+      <Route
+        render={({ location }) => (
+          <AnimatePresence exitBeforeEnter initial={false}>
+            <UI>
+              <Switch location={location} key={location.pathname}>
+                <Route exact path="/" component={HomePage} />
+                <Route exact path="/sinopsis/:element" component={SynopsisPage} />
+                <Route exact path="/cast/:character" component={CastPage} />
+                <Route exact path="/galeria/:actor" component={GalleryPage} />
+                <Route exact path="/trailer" component={TrailerPage} />
+              </Switch>
+            </UI>
+          </AnimatePresence>
+          )}
+      />
+    </Router>
   );
 }
 

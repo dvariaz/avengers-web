@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import StyledCastLink from './StyledCastLink';
-import { Link, Location } from '@reach/router';
+import { Link, useLocation } from 'react-router-dom';
 import { navFont } from '../../../../settings/mixins';
 import { transparentize } from 'polished';
 import styled from 'styled-components';
@@ -41,31 +41,24 @@ const PosedCastLink = posed(styled(Link)`
     background-position: left 0, center;
     `)(poses);
 
-class CastLink extends Component {
-    isCurrent = (location) => {
-        return (this.props.to === location.pathname);
+const CastLink = ({ to, image, color, children }) => {
+    let location = useLocation();
+
+    const isCurrent = (location) => {
+        return (to === location.pathname);
     }
 
-    render(){
-        let { to, image, color } = this.props;
-        
-        return(
-            <>
-                <Location>
-                    {
-                        ({ location }) => (
-                            <PosedCastLink
-                                pose={ this.isCurrent(location) ? 'active' : 'inactive' } 
-                                to={ to }
-                                image={ `${process.env.PUBLIC_URL}/assets/Characters/${image}/Profile.jpg` }
-                                color={ color }>
-                                { this.props.children }
-                            </PosedCastLink>
-                        )
-                    }
-                </Location>
-            </>
-        );
-    }
+    return(
+        <>
+            <PosedCastLink
+                pose={ isCurrent(location) ? 'active' : 'inactive' } 
+                to={ to }
+                image={ `${process.env.PUBLIC_URL}/assets/Characters/${image}/Profile.jpg` }
+                color={ color }>
+                { children }
+            </PosedCastLink>
+        </>
+    );
 }
+
 export default CastLink;

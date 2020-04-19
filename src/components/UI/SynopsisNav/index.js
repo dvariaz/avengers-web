@@ -10,17 +10,6 @@ import StyledSynopsisNav from './StyledSynopsisNav';
 
 import elements from './../../../data/elements';
 
-const PosedSynopsisNav = posed(StyledSynopsisNav)({
-    disabled: {
-        transform: 'translateY(100px)',
-        opacity: 0
-    },
-    enabled: {
-        transform: 'translateY(0px)',
-        opacity: 1
-    }
-});
-
 class SynopsisNav extends Component {
 
     render(){
@@ -42,5 +31,17 @@ class SynopsisNav extends Component {
         );
     }
 }
+
+const PosedSynopsisNav = posed(StyledSynopsisNav)({
+    disabled: {
+        transform: 'translateY(100px)',
+        opacity: 0
+    },
+    enabled: {
+        transform: 'translateY(0px)',
+        opacity: 1
+    }
+});
+
 
 export default SynopsisNav;

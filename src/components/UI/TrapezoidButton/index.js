@@ -1,8 +1,37 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from '@reach/router';
 
 import { navFont } from './../../../settings/mixins';
+
+const TrapezoidButton = ({ to, children }) => {
+    return (
+        <>
+            <StyledTrapezoidButton viewBox="0 0 100 40">
+                <a href={ to } style={{ color: 'white'}}>
+                    <path
+                        id="Trapezoid-Front"
+                        fill="transparent"
+                        stroke="white"
+                        strokeWidth="0.5" 
+                        d="M 15 10 L 85 10 L 75 30 L 25 30 z"
+                    />
+                    <path
+                        id="Trapezoid-Back"
+                        stroke="white"
+                        strokeWidth="0.5" 
+                        d="M 15 10 L 85 10 L 75 30 L 25 30 z"
+                    />
+                    <text x="50"
+                        y="20"
+                        textAnchor="middle"
+                        alignmentBaseline="middle">
+                    { children }
+                    </text>
+                </a>
+            </StyledTrapezoidButton>
+        </>
+    )
+}
 
 const StyledTrapezoidButton = styled.svg`
     width: 250px;
@@ -42,35 +71,5 @@ const StyledTrapezoidButton = styled.svg`
         }
     }
 `;
-
-const TrapezoidButton = ({ to, children }) => {
-    return (
-        <>
-            <StyledTrapezoidButton viewBox="0 0 100 40">
-                <a href={ to } style={{ color: 'white'}}>
-                    <path
-                        id="Trapezoid-Front"
-                        fill="transparent"
-                        stroke="white"
-                        strokeWidth="0.5" 
-                        d="M 15 10 L 85 10 L 75 30 L 25 30 z"
-                    />
-                    <path
-                        id="Trapezoid-Back"
-                        stroke="white"
-                        strokeWidth="0.5" 
-                        d="M 15 10 L 85 10 L 75 30 L 25 30 z"
-                    />
-                    <text x="50"
-                        y="20"
-                        textAnchor="middle"
-                        alignmentBaseline="middle">
-                    { children }
-                    </text>
-                </a>
-            </StyledTrapezoidButton>
-        </>
-    )
-}
 
 export default TrapezoidButton;

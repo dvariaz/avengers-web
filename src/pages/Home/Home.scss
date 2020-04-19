@@ -1,0 +1,18 @@
+.SlideContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+
+    .BigTitle {
+        z-index: 50;
+    }
+
+    .Character {
+        position: absolute;
+        // z-index: 60;
+    }
+
+}

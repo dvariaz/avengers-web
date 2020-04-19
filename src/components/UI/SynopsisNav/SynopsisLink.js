@@ -1,20 +1,9 @@
 import React from 'react';
-import { Link } from '@reach/router';
+import { NavLink } from 'react-router-dom';
 
-const SynopsisLink = (props) => (
+const SynopsisLink = ({to, color, children}) => (
     <>
-        <Link { ...props }
-            getProps={({ href, location }) => {
-                let section = location.pathname.split('/')[2];
-                let to = href.split('/')[2];
-                let isCurrent = to === section;
-                return {
-                    style: {
-                        background: isCurrent  ? props.color : "transparent"
-                    }
-                };
-            }}
-        />
+        <NavLink to={to} activeStyle= {{ color }}>{children}</NavLink>
     </>
 );
 
