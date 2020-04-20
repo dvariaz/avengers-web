@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import './Cast.scss';
 
+import CastNav from './../../components/UI/CastNav';
 import characters from '../../data/characters';
 
 //Páginas
@@ -14,6 +15,7 @@ const CastPage = () => {
 
     return(
         <div className="Container Respect-TopBar Respect-SideBars Respect-CastNav Layout-Horizontal">
+            <CastNav/>
             <Character 
                 name={ characters[character].name }
                 description= { characters[character].description }

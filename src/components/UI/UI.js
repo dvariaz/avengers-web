@@ -49,8 +49,6 @@ const UI = ({children}) => {
                     <Link to={ currentUrl + "/diseño" } activeClassName="active">DISEÑO</Link>
                 </div> */}
             </Sidebar>
-            <CastNav ready={ section === 'cast' }/>
-            <SynopsisNav ready={ section === 'sinopsis' }/>
             { children }
         </>
     );

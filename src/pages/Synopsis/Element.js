@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import posed from 'react-pose';
 import Delay from 'react-delay';
 
 import { bigTitle } from './../../settings/mixins';
@@ -80,14 +79,12 @@ const Element = ({ name, synopsis, history, color, background, image, effect, si
             
             <Delay wait={ 1000 }>
                 <DataPanel
-                    pose={ pose }
                     color={ color.flat }
                     position={ 'left' }
                     title={ `Sinopsis ${ name[0] }` }
                     content={ synopsis }
                 />
                 <DataPanel
-                    pose={ pose }
                     color="white"
                     position={ 'right' }
                     title={ `Historia ${ name[0] }` }

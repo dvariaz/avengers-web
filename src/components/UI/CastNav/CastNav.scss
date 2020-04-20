@@ -1,0 +1,19 @@
+@import "./../../../settings/global.scss";
+@import "./../../../settings/materials.scss";
+@import "./../../../settings/fonts.scss";
+
+.CastNav {
+    position: absolute;
+    top: $barSize;
+    left: $barSize;
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - #{ $barSize });
+    width: #{ $sidebarSize };
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

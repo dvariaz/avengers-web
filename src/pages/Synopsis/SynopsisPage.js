@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom';
 import elements from './../../data/elements';
 
 import Element from './Element';
+import SynopsisNav from './../../components/UI/SynopsisNav';
 
 const SynopsisPage = () => {
     let params = useParams();
@@ -11,6 +12,7 @@ const SynopsisPage = () => {
 
     return(
         <div className="Container Respect-AllBars">
+            <SynopsisNav/>
             <Element 
                 name={ elements[element].name }
                 synopsis={ elements[element].synopsis }
