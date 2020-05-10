@@ -1,3 +1,9 @@
-import SynopsisPage from './SynopsisPage.js';
+import React from "react";
+import SynopsisPage from "./SynopsisPage";
+import { ElementsProvider } from "./../../context/elements.context";
 
-export default SynopsisPage;
+export default () => (
+  <ElementsProvider>
+    <SynopsisPage />
+  </ElementsProvider>
+);

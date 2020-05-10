@@ -1,57 +1,64 @@
 @import "./../../settings/global.scss";
 
 .PageContent {
-    padding: 3em 5em;
-    position: relative;
-    
-    &.Respect-Image {
-        width: 60%;
-    }
+  padding: 3em 5em;
+  position: relative;
 
-    &.Right {
-        margin: 0 0 auto 0;
-    }
+  &.Respect-Image {
+    width: 60%;
+  }
 
-    &.Left {
-        margin: 0 0 0 auto;
-    }
+  &.Right {
+    margin: 0 0 auto 0;
+  }
 
+  &.Left {
+    margin: 0 0 0 auto;
+  }
+
+  @extend %titleFont;
+
+  .Title {
+    font-size: 6em;
+    text-transform: uppercase;
+  }
+
+  p {
     @extend %titleFont;
-
-    .Title {
-        font-size: 6em;
-        text-transform: uppercase;
-    }
-
-    p {
-        @extend %titleFont;
-    }
+  }
 }
 
 .CharacterRender {
-    position: absolute;
-    z-index: 85;
-    height: 100%;
-    width: 700px;
+  position: absolute;
+  z-index: 85;
+  height: 100%;
+  width: 700px;
 
-    &.Right {
-        right: 0;
-        bottom: 0;
-        
-        img{
-            left: $barSize;
-        }
-    }
-
-    &.Left {
-        left: calc(#{$barSize} + #{$sidebarSize});
-        bottom: 0;
-    }
+  &.Right {
+    right: 0;
+    bottom: 0;
 
     img {
-        position: absolute;
-        top: $barSize;
-        height: 100%;
-        padding-top: 1em;
+      left: $barSize;
     }
+  }
+
+  &.Left {
+    left: calc(#{$barSize} + #{$sidebarSize});
+    bottom: 0;
+  }
+
+  img {
+    position: absolute;
+    top: $barSize;
+    height: 100%;
+    padding-top: 1em;
+  }
+}
+
+.Title {
+  padding-bottom: 30px;
+  border-style: solid;
+  border-width: 0px;
+  border-bottom-width: 4px;
 }

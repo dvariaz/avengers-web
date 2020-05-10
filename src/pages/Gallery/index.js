@@ -1,3 +1,3 @@
-import GalleryPage from './GalleryPage.js';
+import GalleryPage from "./GalleryPage";
 
 export default GalleryPage;

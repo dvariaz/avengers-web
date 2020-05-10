@@ -1,3 +1,9 @@
-import CastPage from './CastPage.js';
+import React from "react";
+import CastPage from "./CastPage";
+import { CharactersProvider } from "./../../context/characters.context";
 
-export default CastPage;
+export default () => (
+  <CharactersProvider>
+    <CastPage />
+  </CharactersProvider>
+);

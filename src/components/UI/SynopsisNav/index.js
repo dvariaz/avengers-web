@@ -1,3 +1,9 @@
-import SynopsisNav from './SynopsisNav';
+import React from "react";
+import SynopsisNav from "./SynopsisNav";
+import { ElementsProvider } from "./../../../context/elements.context";
 
-export default SynopsisNav;
+export default () => (
+  <ElementsProvider>
+    <SynopsisNav />
+  </ElementsProvider>
+);
