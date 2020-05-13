@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Delay from "react-delay";
 
 import "./Element.scss";
 
-import Background from "../../components/Background";
+import Background from "../../../components/Background";
 import DataPanel from "./DataPanel";
 import GraphicElement from "./GraphicElement";
 
@@ -17,16 +17,6 @@ const Element = ({
   effect,
   size,
 }) => {
-  const [pose, setPose] = useState("mounted");
-
-  useEffect(() => {
-    const dataTimer = setTimeout(() => {
-      setPose("ready");
-    }, 1000);
-
-    return () => clearTimeout(dataTimer);
-  });
-
   const splitWord = (word) => {
     let letters = Array.from(word[0]);
     let zinfo = word[1];

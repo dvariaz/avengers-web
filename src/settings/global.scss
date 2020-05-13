@@ -3,35 +3,35 @@ $sidebarSize: 300px;
 
 //Tipografias
 @font-face {
-    font-family: 'Draft B';
-    src: url('/public/Fonts/DraftB-Regular.woff2') format('woff2'),
-        url('/public/Fonts/DraftB-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Draft B";
+  src: local("Draft B"), url(../fonts/DraftB-Regular.woff2) format("woff2"),
+    url(../fonts/DraftB-Regular.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 %navFont {
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 600;
-    font-size: .7em;
-    color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 0.7em;
+  color: white;
 }
 
 %titleFont {
-    color: white;
-    font-family: 'Draft B', sans-serif;
+  color: white;
+  font-family: "Draft B", sans-serif;
 }
 
 //Colores
-$dark-color: rgba(0,0,0,0.2);
+$dark-color: rgba(0, 0, 0, 0.2);
 
 //Materiales
 
 %navMaterial {
-    background-color: $dark-color;
-    border-color: rgba(255,255,255,0.3);
-    border-style: solid;
-    backdrop-filter: blur(4px);
+  background-color: $dark-color;
+  border-color: rgba(255, 255, 255, 0.3);
+  border-style: solid;
+  backdrop-filter: blur(4px);
 }

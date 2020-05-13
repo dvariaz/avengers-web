@@ -26,6 +26,7 @@ const SynopsisNav = () => {
       initial="hidden"
       animate="visible"
       exit="hidden"
+      transition={{ type: "tween" }}
       variants={variants}
       className="SynopsisNav"
     >

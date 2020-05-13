@@ -1,0 +1,84 @@
+@import "./../../../../settings/materials.scss";
+@import "./../../../../settings/fonts.scss";
+
+.DataPanel {
+  overflow: hidden;
+  position: absolute;
+
+  .Content {
+    @include darkGlass;
+    @include cardFont;
+
+    margin: 4em 0;
+    padding: 0 2em 3em 3em;
+    color: white;
+    width: 500px;
+
+    h1 {
+      margin: 1em 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.5em;
+      display: inline-block;
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 30px;
+      height: 4px;
+
+      animation-name: indicator-enter;
+      animation-duration: 0.4s;
+      animation-timing-function: ease-out;
+    }
+
+    @keyframes indicator-enter {
+      0% {
+        transform: translateX(-100px);
+      }
+      100% {
+        transform: translateX(0px);
+      }
+    }
+
+    &::after {
+      @include darkGlass;
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      right: 2em;
+      height: 20px;
+      width: 150px;
+    }
+
+    button {
+      @include buttonFont;
+      cursor: pointer;
+      position: absolute;
+      bottom: -20px;
+      width: 150px;
+      height: 40px;
+      right: 2em;
+      z-index: 100;
+      background: transparent;
+
+      border: 2px solid;
+
+      animation-name: button-enter;
+      animation-duration: 0.4s;
+      animation-timing-function: ease-out;
+    }
+
+    @keyframes button-enter {
+      0% {
+        transform: translateX(500px);
+      }
+      100% {
+        transform: translateX(0px);
+      }
+    }
+  }
+}

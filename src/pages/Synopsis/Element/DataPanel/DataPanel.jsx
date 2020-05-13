@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import "./DataPanel.scss";
-import { barSize } from "./../../settings/global";
+import { barSize } from "../../../../settings/global";
 
 const DataPanel = ({ color, position, title, content }) => {
   const variants = {

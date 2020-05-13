@@ -1,14 +1,14 @@
 import React from "react";
-import StyledSideBar from "./StyledSidebar";
-
 import colors from "./../../../settings/colors";
+
+import "./Sidebar.scss";
 
 import Scroller from "./../Scroller";
 
 const Sidebar = ({ position, social, scroller, lang }) => {
   return (
     <>
-      <StyledSideBar className={position}>
+      <aside className={`Sidebar ${position}`}>
         {social && (
           <div className="social">
             <a
@@ -50,7 +50,7 @@ const Sidebar = ({ position, social, scroller, lang }) => {
             color={colors.carmine.gradient}
           />
         )}
-      </StyledSideBar>
+      </aside>
       {lang && <div className="nav-language">{lang}</div>}
     </>
   );

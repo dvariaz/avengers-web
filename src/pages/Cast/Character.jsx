@@ -5,6 +5,8 @@ import titleize from "titleize";
 
 import Background from "../../components/Background";
 
+//TODO: Hacer que el texto siempre encaje en la pantalla
+
 const Title = styled.h1`
   border-color: ${({ color }) => color};
 `;
@@ -42,7 +44,7 @@ const Character = ({
   return (
     <>
       <div className={`PageContent Respect-Image ${titleize(position)}`}>
-        <Title className="Title" color={color}>
+        <Title className="CharacterTitle" color={color}>
           {name}
         </Title>
         {descriptionLines}
