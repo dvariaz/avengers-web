@@ -1,7 +1,9 @@
+@import "./../../../../../settings/layers.scss";
+
 #ElementIndicator {
   position: absolute;
   margin: auto;
-  z-index: 30;
+  z-index: zPushDown($z-page, 15);
   top: 0;
   bottom: 0;
   left: 0;

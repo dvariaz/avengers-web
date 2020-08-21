@@ -1,4 +1,5 @@
 @import "./../../../../settings/materials.scss";
+@import "./../../../../settings/layers.scss";
 @import "./../../../../settings/fonts.scss";
 
 .DataPanel {
@@ -62,7 +63,7 @@
       width: 150px;
       height: 40px;
       right: 2em;
-      z-index: 100;
+      z-index: $z-internal-ui;
       background: transparent;
 
       border: 2px solid;

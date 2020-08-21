@@ -1,11 +1,12 @@
 @import "./../../../settings/global.scss";
+@import "./../../../settings/layers.scss";
 @import "./../../../settings/materials.scss";
 @import "./../../../settings/fonts.scss";
 
 .Sidebar {
   @include darkGlass;
   position: fixed;
-  z-index: 95;
+  z-index: zPushUp($z-internal-ui, 1);
   top: $barSize;
   width: $barSize;
   height: calc(100vh - #{$barSize});

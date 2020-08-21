@@ -17,8 +17,6 @@ import CastPage from "./pages/Cast";
 import GalleryPage from "./pages/Gallery";
 import TrailerPage from "./pages/Trailer";
 
-import Background from "./components/Background";
-
 const App = () => {
   return (
     <Router>

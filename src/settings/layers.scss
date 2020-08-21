@@ -1,0 +1,14 @@
+$z-ui: 100;
+$z-internal-ui: 75;
+$z-page: 50;
+$z-background: 0;
+
+@function zPushUp($layer, $steps) {
+  $index: $layer + $steps;
+  @return $index;
+}
+
+@function zPushDown($layer, $steps) {
+  $index: $layer - $steps;
+  @return $index;
+}
