@@ -19,7 +19,7 @@ I used these react features and libraries:
 
 I really like the CSS Modules + Styled Components combination for separate static and dynamic styles.
 
-### What was I learn?
+### What I learned?
 
 React router hooks (>v5.1) are too useful for store the navigation state globally, I've removed Context/Redux sometimes during this project.
 
