@@ -2,64 +2,64 @@
 @import "./../../settings/layers.scss";
 
 .PageContent {
-  padding: 3em 5em;
-  position: relative;
+    padding: 3em 5em;
+    position: relative;
 
-  &.Respect-Image {
-    width: 60%;
-  }
+    &.Respect-Image {
+        width: 60%;
+    }
 
-  &.Right {
-    margin: 0 0 auto 0;
-  }
+    &.Right {
+        margin: 0 0 auto 0;
+    }
 
-  &.Left {
-    margin: 0 0 0 auto;
-  }
+    &.Left {
+        margin: 0 0 0 auto;
+    }
 
-  @extend %titleFont;
-
-  .CharacterTitle {
-    margin-top: 4rem;
-    margin-bottom: 3rem;
-    line-height: 10rem;
-    font-size: 8em;
-    text-transform: uppercase;
-    padding-bottom: 30px;
-    border-style: solid;
-    border-width: 0px;
-    border-bottom-width: 4px;
-  }
-
-  p {
     @extend %titleFont;
-  }
+
+    .CharacterTitle {
+        margin-top: 4rem;
+        margin-bottom: 3rem;
+        line-height: 10rem;
+        font-size: 8em;
+        text-transform: uppercase;
+        padding-bottom: 30px;
+        border-style: solid;
+        border-width: 0px;
+        border-bottom-width: 4px;
+    }
+
+    p {
+        @extend %titleFont;
+    }
 }
 
 .CharacterRender {
-  position: absolute;
-  z-index: zPushUp($z-page, 10);
-  height: 100%;
-  width: 700px;
+    position: absolute;
+    z-index: zPushUp($z-page, 10);
+    height: 100%;
+    width: 700px;
 
-  &.Right {
-    right: 0;
-    bottom: 0;
+    &.Right {
+        right: 0;
+        bottom: 0;
+
+        img {
+            left: $barSize;
+        }
+    }
+
+    &.Left {
+        left: calc(#{$barSize} + #{$sidebarSize});
+        bottom: 0;
+    }
 
     img {
-      left: $barSize;
+        position: absolute;
+        top: $barSize;
+        height: 100%;
+        padding-top: 1em;
     }
-  }
-
-  &.Left {
-    left: calc(#{$barSize} + #{$sidebarSize});
-    bottom: 0;
-  }
-
-  img {
-    position: absolute;
-    top: $barSize;
-    height: 100%;
-    padding-top: 1em;
-  }
 }

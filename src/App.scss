@@ -1,24 +1,25 @@
 //General settings for elements
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-a{
-  text-decoration: none;
+a {
+    text-decoration: none;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    scroll-behavior: smooth;
 }
 
 #root {
-  height: 100vh;
+    height: 100vh;
 }
 
 .App {
-  height: 100vh;
-  background-color: darkgray;
+    height: 100vh;
+    background-color: darkgray;
 }
