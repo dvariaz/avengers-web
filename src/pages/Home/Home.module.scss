@@ -1,0 +1,47 @@
+@import "./../../settings/layers.scss";
+
+.SlideContent {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+
+    &.Center {
+        justify-content: center;
+    }
+
+    .BigTitle {
+        z-index: $z-page;
+    }
+
+    .Character {
+        position: absolute;
+        z-index: zPushUp($z-page, 10);
+    }
+
+    .BigTitle {
+        font-size: 12em;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    p {
+        font-size: 1.2em;
+        font-weight: lighter;
+        z-index: zPushUp($z-page, 11);
+        margin-top: 0;
+    }
+
+    h2 {
+        letter-spacing: 3px;
+        font-size: 2em;
+        font-weight: lighter;
+        z-index: zPushUp($z-page, 11);
+    }
+
+    svg {
+        z-index: zPushUp($z-page, 11);
+    }
+}
