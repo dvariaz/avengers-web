@@ -1,6 +1,6 @@
 @import "./../../settings/layers.scss";
 
-.SlideContent {
+:global(.SlideContent) {
     display: flex;
     height: 100vh;
     flex-direction: column;
@@ -10,22 +10,42 @@
     &.Center {
         justify-content: center;
     }
+}
 
-    .BigTitle {
-        z-index: $z-page;
-    }
+:global(.BigTitle) {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    z-index: $z-page;
+    font-size: 12em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+}
 
-    .Character {
-        position: absolute;
-        z-index: zPushUp($z-page, 10);
-    }
+:global(.Character) {
+    position: absolute;
+    z-index: zPushUp($z-page, 10);
+}
 
-    .BigTitle {
-        font-size: 12em;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 0;
+:global(.Background) {
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    object-position: center;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.2);
     }
+}
+
+:global(.TextContainer) {
+    text-align: center;
+    z-index: zPushUp($z-page, 10);
 
     p {
         font-size: 1.2em;
@@ -40,8 +60,8 @@
         font-weight: lighter;
         z-index: zPushUp($z-page, 11);
     }
+}
 
-    svg {
-        z-index: zPushUp($z-page, 11);
-    }
+svg {
+    z-index: zPushUp($z-page, 11);
 }
