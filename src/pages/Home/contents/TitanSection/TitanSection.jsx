@@ -14,13 +14,13 @@ const TitanSection = () => {
     let thanosVariants = {
         enter: {
             x: -250,
-            y: -180,
+            y: 300,
             scale: 0.6,
             transition,
         },
         exit: {
             x: -250,
-            y: -50,
+            y: 400,
             scale: 0.6,
             transition,
         },
@@ -44,7 +44,9 @@ const TitanSection = () => {
                 variants={thanosVariants}
                 src={`${process.env.PUBLIC_URL}/Assets/Backgrounds/Titan/Thanos.png`}
             />
-            <h1 className="BigTitle">THANOS</h1>
+            <h1 className="BigTitle" style={{ fontSize: "14em", top: "0.25em" }}>
+                THANOS
+            </h1>
             <motion.div
                 className="TextContainer"
                 initial="exit"
@@ -55,7 +57,6 @@ const TitanSection = () => {
                 <h2>
                     <strong>El conquistador de mundos</strong>
                 </h2>
-                <p>La película más esperada del año esta aquí</p>
                 <TrapezoidButton to="trailer">VER TRAILER</TrapezoidButton>
             </motion.div>
             <div className="Background">

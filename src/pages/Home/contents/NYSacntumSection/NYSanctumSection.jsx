@@ -11,14 +11,14 @@ const NYSanctumSection = () => {
     let drStrangeVariants = {
         enter: {
             x: 0,
-            y: 150,
-            scale: 1.2,
+            y: 100,
+            scale: 1.1,
             transition,
         },
         exit: {
             x: 0,
             y: 250,
-            scale: 1.2,
+            scale: 1.1,
             transition,
         },
     };
@@ -32,13 +32,11 @@ const NYSanctumSection = () => {
                 variants={drStrangeVariants}
                 src={`${process.env.PUBLIC_URL}/Assets/Backgrounds/NewYorkSanctum/DoctorStrange.png`}
             />
-            <h1 className="BigTitle" style={{ fontSize: "10em" }}>
+            <h1 className="BigTitle" style={{ fontSize: "9em", top: "1em" }}>
                 DOCTOR STRANGE
             </h1>
             <div className="TextContainer">
-                <h2>
-                    Y harán todo lo posible para salvar el <strong>destino de la humanidad</strong>
-                </h2>
+                <h2>Y harán todo lo posible para salvar el futuro de la humanidad</h2>
                 <TrapezoidButton to="trailer">VER TRAILER</TrapezoidButton>
             </div>
             <div className="Background">

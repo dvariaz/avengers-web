@@ -65,12 +65,12 @@ const WakandaSection = ({ visible }) => {
     let blackPantherVariants = {
         enter: {
             x: -500,
-            y: 130,
+            y: 0,
             transition,
         },
         exit: {
             x: -500,
-            y: 200,
+            y: 150,
             transition,
         },
     };
@@ -78,12 +78,12 @@ const WakandaSection = ({ visible }) => {
     let blackWidowVariants = {
         enter: {
             x: 400,
-            y: 130,
+            y: 0,
             transition,
         },
         exit: {
             x: 400,
-            y: 200,
+            y: 160,
             transition,
         },
     };

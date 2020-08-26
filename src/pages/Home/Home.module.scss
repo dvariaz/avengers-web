@@ -7,24 +7,23 @@
     align-items: center;
     overflow: hidden;
 
-    &.Center {
-        justify-content: center;
-    }
+    justify-content: center;
 }
 
 :global(.BigTitle) {
-    margin-top: 2em;
-    margin-bottom: 2em;
+    position: absolute;
     z-index: $z-page;
     font-size: 12em;
     font-weight: bold;
     text-transform: uppercase;
     margin: 0;
+    top: 0.5em;
 }
 
 :global(.Character) {
     position: absolute;
     z-index: zPushUp($z-page, 10);
+    bottom: 0;
 }
 
 :global(.Background) {
@@ -54,11 +53,20 @@
         margin-top: 0;
     }
 
-    h2 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         letter-spacing: 3px;
-        font-size: 2em;
         font-weight: lighter;
         z-index: zPushUp($z-page, 11);
+        text-transform: uppercase;
+    }
+
+    h2 {
+        font-size: 2em;
     }
 }
 
