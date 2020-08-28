@@ -4,7 +4,9 @@ This is a React.js learning project for improving my skills about design and web
 
 ### Screenshots
 
-Coming soon
+![Index](https://github.com/dvariaz/avengers-web/blob/develop/docs/screenshots/Index_Screenshot.PNG?raw=true)
+![Synopsis](https://github.com/dvariaz/avengers-web/blob/develop/docs/screenshots/Synopsis_Screenshot.PNG?raw=true)
+![Cast](https://github.com/dvariaz/avengers-web/blob/develop/docs/screenshots/Cast_Screenshot.PNG?raw=true)
 
 ### Implementation
 

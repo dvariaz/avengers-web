@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+import Background from "../../../../components/Background";
 import TrapezoidButton from "../../../../components/UI/TrapezoidButton/index.js";
 
 const NYSanctumSection = () => {
@@ -39,11 +40,8 @@ const NYSanctumSection = () => {
                 <h2>Y harán todo lo posible para salvar el futuro de la humanidad</h2>
                 <TrapezoidButton to="trailer">VER TRAILER</TrapezoidButton>
             </div>
-            <div className="Background">
-                <img
-                    src={`${process.env.PUBLIC_URL}/Assets/Backgrounds/NewYorkSanctum/NewYorkSanctum.jpg`}
-                />
-            </div>
+
+            <Background src="Backgrounds/NewYorkSanctum/NewYorkSanctum.jpg" />
         </section>
     );
 };

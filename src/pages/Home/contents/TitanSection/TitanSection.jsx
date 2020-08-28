@@ -59,9 +59,7 @@ const TitanSection = () => {
                 </h2>
                 <TrapezoidButton to="trailer">VER TRAILER</TrapezoidButton>
             </motion.div>
-            <div className="Background">
-                <img src={`${process.env.PUBLIC_URL}/Assets/Backgrounds/Titan/Titan.jpg`} />
-            </div>
+            <Background src="Backgrounds/Titan/Titan.jpg" />
         </section>
     );
 };

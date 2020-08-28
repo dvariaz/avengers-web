@@ -1,0 +1,92 @@
+.ProfileContent {
+    position: relative;
+    padding: 3em 0;
+    height: 100%;
+}
+
+.Nav {
+    display: flex;
+    align-items: center;
+    height: 4em;
+
+    a {
+        color: white;
+        padding: 0 1em;
+        margin: 0 1em;
+        height: 100%;
+        line-height: 4em;
+    }
+
+    &:before {
+        content: "";
+        background: white;
+        width: 350px;
+        height: 1px;
+        margin-right: 2em;
+
+        animation: line-enter 0.7s ease;
+
+        @keyframes line-enter {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 300px;
+            }
+        }
+    }
+}
+
+.Score {
+    height: 100%;
+    width: 350px;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .Number {
+        text-align: center;
+        width: 100%;
+        font-size: 8em;
+        font-weight: 800;
+        margin: 0;
+    }
+
+    .BackgroundNumber {
+        position: absolute;
+        font-weight: 800;
+        right: 0;
+        opacity: 0.1;
+        pointer-events: none;
+        writing-mode: vertical-lr;
+        font-size: 25em;
+        height: 100%;
+        text-align: center;
+    }
+
+    .Stars {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+.Role {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 1.5em 2em;
+    text-align: right;
+
+    span {
+        font-weight: 600;
+    }
+
+    p {
+        margin: 0;
+    }
+}

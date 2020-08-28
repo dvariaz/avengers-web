@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 import styles from "./WakandaSection.module.scss";
 
+import Background from "../../../../components/Background";
 import TrapezoidButton from "../../../../components/UI/TrapezoidButton/index.js";
 
 const WakandaSection = ({ visible }) => {
@@ -131,9 +132,7 @@ const WakandaSection = ({ visible }) => {
                 </motion.div>
             </motion.div>
 
-            <div className="Background">
-                <img src={`${process.env.PUBLIC_URL}/Assets/Backgrounds/Wakanda/Wakanda.jpg`} />
-            </div>
+            <Background src="Backgrounds/Wakanda/Wakanda.jpg" />
         </section>
     );
 };

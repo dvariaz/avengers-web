@@ -13,6 +13,7 @@ const KnowhereSection = () => {
                 </h2>
                 <TrapezoidButton to="trailer">VER TRAILER</TrapezoidButton>
             </div>
+
             <Background src="Backgrounds/Knowhere/Knowhere.jpg" />
         </section>
     );

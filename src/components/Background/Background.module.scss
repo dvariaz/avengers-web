@@ -1,0 +1,11 @@
+@import "../../settings/layers.scss";
+
+.Background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: zPushDown($z-background, 50);
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
