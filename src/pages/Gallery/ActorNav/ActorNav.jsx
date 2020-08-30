@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { transparentize } from "polished";
 
 import styles from "./ActorNav.module.scss";
@@ -49,16 +49,24 @@ const ActorNav = ({ index, name, color }) => {
             </nav>
             <ActorRibbon index={index} name={name} color={color.gradient} />
 
-            <a href="#" className={styles.ArrowLeft} style={{ background: color.gradient }}>
+            <Link
+                to="scarlettjohansson"
+                className={styles.ArrowLeft}
+                style={{ background: color.gradient }}
+            >
                 <img
                     src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
                 />
-            </a>
-            <a href="#" className={styles.ArrowRight} style={{ background: color.gradient }}>
+            </Link>
+            <Link
+                to="joshbrolin"
+                className={styles.ArrowRight}
+                style={{ background: color.gradient }}
+            >
                 <img
                     src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
                 />
-            </a>
+            </Link>
         </>
     );
 };

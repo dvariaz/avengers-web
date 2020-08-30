@@ -93,6 +93,7 @@
     @extend %titleFont;
     font-size: 5em;
     height: 100%;
+    left: $barSize;
 
     .Text {
         position: absolute;
@@ -118,5 +119,7 @@
     .Rectangle {
         position: absolute;
         z-index: -1;
+        bottom: 0;
+        width: 300px;
     }
 }

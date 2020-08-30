@@ -20,18 +20,17 @@
     &:before {
         content: "";
         background: white;
-        width: 350px;
-        height: 1px;
+        height: 2px;
         margin-right: 2em;
 
-        animation: line-enter 0.7s ease;
+        animation: line-enter 0.7s ease forwards;
 
         @keyframes line-enter {
             0% {
                 width: 0;
             }
             100% {
-                width: 300px;
+                width: 350px;
             }
         }
     }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 
 import Background from "../../components/Background";
@@ -15,11 +16,12 @@ const GalleryPage = () => {
     useEffect(() => {
         const [data] = cast.filter((member) => member.id === actor);
         setMemberData(data);
-    }, []);
+    }, [actor]);
 
     if (memberData) {
         return (
             <div className="Container Respect-TopBar Respect-AllBars">
+                {/* <motion.div initial="hidden" animate="visible" variants={variants}> */}
                 <ActorNav index={"05"} name={memberData.name} color={memberData.color} />
                 <ActorProfile
                     name={memberData.name}
@@ -27,6 +29,7 @@ const GalleryPage = () => {
                     role={memberData.role}
                 />
                 <Background src={memberData.background} />
+                {/* </motion.div> */}
             </div>
         );
     } else {
