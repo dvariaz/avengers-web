@@ -1,4 +1,22 @@
+@import "./../../settings/global.scss";
 @import "./../../settings/layers.scss";
+
+:global(.PageContent) {
+    padding: 3em 5em;
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    @extend %titleFont;
+
+    &.Right {
+        margin: 0 0 auto 0;
+    }
+
+    &.Left {
+        margin: 0 0 0 auto;
+    }
+}
 
 :global(.SlideContent) {
     display: flex;

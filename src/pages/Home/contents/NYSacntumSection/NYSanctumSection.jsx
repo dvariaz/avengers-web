@@ -31,7 +31,7 @@ const NYSanctumSection = () => {
                 initial="exit"
                 animate="enter"
                 variants={drStrangeVariants}
-                src={`${process.env.PUBLIC_URL}/Assets/Backgrounds/NewYorkSanctum/DoctorStrange.png`}
+                src={`${process.env.PUBLIC_URL}/assets/Backgrounds/NewYorkSanctum/DoctorStrange.png`}
             />
             <h1 className="BigTitle" style={{ fontSize: "9em", top: "1em" }}>
                 DOCTOR STRANGE

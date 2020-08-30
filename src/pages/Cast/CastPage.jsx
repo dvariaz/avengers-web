@@ -1,11 +1,9 @@
 import React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 
-import "./Cast.scss";
-
 import { useCharacters } from "./../../context/characters.context";
 
-import CastNav from "./../../components/UI/CastNav";
+import CastNav from "./CastNav";
 
 //Páginas
 import Character from "./Character";
@@ -15,7 +13,9 @@ const CastPage = () => {
     let characters = useCharacters();
 
     return (
-        <div className="Container Respect-TopBar Respect-SideBars Respect-CastNav Layout-Horizontal">
+        <div
+            className={`Container Respect-TopBar Respect-SideBars Respect-CastNav Layout-Horizontal`}
+        >
             <CastNav items={characters} />
 
             <Switch>

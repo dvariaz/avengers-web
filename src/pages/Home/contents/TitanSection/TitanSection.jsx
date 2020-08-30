@@ -42,7 +42,7 @@ const TitanSection = () => {
                 initial="exit"
                 animate="enter"
                 variants={thanosVariants}
-                src={`${process.env.PUBLIC_URL}/Assets/Backgrounds/Titan/Thanos.png`}
+                src={`${process.env.PUBLIC_URL}/assets/Backgrounds/Titan/Thanos.png`}
             />
             <h1 className="BigTitle" style={{ fontSize: "14em", top: "0.25em" }}>
                 THANOS

@@ -13,7 +13,7 @@ const Background = ({ src, blur }) => {
     return (
         <StyledBackground
             className={styles.Background}
-            src={`${process.env.PUBLIC_URL}/Assets/${src}`}
+            src={`${process.env.PUBLIC_URL}/assets/${src}`}
             blur={blurProp}
         />
     );

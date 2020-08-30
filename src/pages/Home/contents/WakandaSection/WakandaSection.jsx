@@ -96,21 +96,21 @@ const WakandaSection = ({ visible }) => {
                 initial="exit"
                 animate="enter"
                 variants={captainAmericaVariants}
-                src={`${process.env.PUBLIC_URL}/Assets/Backgrounds/Wakanda/CaptainAmerica.png`}
+                src={`${process.env.PUBLIC_URL}/assets/Backgrounds/Wakanda/CaptainAmerica.png`}
             />
             <motion.img
                 className="Character"
                 initial="exit"
                 animate="enter"
                 variants={blackWidowVariants}
-                src={`${process.env.PUBLIC_URL}/Assets/Backgrounds/Wakanda/BlackWidow.png`}
+                src={`${process.env.PUBLIC_URL}/assets/Backgrounds/Wakanda/BlackWidow.png`}
             />
             <motion.img
                 className="Character"
                 initial="exit"
                 animate="enter"
                 variants={blackPantherVariants}
-                src={`${process.env.PUBLIC_URL}/Assets/Backgrounds/Wakanda/BlackPanther.png`}
+                src={`${process.env.PUBLIC_URL}/assets/Backgrounds/Wakanda/BlackPanther.png`}
             />
             <motion.h1 className="BigTitle" initial="exit" animate="enter" variants={titleVariants}>
                 INFINITY WAR
