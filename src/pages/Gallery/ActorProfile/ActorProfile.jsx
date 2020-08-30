@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./ActorProfile.module.scss";
 
-const ActorProfile = ({ name, score, role, background }) => {
+const ActorProfile = ({ name, score, role }) => {
     return (
         <section className={`PageContent ${styles.ProfileContent}`}>
             <nav className={styles.Nav}>

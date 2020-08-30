@@ -16,11 +16,17 @@ const Background = ({ src, blur }) => {
             scale: 1,
             opacity: 1,
             filter: "blur(0px)",
+            transition: {
+                duration: 1,
+            },
         },
         hidden: {
             scale: 1.15,
             opacity: 0,
-            filter: "blur(15px)",
+            filter: "blur(30px)",
+            transition: {
+                duration: 1,
+            },
         },
     };
 
