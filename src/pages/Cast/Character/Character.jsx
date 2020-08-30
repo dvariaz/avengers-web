@@ -34,7 +34,7 @@ const Character = ({ name, description, background, photo, position, color }) =>
 
     return (
         <>
-            <div className={`${styles.Content} Respect-Image ${titleize(position)}`}>
+            <div className={`${styles.Content} Respect-Image ${styles[titleize(position)]}`}>
                 <Title className={styles.Title} color={color}>
                     {name}
                 </Title>
