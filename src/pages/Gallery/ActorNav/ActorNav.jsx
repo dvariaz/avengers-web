@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { transparentize } from "polished";
 
 import styles from "./ActorNav.module.scss";
 import ActorRibbon from "./ActorRibbon";
@@ -30,7 +31,10 @@ const ActorNav = ({ index, name, color }) => {
                         href={`https://www.google.com/search?q=${slug}`}
                         target="_blank"
                         className={styles.RoundedButton}
-                        style={{ background: color.gradient, color: color.flat }}
+                        style={{
+                            background: color.gradient,
+                            color: transparentize(0.3, color.flat),
+                        }}
                     >
                         <img
                             src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/Search-Icon.svg`}

@@ -7,21 +7,65 @@ import { barSize } from "../../../settings/global";
 
 //TODO: Buscar un patron en las formas para poder crear el componente
 const ActorRibbon = ({ index, name, color }) => {
-    const variants = {
+    const transition = {
+        duration: 1,
+        type: "tween",
+    };
+
+    const ribbonVariants = {
         visible: {
-            opacity: 1,
+            transition: {
+                when: "afterChildren",
+            },
         },
         hidden: {
-            opacity: 0,
+            transition: {
+                when: "afterChildren",
+            },
         },
     };
 
     const rectangleVariants = {
         visible: {
             top: 0,
+            transition: { ...transition, when: "beforeChildren" },
         },
         hidden: {
             top: "none",
+            transition: { ...transition, when: "beforeChildren" },
+        },
+    };
+
+    const textVariants = {
+        visible: {
+            x: 0,
+            transition: {
+                duration: 0.5,
+                type: "tween",
+            },
+        },
+        hidden: {
+            x: -100,
+            transition: {
+                duration: 0.5,
+                type: "tween",
+            },
+        },
+    };
+
+    const containerVariants = {
+        visible: {
+            width: "auto",
+            transition: {
+                staggerChildren: 0.15,
+                duration: 0.8,
+            },
+        },
+        hidden: {
+            width: 0,
+            transition: {
+                duration: 0.8,
+            },
         },
     };
 
@@ -29,12 +73,18 @@ const ActorRibbon = ({ index, name, color }) => {
         <motion.div
             initial="hidden"
             animate="visible"
-            variants={variants}
+            variants={ribbonVariants}
             className={styles.Ribbon}
             style={{ left: barSize }}
         >
-            <div className={styles.Index}>{index}</div>
-            <div className={styles.Name}>{name}</div>
+            <motion.div variants={containerVariants} className={styles.Text}>
+                <motion.h1 variants={textVariants} className={styles.Index}>
+                    {index}
+                </motion.h1>
+                <motion.h1 variants={textVariants} className={styles.Name}>
+                    {name}
+                </motion.h1>
+            </motion.div>
             <motion.div
                 variants={rectangleVariants}
                 className={styles.Rectangle}
