@@ -1,20 +1,18 @@
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 import styles from "./ActorNav.module.scss";
-
-import { barSize } from "../../../settings/global";
 
 const ActorRibbon = ({ index, name, color }) => {
     const ribbonVariants = {
         visible: {
             transition: {
-                when: "afterChildren",
+                when: "beforeChildren",
             },
         },
         hidden: {
             transition: {
-                when: "afterChildren",
+                when: "beforeChildren",
             },
         },
     };
@@ -25,8 +23,8 @@ const ActorRibbon = ({ index, name, color }) => {
             transition: { duration: 1, type: "tween", when: "beforeChildren" },
         },
         hidden: {
-            top: "none",
-            transition: { duration: 1, type: "tween", when: "beforeChildren" },
+            top: "100%",
+            transition: { duration: 0.6, type: "tween", when: "beforeChildren" },
         },
     };
 
@@ -58,7 +56,7 @@ const ActorRibbon = ({ index, name, color }) => {
         hidden: {
             width: 0,
             transition: {
-                duration: 0.8,
+                duration: 0.6,
             },
         },
     };

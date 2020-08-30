@@ -20,7 +20,7 @@ const CastPage = () => {
 
             <Switch>
                 {characters.map((character) => (
-                    <Route key={character.id} path={`${path}/${character.slug}`}>
+                    <Route key={character.id} exact path={`${path}/${character.slug}`}>
                         <Character
                             name={character.name}
                             description={character.description}

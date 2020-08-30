@@ -5,7 +5,7 @@ import { transparentize } from "polished";
 import styles from "./ActorNav.module.scss";
 import ActorRibbon from "./ActorRibbon";
 
-const ActorNav = ({ index, name, color }) => {
+const ActorNav = ({ index, name, color, before, after }) => {
     const location = useLocation();
 
     const slug = name.replace(" ", "+");
@@ -49,20 +49,12 @@ const ActorNav = ({ index, name, color }) => {
             </nav>
             <ActorRibbon index={index} name={name} color={color.gradient} />
 
-            <Link
-                to="scarlettjohansson"
-                className={styles.ArrowLeft}
-                style={{ background: color.gradient }}
-            >
+            <Link to={before} className={styles.ArrowLeft} style={{ background: color.gradient }}>
                 <img
                     src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
                 />
             </Link>
-            <Link
-                to="joshbrolin"
-                className={styles.ArrowRight}
-                style={{ background: color.gradient }}
-            >
+            <Link to={after} className={styles.ArrowRight} style={{ background: color.gradient }}>
                 <img
                     src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
                 />
