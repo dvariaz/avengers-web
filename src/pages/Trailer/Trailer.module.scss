@@ -1,0 +1,17 @@
+@import "../../settings/global.scss";
+
+.VideoPlayer {
+    iframe {
+        display: flex;
+        width: 100%;
+        height: calc(100vh - #{$barSize});
+        padding: 0 $barSize;
+        transition: padding 0.25s ease;
+    }
+
+    &.Closed {
+        iframe {
+            padding: 10em;
+        }
+    }
+}
