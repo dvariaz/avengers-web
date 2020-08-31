@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { transparentize } from "polished";
+
+import { NavigationContext } from "../NavigationContext";
 
 import styles from "./ActorNav.module.scss";
 import ActorRibbon from "./ActorRibbon";
 
-const ActorNav = ({ index, name, color, before, after }) => {
+const ActorNav = ({ index, name, color }) => {
     const location = useLocation();
+
+    const { dispatch } = useContext(NavigationContext);
 
     const slug = name.replace(" ", "+");
 
@@ -20,6 +24,14 @@ const ActorNav = ({ index, name, color, before, after }) => {
         } catch (err) {
             console.log("Error al compartir de forma nativa");
         }
+    };
+
+    const goBackward = () => {
+        dispatch({ type: "GO_BACKWARD" });
+    };
+
+    const goForward = () => {
+        dispatch({ type: "GO_FORWARD" });
     };
 
     return (
@@ -49,16 +61,24 @@ const ActorNav = ({ index, name, color, before, after }) => {
             </nav>
             <ActorRibbon index={index} name={name} color={color.gradient} />
 
-            <Link to={before} className={styles.ArrowLeft} style={{ background: color.gradient }}>
+            <button
+                onClick={goBackward}
+                className={styles.ArrowLeft}
+                style={{ background: color.gradient }}
+            >
                 <img
                     src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
                 />
-            </Link>
-            <Link to={after} className={styles.ArrowRight} style={{ background: color.gradient }}>
+            </button>
+            <button
+                onClick={goForward}
+                className={styles.ArrowRight}
+                style={{ background: color.gradient }}
+            >
                 <img
                     src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
                 />
-            </Link>
+            </button>
         </>
     );
 };

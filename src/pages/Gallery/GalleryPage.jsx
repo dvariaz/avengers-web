@@ -1,17 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { AnimatePresence } from "framer-motion";
-import { useParams, Switch, Route, useLocation } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
+
+import { NavigationContext } from "./NavigationContext";
 
 import Background from "../../components/Background";
 import ActorProfile from "./ActorProfile";
 import ActorNav from "./ActorNav";
 
 // import styles from './Gallery.module.scss';
-import cast from "../../context/default/cast";
 
 const GalleryPage = () => {
     const location = useLocation();
     const [isLoading, setLoadingStatus] = useState(true);
+
+    const { state } = useContext(NavigationContext);
 
     useEffect(() => {
         setLoadingStatus(false);
@@ -22,14 +25,12 @@ const GalleryPage = () => {
             <div className="Container Respect-TopBar Respect-AllBars">
                 <AnimatePresence exitBeforeEnter>
                     <Switch location={location} key={location.pathname}>
-                        {cast.map((actor, index) => (
+                        {state.cast.map((actor, index) => (
                             <Route key={index} path={`/galeria/${actor.id}`}>
                                 <ActorNav
-                                    index={"05"}
+                                    index={`${index + 1}`.padStart(2, "0")}
                                     name={actor.name}
                                     color={actor.color}
-                                    before="joshbrolin"
-                                    after="chrisevans"
                                 />
                                 <ActorProfile
                                     name={actor.name}

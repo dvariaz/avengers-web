@@ -16,6 +16,7 @@ const ActorProfile = ({ name, score, role }) => {
         visible: {
             x: 0,
             transition: {
+                staggerChildren: 0.3,
                 duration: 0.7,
                 type: "tween",
             },
@@ -23,8 +24,28 @@ const ActorProfile = ({ name, score, role }) => {
         hidden: {
             x: -800,
             transition: {
+                staggerChildren: 0.3,
                 duration: 0.7,
                 type: "tween",
+            },
+        },
+    };
+
+    const linkVariants = {
+        visible: {
+            x: 0,
+            opacity: 1,
+            transition: {
+                type: "spring",
+                delay: 0.6,
+            },
+        },
+        hidden: {
+            x: -10,
+            opacity: 0,
+            transition: {
+                type: "spring",
+                delay: 0.6,
             },
         },
     };
@@ -65,9 +86,15 @@ const ActorProfile = ({ name, score, role }) => {
                 variants={navVariants}
                 className={styles.Nav}
             >
-                <a href="#wallpaper">Wallpaper</a>
-                <a href="#social">Social</a>
-                <a href="#photos">Photos</a>
+                <motion.a exit="hidden" variants={linkVariants} href="#wallpaper">
+                    Wallpaper
+                </motion.a>
+                <motion.a exit="hidden" variants={linkVariants} href="#social">
+                    Social
+                </motion.a>
+                <motion.a exit="hidden" variants={linkVariants} href="#photos">
+                    Photos
+                </motion.a>
             </motion.nav>
             <div className={styles.Score}>
                 <div className={styles.Number}>{counter.toFixed(1)}</div>
