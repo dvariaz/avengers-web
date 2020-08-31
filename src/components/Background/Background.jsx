@@ -17,7 +17,7 @@ const Background = ({ src, blur }) => {
             opacity: 1,
             filter: "blur(0px)",
             transition: {
-                duration: 1,
+                duration: 0.5,
             },
         },
         hidden: {
@@ -25,7 +25,7 @@ const Background = ({ src, blur }) => {
             opacity: 0,
             filter: "blur(30px)",
             transition: {
-                duration: 1,
+                duration: 0.5,
             },
         },
     };
