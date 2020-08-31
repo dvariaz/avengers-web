@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { useParams, Switch, Route, useLocation } from "react-router-dom";
 
 import Background from "../../components/Background";
