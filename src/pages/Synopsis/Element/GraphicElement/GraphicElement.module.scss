@@ -35,8 +35,6 @@
 }
 
 .Effect {
-    z-index: zPushDown($z-page, 15);
-
     animation-name: element-effect-enter;
     animation-timing-function: ease-out;
     animation-duration: 1s;

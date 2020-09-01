@@ -1,9 +1,9 @@
 import React from "react";
 import SynopsisPage from "./SynopsisPage";
-import { ElementsProvider } from "./../../context/elements.context";
+import { NavigationContextProvider } from "./NavigationContext";
 
 export default () => (
-  <ElementsProvider>
-    <SynopsisPage />
-  </ElementsProvider>
+    <NavigationContextProvider>
+        <SynopsisPage />
+    </NavigationContextProvider>
 );

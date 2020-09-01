@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Delay from "react-delay";
 
 import styles from "./Element.module.scss";
@@ -6,8 +6,15 @@ import styles from "./Element.module.scss";
 import Background from "../../../components/Background";
 import DataPanel from "./DataPanel";
 import GraphicElement from "./GraphicElement";
+import { NavigationContext } from "../NavigationContext";
 
-const Element = ({ name, synopsis, history, color, background, image, effect, size }) => {
+const Element = ({ id, name, synopsis, history, color, background, image, effect, size }) => {
+    const { dispatch } = useContext(NavigationContext);
+
+    useEffect(() => {
+        dispatch({ type: "SET_INDEX", payload: { id } });
+    }, []);
+
     const splitWord = (word) => {
         let letters = Array.from(word[0]);
         let zinfo = word[1];

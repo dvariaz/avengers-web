@@ -1,14 +1,14 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 
 //Styles
-import "./SynopsisNav.scss";
+import styles from "./SynopsisNav.module.scss";
 
-import { useElements } from "./../../../context/elements.context";
+import { NavigationContext } from "../NavigationContext";
+import SynopsisLink from "./SynopsisLink";
 
 const SynopsisNav = () => {
-    let elements = useElements();
+    const { state, dispatch } = useContext(NavigationContext);
 
     const variants = {
         hidden: {
@@ -21,6 +21,14 @@ const SynopsisNav = () => {
         },
     };
 
+    const goBackward = () => {
+        dispatch({ type: "GO_BACKWARD" });
+    };
+
+    const goForward = () => {
+        dispatch({ type: "GO_FORWARD" });
+    };
+
     return (
         <motion.div
             initial="hidden"
@@ -28,31 +36,31 @@ const SynopsisNav = () => {
             exit="hidden"
             transition={{ type: "tween" }}
             variants={variants}
-            className="SynopsisNav"
+            className={styles.SynopsisNav}
         >
-            <a href="#" className="SynopsisNav-Controller">
+            <button onClick={goBackward} className={styles.Controller}>
                 <img
                     src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
                     alt="Anterior sección"
                 />
-            </a>
-            <div className="items">
-                {elements.map((element) => (
-                    <NavLink
-                        key={element.id}
-                        to={`/sinopsis/${element.slug}`}
-                        activeStyle={{ background: element.color.gradient }}
-                    >
-                        {element.name[0]}
-                    </NavLink>
+            </button>
+            <div className={styles.items}>
+                {state.elements.map((element, index) => (
+                    <SynopsisLink
+                        key={index}
+                        id={element.id}
+                        index={index}
+                        name={element.name[0]}
+                        color={element.color}
+                    />
                 ))}
             </div>
-            <a href="#" className="SynopsisNav-Controller">
+            <button onClick={goForward} className={styles.Controller}>
                 <img
                     src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
                     alt="Siguiente sección"
                 />
-            </a>
+            </button>
         </motion.div>
     );
 };

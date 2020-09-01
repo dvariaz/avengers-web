@@ -16,7 +16,7 @@ const GraphicElement = ({ image, effect, color, size }) => {
             <img
                 className={styles.Element}
                 src={`${process.env.PUBLIC_URL}/assets/${image}`}
-                style={{ height: size === "small" ? "50%" : "60%" }}
+                style={{ height: size === "small" ? "40%" : "60%" }}
             />
         </div>
     );

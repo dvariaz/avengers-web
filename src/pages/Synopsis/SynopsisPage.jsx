@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Switch, Route, useRouteMatch, useLocation } from "react-router-dom";
 
-import { useElements } from "./../../context/elements.context";
+import { NavigationContext } from "./NavigationContext";
 
 import Element from "./Element";
 import SynopsisNav from "./SynopsisNav";
@@ -10,7 +10,7 @@ import SynopsisNav from "./SynopsisNav";
 const SynopsisPage = () => {
     const location = useLocation();
     const { path } = useRouteMatch();
-    const elements = useElements();
+    const { state, dispatch } = useContext(NavigationContext);
 
     return (
         <div className="Container Respect-AllBars">
@@ -18,9 +18,10 @@ const SynopsisPage = () => {
 
             <AnimatePresence exitBeforeEnter>
                 <Switch location={location} key={location.pathname}>
-                    {elements.map((element) => (
-                        <Route key={element.id} path={`${path}/${element.slug}`}>
+                    {state.elements.map((element, index) => (
+                        <Route key={index} path={`${path}/${element.id}`}>
                             <Element
+                                id={element.id}
                                 name={element.name}
                                 synopsis={element.synopsis}
                                 history={element.history}

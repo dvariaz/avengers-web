@@ -1,10 +1,26 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext } from "react";
 
-const SynopsisLink = ({to, color, children}) => (
-    <>
-        <NavLink to={to} >{children}</NavLink>
-    </>
-);
+import { NavigationContext } from "../NavigationContext";
+
+const SynopsisLink = ({ id, index, name, color }) => {
+    const { state, dispatch } = useContext(NavigationContext);
+
+    const goToElement = () => {
+        dispatch({ type: "SET_INDEX", payload: { id } });
+    };
+
+    return (
+        <>
+            <button
+                onClick={goToElement}
+                style={{
+                    background: state.current === index ? color.gradient : "transparent",
+                }}
+            >
+                {name}
+            </button>
+        </>
+    );
+};
 
 export default SynopsisLink;
