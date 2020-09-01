@@ -1,85 +1,91 @@
 @import "./../../../../../settings/layers.scss";
+@import "./../../../../../settings/breakpoints.scss";
 
 #ElementIndicator {
-  position: absolute;
-  margin: auto;
-  z-index: zPushDown($z-page, 15);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 500px;
-  height: 500px;
+    position: absolute;
+    margin: auto;
+    z-index: zPushDown($z-page, 15);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 500px;
+    height: 500px;
 
-  #Circle_Inner,
-  #Circle_Outer {
-    transform-origin: center;
-    animation-name: circle-enter, infinite-rotation;
-    animation-timing-function: ease-in, ease-in-out;
-    animation-direction: normal, alternate-reverse;
-    animation-fill-mode: both, none;
-    animation-iteration-count: 1, infinite;
-    animation-delay: 1.5s, 1s;
-    animation-duration: 0.25s, 1s;
-  }
+    @include respond(laptop) {
+        width: 300px;
+        height: 300px;
+    }
 
-  @keyframes circle-enter {
-    0% {
-      opacity: 0;
+    #Circle_Inner,
+    #Circle_Outer {
+        transform-origin: center;
+        animation-name: circle-enter, infinite-rotation;
+        animation-timing-function: ease-in, ease-in-out;
+        animation-direction: normal, alternate-reverse;
+        animation-fill-mode: both, none;
+        animation-iteration-count: 1, infinite;
+        animation-delay: 1.5s, 1s;
+        animation-duration: 0.25s, 1s;
     }
-    100% {
-      opacity: 1;
-    }
-  }
 
-  @keyframes infinite-rotation {
-    0% {
-      transform: rotate(0deg);
+    @keyframes circle-enter {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
     }
-    100% {
-      transform: rotate(45deg);
-    }
-  }
 
-  #Line_Left,
-  #Line_Right {
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: both;
-    animation-duration: 1s;
-    animation-delay: 0.5s;
-  }
+    @keyframes infinite-rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(45deg);
+        }
+    }
 
-  #Line_Left {
-    animation-name: line-enter-left;
-  }
+    #Line_Left,
+    #Line_Right {
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: both;
+        animation-duration: 1s;
+        animation-delay: 0.5s;
+    }
 
-  #Line_Right {
-    animation-name: line-enter-right;
-  }
+    #Line_Left {
+        animation-name: line-enter-left;
+    }
 
-  @keyframes line-enter-left {
-    0% {
-      opacity: 0;
-      transform: translate(500px, -500px);
+    #Line_Right {
+        animation-name: line-enter-right;
     }
-    25% {
-      opacity: 1;
-    }
-    100% {
-      transform: translate(0px, 0px);
-    }
-  }
 
-  @keyframes line-enter-right {
-    0% {
-      opacity: 0;
-      transform: translate(-500px, 500px);
+    @keyframes line-enter-left {
+        0% {
+            opacity: 0;
+            transform: translate(500px, -500px);
+        }
+        25% {
+            opacity: 1;
+        }
+        100% {
+            transform: translate(0px, 0px);
+        }
     }
-    25% {
-      opacity: 1;
+
+    @keyframes line-enter-right {
+        0% {
+            opacity: 0;
+            transform: translate(-500px, 500px);
+        }
+        25% {
+            opacity: 1;
+        }
+        100% {
+            transform: translate(0px, 0px);
+        }
     }
-    100% {
-      transform: translate(0px, 0px);
-    }
-  }
 }

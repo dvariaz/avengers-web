@@ -1,10 +1,15 @@
 @import "./../../../../settings/materials.scss";
 @import "./../../../../settings/layers.scss";
 @import "./../../../../settings/fonts.scss";
+@import "./../../../../settings/breakpoints.scss";
 
 .Panel {
     overflow: hidden;
     position: absolute;
+
+    @include respond(tablet-portrait) {
+        display: none;
+    }
 
     .Content {
         @include darkGlass;
@@ -14,6 +19,10 @@
         padding: 0 2em 3em 3em;
         color: white;
         width: 500px;
+
+        @include respond(laptop) {
+            width: 450px;
+        }
 
         h1 {
             margin: 1em 0;

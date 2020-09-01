@@ -10,13 +10,13 @@ const GraphicElement = ({ image, effect, color, size }) => {
             <img
                 className={styles.Effect}
                 src={`${process.env.PUBLIC_URL}/assets/${effect}`}
-                style={{ height: size === "small" ? "250px" : "500px" }}
+                style={{ height: size === "small" ? "50%" : "75%" }}
             />
             <GraphicIndicator color={color} location={"Desconocido"} />
             <img
                 className={styles.Element}
                 src={`${process.env.PUBLIC_URL}/assets/${image}`}
-                style={{ height: size === "small" ? "400px" : "500px" }}
+                style={{ height: size === "small" ? "50%" : "60%" }}
             />
         </div>
     );
