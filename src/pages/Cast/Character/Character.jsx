@@ -99,7 +99,7 @@ const Character = ({ name, description, background, photo, position, color }) =>
                 transition={transition}
                 className={`${styles.Image} ${styles[titleize(position)]}`}
             >
-                <img src={`${process.env.PUBLIC_URL}/assets/${photo}`} />
+                <img src={`${process.env.PUBLIC_URL}/assets/${photo}`} rel="preload" />
             </motion.div>
             <Background src={background} blur="5px" />
         </>

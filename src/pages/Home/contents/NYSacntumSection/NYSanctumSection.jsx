@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+import styles from "./NYSanctumSection.module.scss";
+
 import Background from "../../../../components/Background";
 import TrapezoidButton from "../../../../components/UI/TrapezoidButton/index.js";
 
@@ -33,9 +35,7 @@ const NYSanctumSection = () => {
                 variants={drStrangeVariants}
                 src={`${process.env.PUBLIC_URL}/assets/Backgrounds/NewYorkSanctum/DoctorStrange.png`}
             />
-            <h1 className="BigTitle" style={{ fontSize: "9em", top: "1em" }}>
-                DOCTOR STRANGE
-            </h1>
+            <h1 className={styles.BigTitle}>DOCTOR STRANGE</h1>
             <div className="TextContainer">
                 <h2>Y harán todo lo posible para salvar el futuro de la humanidad</h2>
                 <TrapezoidButton to="trailer">VER TRAILER</TrapezoidButton>

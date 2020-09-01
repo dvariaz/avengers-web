@@ -1,0 +1,21 @@
+@import "../../../../settings/breakpoints.scss";
+@import "../../../../settings/layers.scss";
+
+.BigTitle {
+    position: absolute;
+    z-index: $z-page;
+    top: 0.25em;
+
+    @include respond(desktop) {
+        font-size: 14em;
+    }
+
+    @include respond(laptop) {
+        font-size: 8em;
+    }
+
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+    top: 0.5em;
+}

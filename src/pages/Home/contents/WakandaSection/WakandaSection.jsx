@@ -65,12 +65,12 @@ const WakandaSection = ({ visible }) => {
 
     let blackPantherVariants = {
         enter: {
-            x: -500,
+            x: -400,
             y: 0,
             transition,
         },
         exit: {
-            x: -500,
+            x: -400,
             y: 150,
             transition,
         },
@@ -112,7 +112,12 @@ const WakandaSection = ({ visible }) => {
                 variants={blackPantherVariants}
                 src={`${process.env.PUBLIC_URL}/assets/Backgrounds/Wakanda/BlackPanther.png`}
             />
-            <motion.h1 className="BigTitle" initial="exit" animate="enter" variants={titleVariants}>
+            <motion.h1
+                className={styles.BigTitle}
+                initial="exit"
+                animate="enter"
+                variants={titleVariants}
+            >
                 INFINITY WAR
             </motion.h1>
             <motion.div

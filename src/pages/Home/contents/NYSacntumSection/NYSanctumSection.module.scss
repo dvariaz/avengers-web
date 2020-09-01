@@ -4,14 +4,14 @@
 .BigTitle {
     position: absolute;
     z-index: $z-page;
-    top: 0.25em;
+    top: 1em;
 
     @include respond(desktop) {
-        font-size: 12em;
+        font-size: 9em;
     }
 
     @include respond(laptop) {
-        font-size: 8em;
+        font-size: 7em;
     }
 
     font-weight: bold;

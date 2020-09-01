@@ -14,14 +14,14 @@ const TitanSection = () => {
     let thanosVariants = {
         enter: {
             x: -250,
-            y: 300,
-            scale: 0.6,
+            y: 0,
+            scale: 1,
             transition,
         },
         exit: {
             x: -250,
             y: 400,
-            scale: 0.6,
+            scale: 1,
             transition,
         },
     };
@@ -44,9 +44,7 @@ const TitanSection = () => {
                 variants={thanosVariants}
                 src={`${process.env.PUBLIC_URL}/assets/Backgrounds/Titan/Thanos.png`}
             />
-            <h1 className="BigTitle" style={{ fontSize: "14em", top: "0.25em" }}>
-                THANOS
-            </h1>
+            <h1 className={styles.BigTitle}>THANOS</h1>
             <motion.div
                 className="TextContainer"
                 initial="exit"

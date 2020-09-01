@@ -1,5 +1,6 @@
 @import "./../../settings/global.scss";
 @import "./../../settings/layers.scss";
+@import "./../../settings/breakpoints.scss";
 
 :global(.PageContent) {
     padding: 3em 5em;
@@ -28,20 +29,12 @@
     justify-content: center;
 }
 
-:global(.BigTitle) {
-    position: absolute;
-    z-index: $z-page;
-    font-size: 12em;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin: 0;
-    top: 0.5em;
-}
-
 :global(.Character) {
     position: absolute;
     z-index: zPushUp($z-page, 10);
-    bottom: 0;
+    bottom: -100px;
+
+    height: 100%;
 }
 
 :global(.Background) {
@@ -63,6 +56,10 @@
 :global(.TextContainer) {
     text-align: center;
     z-index: zPushUp($z-page, 10);
+
+    @include respond(laptop) {
+        font-size: 0.8em;
+    }
 
     p {
         font-size: 1.2em;
