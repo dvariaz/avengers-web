@@ -1,13 +1,21 @@
 @import "../../../settings/global.scss";
 @import "../../../settings/layers.scss";
+@import "../../../settings/breakpoints.scss";
 
 .Content {
-    padding: 3em 5em;
+    display: flex;
+    flex-direction: column;
+    padding: 3em 5em 0;
     position: relative;
     height: 100%;
     width: 60%;
 
     @extend %titleFont;
+
+    @include respond(laptop) {
+        font-size: 0.8em;
+        padding: 2em 4em 0;
+    }
 
     &.Right {
         margin: 0 0 auto 0;
@@ -23,6 +31,10 @@
     z-index: zPushUp($z-page, 10);
     height: 100%;
     width: 700px;
+
+    @include respond(laptop) {
+        width: 500px;
+    }
 
     &.Right {
         right: 0;
@@ -58,4 +70,20 @@
     border-bottom-width: 4px;
 
     @extend %titleFont;
+
+    @include respond(laptop) {
+        margin-top: 1.5rem;
+        font-size: 6em;
+        line-height: 3rem;
+        margin-bottom: 1.8rem;
+    }
+}
+
+.Description {
+    height: 100%;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }

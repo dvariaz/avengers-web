@@ -85,11 +85,13 @@ const Character = ({ name, description, background, photo, position, color }) =>
                     {name}
                 </motion.h1>
 
-                {description.split("\n").map((item, i) => (
-                    <motion.p variants={paragraphVariants} key={i}>
-                        {item}
-                    </motion.p>
-                ))}
+                <div className={styles.Description}>
+                    {description.split("\n").map((item, i) => (
+                        <motion.p variants={paragraphVariants} key={i}>
+                            {item}
+                        </motion.p>
+                    ))}
+                </div>
             </motion.div>
             <motion.div
                 initial="hidden"
