@@ -38,11 +38,7 @@ const Background = ({ src, blur }) => {
             variants={variants}
             className={styles.Background}
         >
-            <StyledBackground
-                src={`${process.env.PUBLIC_URL}/assets/${src}`}
-                blur={blurProp}
-                rel="preload"
-            />
+            <StyledBackground src={`${process.env.PUBLIC_URL}/assets/${src}`} blur={blurProp} />
         </motion.div>
     );
 };
