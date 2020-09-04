@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { useHistory, useRouteMatch } from "react-router-dom";
 import { motion } from "framer-motion";
 
 //Styles
@@ -8,6 +9,9 @@ import { NavigationContext } from "../NavigationContext";
 import SynopsisLink from "./SynopsisLink";
 
 const SynopsisNav = () => {
+    const history = useHistory();
+    const match = useRouteMatch("/sinopsis/:element");
+
     const { state, dispatch } = useContext(NavigationContext);
 
     const variants = {
@@ -28,6 +32,17 @@ const SynopsisNav = () => {
     const goForward = () => {
         dispatch({ type: "GO_FORWARD" });
     };
+
+    //Fired when access to section by url
+    useEffect(() => {
+        let element = match.params.element;
+        dispatch({ type: "SET_INDEX", payload: { id: element } });
+    }, []);
+
+    //Fired when the current section is updated
+    useEffect(() => {
+        history.push(state.elements[state.current].id);
+    }, [state.current]);
 
     return (
         <motion.div

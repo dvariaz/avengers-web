@@ -27,8 +27,6 @@ export const NavigationContextProvider = ({ children }) => {
                     (element) => element.id === action.payload.id
                 );
 
-                history.push(state.elements[nextItem].id);
-
                 return {
                     ...state,
                     current: nextItem,
@@ -44,8 +42,6 @@ export const NavigationContextProvider = ({ children }) => {
                     nextItem = 0;
                 }
 
-                history.push(state.elements[nextItem].id);
-
                 return {
                     ...state,
                     current: nextItem,
@@ -60,8 +56,6 @@ export const NavigationContextProvider = ({ children }) => {
                 } else {
                     nextItem = state.elements.length - 1;
                 }
-
-                history.push(state.elements[nextItem].id);
 
                 return {
                     ...state,

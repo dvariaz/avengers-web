@@ -16,7 +16,7 @@ const SynopsisPage = () => {
         <div className="Container Respect-AllBars">
             <SynopsisNav />
 
-            <AnimatePresence exitBeforeEnter>
+            <AnimatePresence>
                 <Switch location={location} key={location.pathname}>
                     {state.elements.map((element, index) => (
                         <Route key={index} path={`${path}/${element.id}`}>

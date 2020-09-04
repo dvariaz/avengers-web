@@ -1,4 +1,6 @@
 import React, { useContext, useEffect } from "react";
+import { motion } from "framer-motion";
+
 import Delay from "react-delay";
 
 import styles from "./Element.module.scss";
@@ -15,16 +17,68 @@ const Element = ({ id, name, synopsis, history, color, background, image, effect
         dispatch({ type: "SET_INDEX", payload: { id } });
     }, []);
 
+    const titleVariants = {
+        visible: {
+            transition: {
+                staggerChildren: 0,
+            },
+        },
+        hidden: {
+            transition: {
+                staggerChildren: 0,
+            },
+        },
+        exit: {
+            transition: {
+                staggerChildren: 0.05,
+            },
+        },
+    };
+
     const splitWord = (word) => {
-        let letters = Array.from(word[0]);
-        let zinfo = word[1];
+        const letters = Array.from(word[0]);
+        const zinfo = word[1];
+
+        const letterVariants = {
+            visible: {
+                opacity: 1,
+                letterSpacing: "15px",
+                y: 0,
+                transition: {
+                    delay: 1,
+                    duration: 0.5,
+                    type: "tween",
+                },
+            },
+            hidden: {
+                opacity: 0,
+                letterSpacing: "-100px",
+                y: 0,
+                transition: {
+                    duration: 0.5,
+                    type: "tween",
+                },
+            },
+            exit: {
+                opacity: 0,
+                y: -100,
+                transition: {
+                    duration: 0.25,
+                    type: "tween",
+                },
+            },
+        };
 
         return (
             <>
                 {letters.map((letter, index) => (
-                    <span key={index} className={zinfo[index] === "f" ? styles.Front : styles.Back}>
+                    <motion.span
+                        variants={letterVariants}
+                        key={index}
+                        className={zinfo[index] === "f" ? styles.Front : styles.Back}
+                    >
                         {letter}
-                    </span>
+                    </motion.span>
                 ))}
             </>
         );
@@ -32,10 +86,16 @@ const Element = ({ id, name, synopsis, history, color, background, image, effect
 
     return (
         <>
-            <div className={styles.Title}>
+            <motion.div
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                variants={titleVariants}
+                className={styles.Title}
+            >
                 {splitWord(name)}
                 <GraphicElement image={image} effect={effect} size={size} color={color.flat} />
-            </div>
+            </motion.div>
 
             <Delay wait={1000}>
                 <DataPanel

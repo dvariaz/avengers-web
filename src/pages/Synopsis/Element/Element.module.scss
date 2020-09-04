@@ -16,22 +16,22 @@
 
     span {
         opacity: 0;
-        animation-name: element-title-enter;
-        animation-duration: 0.5s;
-        animation-delay: 1.25s;
-        animation-fill-mode: forwards;
+        // animation-name: element-title-enter;
+        // animation-duration: 0.5s;
+        // animation-delay: 1.25s;
+        // animation-fill-mode: forwards;
     }
 
-    @keyframes element-title-enter {
-        0% {
-            opacity: 0;
-            letter-spacing: -100px;
-        }
-        100% {
-            opacity: 1;
-            letter-spacing: 15px;
-        }
-    }
+    // @keyframes element-title-enter {
+    //     0% {
+    //         opacity: 0;
+    //         letter-spacing: -100px;
+    //     }
+    //     100% {
+    //         opacity: 1;
+    //         letter-spacing: 15px;
+    //     }
+    // }
 
     .Front {
         z-index: 100;
