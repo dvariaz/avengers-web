@@ -5,11 +5,11 @@ import styles from "./ActorProfile.module.scss";
 
 const ActorProfile = ({ name, score, role }) => {
     const [counter, setCounter] = useState(0);
-    const counterMV = useSpring(0, { stiffness: 150 });
+    const mvCounter = useSpring(0, { stiffness: 150 });
 
     useEffect(() => {
-        counterMV.set(score);
-        counterMV.onChange((latest) => setCounter(latest));
+        mvCounter.set(score);
+        mvCounter.onChange((latest) => setCounter(latest));
     }, []);
 
     const navVariants = {
@@ -37,7 +37,7 @@ const ActorProfile = ({ name, score, role }) => {
             opacity: 1,
             transition: {
                 type: "spring",
-                delay: 0.6,
+                delay: 0.5,
             },
         },
         hidden: {
@@ -45,7 +45,7 @@ const ActorProfile = ({ name, score, role }) => {
             opacity: 0,
             transition: {
                 type: "spring",
-                delay: 0.6,
+                delay: 0.5,
             },
         },
     };
@@ -59,17 +59,34 @@ const ActorProfile = ({ name, score, role }) => {
         },
     };
 
+    const scoreVariants = {
+        visible: {
+            opacity: 1,
+        },
+        hidden: {
+            opacity: 0,
+        },
+    };
+
     const renderStars = (score) => {
         const stars = [];
 
         for (let i = 1; i <= Math.ceil(score); i++) {
             if (i < score) {
                 stars.push(
-                    <img src={`${process.env.PUBLIC_URL}/assets/Icons/Score/FullStar_Icon.svg`} />
+                    <img
+                        key={i}
+                        src={`${process.env.PUBLIC_URL}/assets/Icons/Score/FullStar_Icon.svg`}
+                        alt=""
+                    />
                 );
             } else {
                 stars.push(
-                    <img src={`${process.env.PUBLIC_URL}/assets/Icons/Score/HalfStar_Icon.svg`} />
+                    <img
+                        key={i}
+                        src={`${process.env.PUBLIC_URL}/assets/Icons/Score/HalfStar_Icon.svg`}
+                        alt=""
+                    />
                 );
             }
         }
@@ -86,21 +103,27 @@ const ActorProfile = ({ name, score, role }) => {
                 variants={navVariants}
                 className={styles.Nav}
             >
-                <motion.a exit="hidden" variants={linkVariants} href="#wallpaper">
+                <motion.a variants={linkVariants} href="#wallpaper">
                     Wallpaper
                 </motion.a>
-                <motion.a exit="hidden" variants={linkVariants} href="#social">
+                <motion.a variants={linkVariants} href="#social">
                     Social
                 </motion.a>
-                <motion.a exit="hidden" variants={linkVariants} href="#photos">
+                <motion.a variants={linkVariants} href="#photos">
                     Photos
                 </motion.a>
             </motion.nav>
-            <div className={styles.Score}>
+            <motion.div
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={scoreVariants}
+                className={styles.Score}
+            >
                 <div className={styles.Number}>{counter.toFixed(1)}</div>
                 <div className={styles.BackgroundNumber}>{counter.toFixed(1)}</div>
                 <div className={styles.Stars}>{renderStars(score)}</div>
-            </div>
+            </motion.div>
             <motion.div
                 initial="hidden"
                 animate="visible"

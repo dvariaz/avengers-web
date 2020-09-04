@@ -1,7 +1,11 @@
+@import "../../../settings/global.scss";
+
 .ProfileContent {
     position: relative;
     padding: 3em 0;
     height: 100%;
+
+    @extend %titleFont;
 }
 
 .Nav {

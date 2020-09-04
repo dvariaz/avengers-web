@@ -8,7 +8,7 @@ const StyledBackground = styled.img`
     filter: ${(props) => props.blur};
 `;
 
-const Background = ({ src, blur }) => {
+const Background = ({ src, blur, transitionDuration = 0.5 }) => {
     let blurProp = `blur(${blur || "0px"})`;
 
     const variants = {
@@ -17,7 +17,7 @@ const Background = ({ src, blur }) => {
             opacity: 1,
             filter: "blur(0px)",
             transition: {
-                duration: 0.5,
+                duration: transitionDuration,
             },
         },
         hidden: {
@@ -25,7 +25,7 @@ const Background = ({ src, blur }) => {
             opacity: 0,
             filter: "blur(30px)",
             transition: {
-                duration: 0.5,
+                duration: transitionDuration,
             },
         },
     };
@@ -38,7 +38,11 @@ const Background = ({ src, blur }) => {
             variants={variants}
             className={styles.Background}
         >
-            <StyledBackground src={`${process.env.PUBLIC_URL}/assets/${src}`} blur={blurProp} />
+            <StyledBackground
+                src={`${process.env.PUBLIC_URL}/assets/${src}`}
+                blur={blurProp}
+                alt=""
+            />
         </motion.div>
     );
 };

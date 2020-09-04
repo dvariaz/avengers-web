@@ -1,47 +1,48 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AnimatePresence } from "framer-motion";
-import { Switch, Route, useLocation } from "react-router-dom";
+import { Switch, Route, useLocation, useRouteMatch } from "react-router-dom";
 
 import { NavigationContext } from "./NavigationContext";
 
-import Background from "../../components/Background";
-import ActorProfile from "./ActorProfile";
+import Actor from "./Actor";
 import ActorNav from "./ActorNav";
-
-// import styles from './Gallery.module.scss';
 
 const GalleryPage = () => {
     const location = useLocation();
+    const match = useRouteMatch("/galeria/:actor");
     const [isLoading, setLoadingStatus] = useState(true);
 
-    const { state } = useContext(NavigationContext);
+    const { state, dispatch } = useContext(NavigationContext);
 
     useEffect(() => {
+        const id = match.params.actor;
+        dispatch({ type: "SET_INDEX", payload: { id } });
         setLoadingStatus(false);
     }, []);
 
     if (!isLoading) {
         return (
-            <div className="Container Respect-TopBar Respect-AllBars">
-                <AnimatePresence exitBeforeEnter>
+            <div className="Container Respect-AllBars">
+                <AnimatePresence>
                     <Switch location={location} key={location.pathname}>
                         {state.cast.map((actor, index) => (
                             <Route key={index} path={`/galeria/${actor.id}`}>
-                                <ActorNav
+                                <Actor
                                     index={`${index + 1}`.padStart(2, "0")}
                                     name={actor.name}
-                                    color={actor.color}
-                                />
-                                <ActorProfile
-                                    name={actor.name}
                                     score={actor.score}
+                                    color={actor.color}
                                     role={actor.role}
+                                    background={actor.background}
                                 />
-                                <Background src={actor.background} />
                             </Route>
                         ))}
                     </Switch>
                 </AnimatePresence>
+                <ActorNav
+                    name={state.cast[state.current].name}
+                    color={state.cast[state.current].color}
+                />
             </div>
         );
     } else {

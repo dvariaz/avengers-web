@@ -8,6 +8,8 @@ import TitanSection from "./contents/TitanSection/TitanSection";
 import NYSanctumSection from "./contents/NYSacntumSection";
 import KnowhereSection from "./contents/KnowhereSection";
 
+//TODO: Add a IntersectionObserver and useScroll
+
 const HomePage = () => {
     return (
         <div className="Container SlidesContainer">

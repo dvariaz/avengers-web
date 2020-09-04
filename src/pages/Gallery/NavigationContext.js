@@ -1,6 +1,4 @@
 import React, { createContext, useReducer } from "react";
-import { useHistory } from "react-router-dom";
-
 import cast from "../../context/default/cast";
 
 //Estado inicial de la App
@@ -12,14 +10,22 @@ const initialState = {
 export const NavigationContext = createContext(initialState);
 
 //Actions
+const SET_INDEX = "SET_INDEX";
 const GO_FORWARD = "GO_FORWARD";
 const GO_BACKWARD = "GO_BACKWARD";
 
 export const NavigationContextProvider = ({ children }) => {
-    const history = useHistory();
-
     const [state, dispatch] = useReducer((state, action) => {
         switch (action.type) {
+            case SET_INDEX: {
+                //Establecemos un indice especifico
+                let nextItem = state.cast.findIndex((actor) => actor.id === action.payload.id);
+
+                return {
+                    ...state,
+                    current: nextItem,
+                };
+            }
             case GO_FORWARD: {
                 //Nos vamos hacia adelante
                 let nextActor;
@@ -29,8 +35,6 @@ export const NavigationContextProvider = ({ children }) => {
                 } else {
                     nextActor = 0;
                 }
-
-                history.push(state.cast[nextActor].id);
 
                 return {
                     ...state,
@@ -46,8 +50,6 @@ export const NavigationContextProvider = ({ children }) => {
                 } else {
                     nextActor = state.cast.length - 1;
                 }
-
-                history.push(state.cast[nextActor].id);
 
                 return {
                     ...state,

@@ -1,17 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import styles from "./ActorNav.module.scss";
+import styles from "./ActorRibbon.module.scss";
 
 const ActorRibbon = ({ index, name, color }) => {
     const ribbonVariants = {
         visible: {
             transition: {
+                staggerChildren: 0.15,
                 when: "beforeChildren",
             },
         },
         hidden: {
             transition: {
+                staggerChildren: 0.15,
                 when: "beforeChildren",
             },
         },
@@ -39,7 +41,7 @@ const ActorRibbon = ({ index, name, color }) => {
         hidden: {
             x: -100,
             transition: {
-                duration: 0.5,
+                duration: 0.25,
                 type: "tween",
             },
         },
@@ -56,7 +58,7 @@ const ActorRibbon = ({ index, name, color }) => {
         hidden: {
             width: 0,
             transition: {
-                duration: 0.6,
+                duration: 0.25,
             },
         },
     };
@@ -69,15 +71,36 @@ const ActorRibbon = ({ index, name, color }) => {
             variants={ribbonVariants}
             className={styles.Ribbon}
         >
-            <motion.div variants={dataVariants} className={styles.Text}>
-                <motion.h1 variants={textVariants} className={styles.Index}>
+            <motion.div
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={dataVariants}
+                className={styles.Text}
+            >
+                <motion.h1
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={textVariants}
+                    className={styles.Index}
+                >
                     {index}
                 </motion.h1>
-                <motion.h1 variants={textVariants} className={styles.Name}>
+                <motion.h1
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={textVariants}
+                    className={styles.Name}
+                >
                     {name}
                 </motion.h1>
             </motion.div>
             <motion.div
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
                 variants={rectangleVariants}
                 className={styles.Rectangle}
                 style={{ background: color }}

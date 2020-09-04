@@ -10,7 +10,7 @@ import SynopsisNav from "./SynopsisNav";
 const SynopsisPage = () => {
     const location = useLocation();
     const { path } = useRouteMatch();
-    const { state, dispatch } = useContext(NavigationContext);
+    const { state } = useContext(NavigationContext);
 
     return (
         <div className="Container Respect-AllBars">

@@ -11,10 +11,6 @@ const WakandaSection = ({ visible }) => {
         duration: 0.8,
     };
 
-    let childTransition = {
-        duration: 0.6,
-    };
-
     let titleVariants = {
         enter: {
             y: 0,

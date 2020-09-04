@@ -1,5 +1,4 @@
 import React, { createContext, useReducer } from "react";
-import { useHistory } from "react-router-dom";
 
 import elements from "../../context/default/elements";
 
@@ -17,8 +16,6 @@ const GO_FORWARD = "GO_FORWARD";
 const GO_BACKWARD = "GO_BACKWARD";
 
 export const NavigationContextProvider = ({ children }) => {
-    const history = useHistory();
-
     const [state, dispatch] = useReducer((state, action) => {
         switch (action.type) {
             case SET_INDEX: {

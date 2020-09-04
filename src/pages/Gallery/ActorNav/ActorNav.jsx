@@ -1,16 +1,17 @@
-import React, { useContext } from "react";
-import { useLocation, Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { useLocation, useHistory, useRouteMatch } from "react-router-dom";
 import { transparentize } from "polished";
 
 import { NavigationContext } from "../NavigationContext";
 
 import styles from "./ActorNav.module.scss";
-import ActorRibbon from "./ActorRibbon";
 
-const ActorNav = ({ index, name, color }) => {
+const ActorNav = ({ name, color }) => {
     const location = useLocation();
+    const history = useHistory();
+    const match = useRouteMatch("/galeria/:actor");
 
-    const { dispatch } = useContext(NavigationContext);
+    const { state, dispatch } = useContext(NavigationContext);
 
     const slug = name.replace(" ", "+");
 
@@ -34,6 +35,15 @@ const ActorNav = ({ index, name, color }) => {
         dispatch({ type: "GO_FORWARD" });
     };
 
+    useEffect(() => {
+        const id = match.params.actor;
+        dispatch({ type: "SET_INDEX", payload: { id } });
+    }, []);
+
+    useEffect(() => {
+        history.push(state.cast[state.current].id);
+    }, [state.current]);
+
     return (
         <>
             <nav className={styles.ActorNav}>
@@ -42,6 +52,7 @@ const ActorNav = ({ index, name, color }) => {
                     <a
                         href={`https://www.google.com/search?q=${slug}`}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className={styles.RoundedButton}
                         style={{
                             background: color.gradient,
@@ -50,16 +61,17 @@ const ActorNav = ({ index, name, color }) => {
                     >
                         <img
                             src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/Search-Icon.svg`}
+                            alt="Buscar en Google"
                         />
                     </a>
                     <button className={styles.RoundedButton} onClick={handleClick}>
                         <img
                             src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/Share-Icon.svg`}
+                            alt="Compartir actor"
                         />
                     </button>
                 </div>
             </nav>
-            <ActorRibbon index={index} name={name} color={color.gradient} />
 
             <button
                 onClick={goBackward}
@@ -68,6 +80,7 @@ const ActorNav = ({ index, name, color }) => {
             >
                 <img
                     src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
+                    alt="Atrás"
                 />
             </button>
             <button
@@ -77,6 +90,7 @@ const ActorNav = ({ index, name, color }) => {
             >
                 <img
                     src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
+                    alt="Adelante"
                 />
             </button>
         </>

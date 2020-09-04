@@ -10,6 +10,7 @@ const Preloader = ({ progress }) => {
                 <img
                     src={`${process.env.PUBLIC_URL}/assets/Icons/Avengers-Logo.svg`}
                     className={styles.Logo}
+                    alt=""
                 />
                 <div style={{ width: `${progress * 100}%` }} className={styles.ProgressBar}></div>
             </div>
