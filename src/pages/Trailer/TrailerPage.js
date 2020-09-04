@@ -6,8 +6,6 @@ import styles from "./Trailer.module.scss";
 
 import Background from "./../../components/Background";
 
-//TODO: El video debe ser responsive
-
 const TrailerPage = () => {
     const [isExpanded, setIsExpanded] = useState(false);
 

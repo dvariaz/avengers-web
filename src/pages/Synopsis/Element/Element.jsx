@@ -1,8 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { motion } from "framer-motion";
 
-import Delay from "react-delay";
-
 import styles from "./Element.module.scss";
 
 import Background from "../../../components/Background";
@@ -84,6 +82,8 @@ const Element = ({ id, name, synopsis, history, color, background, image, effect
         );
     };
 
+    //TODO: Romper el delay al cambiar rapidamente entre secciones
+
     return (
         <>
             <motion.div
@@ -97,20 +97,18 @@ const Element = ({ id, name, synopsis, history, color, background, image, effect
                 <GraphicElement image={image} effect={effect} size={size} color={color.flat} />
             </motion.div>
 
-            <Delay wait={1000}>
-                <DataPanel
-                    color={color.flat}
-                    position={"left"}
-                    title={`Sinopsis ${name[0]}`}
-                    content={synopsis}
-                />
-                <DataPanel
-                    color="white"
-                    position={"right"}
-                    title={`Historia ${name[0]}`}
-                    content={history}
-                />
-            </Delay>
+            <DataPanel
+                color={color.flat}
+                position={"left"}
+                title={`Sinopsis ${name[0]}`}
+                content={synopsis}
+            />
+            <DataPanel
+                color="white"
+                position={"right"}
+                title={`Historia ${name[0]}`}
+                content={history}
+            />
 
             <Background src={background} blur="2px" />
         </>

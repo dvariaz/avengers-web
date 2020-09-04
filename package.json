@@ -8,7 +8,6 @@
         "framer-motion": "^2.5.5",
         "polished": "^3.6.5",
         "react": "^16.13.1",
-        "react-delay": "^0.1.0",
         "react-dom": "^16.13.1",
         "react-pose": "^4.0.10",
         "react-router-dom": "^5.2.0",
