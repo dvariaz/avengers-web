@@ -8,20 +8,24 @@ import { barSize } from "../../../../settings/global";
 
 const DataPanel = ({ color, position, title, content }) => {
     const variants = {
-        mounted: {
-            opacity: 0,
-        },
-        ready: {
+        visible: {
             opacity: 1,
             transition: {
                 when: "beforeChildren",
                 staggerChildren: 5,
             },
         },
+        hidden: {
+            opacity: 0,
+        },
     };
 
     const textVariants = {
-        mounted: {
+        visible: {
+            x: "0%",
+            transition: { duration: 400 },
+        },
+        hidden: {
             x: ({ position }) => {
                 if (position === "left") {
                     return "-120%";
@@ -30,14 +34,10 @@ const DataPanel = ({ color, position, title, content }) => {
                 }
             },
         },
-        ready: {
-            x: "0%",
-            transition: { duration: 400 },
-        },
     };
 
     return (
-        <motion.div initial="mounted" animate="ready" variants={variants}>
+        <motion.div initial="hidden" animate="visible" exit="hidden" variants={variants}>
             <StyledDataPanel color={color} position={position} className={styles.Panel}>
                 <motion.div className={styles.Content}>
                     <motion.h1 variants={textVariants} position={position}>
