@@ -1,3 +1,3 @@
-import TrailerPage from './TrailerPage.js';
+import TrailerPage from "./TrailerPage";
 
 export default TrailerPage;

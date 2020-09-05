@@ -4,7 +4,7 @@ import YouTube from "react-youtube";
 
 import styles from "./Trailer.module.scss";
 
-import Background from "./../../components/Background";
+import Background from "../../components/Background";
 
 const TrailerPage = () => {
     const [isExpanded, setIsExpanded] = useState(false);

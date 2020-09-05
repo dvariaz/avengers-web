@@ -1,10 +1,10 @@
 //Materiales definidos para los componentes
 @mixin darkGlass {
-  background-color: transparentize(#000, 0.8);
-  backdrop-filter: blur(4px);
+    background-color: transparentize(#000, 0.8);
+    backdrop-filter: blur(4px);
 }
 
 @mixin glassEdge {
-  border-color: transparentize(#fff, 0.7);
-  border-style: solid;
+    border-color: transparentize(#fff, 0.9);
+    border-style: solid;
 }

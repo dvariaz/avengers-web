@@ -19,7 +19,7 @@
         border-right-width: 2px;
 
         @include respond(mobile) {
-            left: auto;
+            left: initial;
             right: 0;
             border-right-width: 0;
             border-left-width: 2px;
