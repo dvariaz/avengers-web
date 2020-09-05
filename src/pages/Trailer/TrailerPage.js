@@ -33,7 +33,7 @@ const TrailerPage = () => {
     };
 
     return (
-        <div className="Container Respect-TopBar CenterContent">
+        <div className="Container Respect-TopBar Respect-SideBars CenterContent">
             <motion.div className={`${styles.VideoPlayer} ${!isExpanded ? styles.Closed : ""}`}>
                 <YouTube
                     videoId="823iAZOEKt8"

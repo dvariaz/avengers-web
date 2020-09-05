@@ -36,9 +36,9 @@ const TitanSection = () => {
     };
 
     return (
-        <section className="PageContent SlideContent">
+        <section className="PageContent Respect-TopBar Respect-SideBars SlideContent">
             <motion.img
-                className="Character"
+                className={`Character ${styles.Character}`}
                 initial="exit"
                 animate="enter"
                 variants={thanosVariants}

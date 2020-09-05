@@ -2,72 +2,87 @@
 @import "./../../../settings/layers.scss";
 @import "./../../../settings/materials.scss";
 @import "./../../../settings/fonts.scss";
+@import "./../../../settings/breakpoints.scss";
 
 .Header {
-  @include darkGlass;
-  position: fixed;
-  top: 0;
-  z-index: $z-ui;
-  display: flex;
-  width: 100%;
-  height: $barSize;
-  @include glassEdge;
-  border-width: 0 0 2px 0;
-
-  a {
-    border: solid white;
-    border-width: 0;
-  }
-
-  .Logo {
-    display: flex;
-    justify-content: center;
-    width: $barSize;
-    height: $barSize;
-    padding: 10px;
-
-    @include glassEdge;
-    border-width: 0 2px 0 0;
-
-    img {
-      height: 100%;
-    }
-  }
-
-  .SidebarButton {
-    display: flex;
-    justify-content: center;
-    width: $barSize;
-    height: $barSize;
-    padding: 10px;
-
-    @include glassEdge;
-    border-width: 0 0 0 2px;
-  }
-
-  .Sections {
-    display: flex;
+    @include darkGlass;
+    position: fixed;
+    top: 0;
+    z-index: $z-ui;
+    display: grid;
+    grid-template-columns: $barSize 1fr $barSize;
     width: 100%;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 800px;
+    height: $barSize;
+    @include glassEdge;
+    border-width: 0 0 2px 0;
 
     a {
-      @include navFont;
-      line-height: $barSize;
-      text-align: center;
-      width: 100%;
-      height: 100%;
-      padding: 0 5px;
-      box-sizing: content-box;
+        border: solid white;
+        border-width: 0;
     }
 
-    a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+    .Logo {
+        display: flex;
+        justify-content: center;
+        width: $barSize;
+        height: $barSize;
+        padding: 10px;
+
+        @include glassEdge;
+        border-width: 0 2px 0 0;
+
+        img {
+            height: 100%;
+        }
+
+        @include respond(mobile) {
+            border-width: 0;
+        }
     }
 
-    a.active {
-      border-bottom: 3px solid white;
+    .SidebarButton {
+        display: flex;
+        justify-content: center;
+        width: $barSize;
+        height: $barSize;
+        padding: 10px;
+
+        @include glassEdge;
+        border-width: 0 0 0 2px;
     }
-  }
+
+    .Sections {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin: 0 auto;
+        max-width: 800px;
+
+        a {
+            @include navFont;
+            line-height: $barSize;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            padding: 0 5px;
+            box-sizing: content-box;
+
+            @include respond(mobile) {
+                display: none;
+            }
+        }
+
+        a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        a.active {
+            border-bottom: 3px solid white;
+
+            @include respond(mobile) {
+                display: block;
+                border-bottom: 0;
+            }
+        }
+    }
 }

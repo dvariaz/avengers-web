@@ -19,3 +19,9 @@
     margin: 0;
     top: 0.5em;
 }
+
+.Character {
+    @include respond(mobile) {
+        left: 0;
+    }
+}

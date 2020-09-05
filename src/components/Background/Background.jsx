@@ -6,9 +6,10 @@ import styles from "./Background.module.scss";
 
 const StyledBackground = styled.img`
     filter: ${(props) => props.blur};
+    object-position: ${(props) => props.objectPosition || "center"};
 `;
 
-const Background = ({ src, blur, transitionDuration = 0.5 }) => {
+const Background = ({ src, blur, transitionDuration = 0.5, objectPosition }) => {
     let blurProp = `blur(${blur || "0px"})`;
 
     const variants = {
@@ -41,6 +42,7 @@ const Background = ({ src, blur, transitionDuration = 0.5 }) => {
             <StyledBackground
                 src={`${process.env.PUBLIC_URL}/assets/${src}`}
                 blur={blurProp}
+                objectPosition={objectPosition}
                 alt=""
             />
         </motion.div>

@@ -1,17 +1,22 @@
 @import "../../settings/global.scss";
+@import "../../settings/breakpoints.scss";
 
 .VideoPlayer {
     iframe {
         display: flex;
         width: 100%;
         height: calc(100vh - #{$barSize});
-        padding: 0 $barSize;
+        padding: 0;
         transition: padding 0.25s ease;
     }
 
     &.Closed {
         iframe {
             padding: 5em 10em;
+
+            @include respond(mobile) {
+                padding: 60% 1em;
+            }
         }
     }
 }

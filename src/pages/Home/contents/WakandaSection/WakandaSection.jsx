@@ -86,7 +86,7 @@ const WakandaSection = ({ visible }) => {
     };
 
     return (
-        <section className="PageContent SlideContent">
+        <section className="PageContent Respect-TopBar Respect-SideBars SlideContent">
             <motion.img
                 className="Character"
                 initial="exit"

@@ -5,7 +5,7 @@ import TrapezoidButton from "../../../../components/UI/TrapezoidButton/index.js"
 
 const KnowhereSection = () => {
     return (
-        <section className={`PageContent SlideContent`}>
+        <section className="PageContent Respect-TopBar Respect-SideBars SlideContent">
             <div className="TextContainer">
                 <h2>Nuevos equipos se unirán para luchar</h2>
                 <h2>
@@ -14,7 +14,7 @@ const KnowhereSection = () => {
                 <TrapezoidButton to="trailer">VER TRAILER</TrapezoidButton>
             </div>
 
-            <Background src="Backgrounds/Knowhere/Knowhere.jpg" />
+            <Background src="Backgrounds/Knowhere/Knowhere.jpg" objectPosition="30% center" />
         </section>
     );
 };

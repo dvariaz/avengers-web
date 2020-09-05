@@ -1,5 +1,6 @@
 @import "./global.scss";
 @import "./layers.scss";
+@import "./breakpoints.scss";
 
 body {
     background: black;
@@ -20,23 +21,6 @@ body {
         display: none;
     }
 
-    &.Respect-TopBar {
-        padding-top: $barSize;
-    }
-
-    &.Respect-SideBars {
-        padding-left: $barSize;
-        padding-right: $barSize;
-    }
-
-    &.Respect-AllBars {
-        padding: $barSize;
-    }
-
-    &.Respect-CastNav {
-        padding-left: calc(#{$barSize} + 300px);
-    }
-
     &.CenterContent {
         flex-direction: column;
         justify-content: center;
@@ -50,4 +34,29 @@ body {
     &.SlidesContainer {
         overflow-y: scroll;
     }
+}
+
+.Respect-TopBar {
+    padding-top: $barSize;
+}
+
+.Respect-SideBars {
+    padding-left: $barSize;
+    padding-right: $barSize;
+
+    @include respond(mobile) {
+        padding-left: 0;
+    }
+}
+
+.Respect-AllBars {
+    padding: $barSize;
+
+    @include respond(mobile) {
+        padding-left: 0;
+    }
+}
+
+.Respect-CastNav {
+    padding-left: calc(#{$barSize} + 300px);
 }

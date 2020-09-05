@@ -5,6 +5,7 @@
     position: absolute;
     z-index: $z-page;
     top: 1em;
+    text-align: center;
 
     @include respond(desktop) {
         font-size: 9em;
@@ -12,6 +13,11 @@
 
     @include respond(laptop) {
         font-size: 7em;
+    }
+
+    @include respond(mobile) {
+        font-size: 3.5em;
+        top: 2em;
     }
 
     font-weight: bold;

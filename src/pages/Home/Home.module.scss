@@ -3,7 +3,6 @@
 @import "../../settings/breakpoints.scss";
 
 :global(.PageContent) {
-    padding: 3em 5em;
     position: relative;
     height: 100%;
     width: 100%;
@@ -27,6 +26,10 @@
     overflow: hidden;
 
     justify-content: center;
+
+    @include respond(mobile) {
+        justify-content: flex-end;
+    }
 }
 
 :global(.Character) {
@@ -61,11 +64,20 @@
         font-size: 0.8em;
     }
 
+    @include respond(mobile) {
+        padding: 1.5em 1.5em 4em;
+        font-size: 0.6em;
+    }
+
     p {
         font-size: 1.2em;
         font-weight: lighter;
         z-index: zPushUp($z-page, 11);
         margin-top: 0;
+
+        @include respond(mobile) {
+            font-size: 1.5em;
+        }
     }
 
     h1,
