@@ -1,3 +1,4 @@
+@import "./../../../../settings/global.scss";
 @import "./../../../../settings/materials.scss";
 @import "./../../../../settings/layers.scss";
 @import "./../../../../settings/fonts.scss";
@@ -7,8 +8,30 @@
     overflow: hidden;
     position: absolute;
 
+    &.Left {
+        left: $barSize;
+        top: $barSize;
+
+        @include respond(mobile) {
+            position: static;
+        }
+    }
+
+    &.Right {
+        right: $barSize;
+        bottom: $barSize;
+
+        @include respond(mobile) {
+            position: static;
+        }
+    }
+
     @include respond(tablet-portrait) {
         display: none;
+    }
+
+    @include respond(mobile) {
+        display: block;
     }
 
     .Content {
@@ -24,6 +47,10 @@
             width: 450px;
         }
 
+        @include respond(mobile) {
+            width: 100%;
+        }
+
         h1 {
             margin: 1em 0;
             text-transform: uppercase;
@@ -33,8 +60,7 @@
             margin-bottom: 0;
         }
 
-        &::before {
-            content: "";
+        .Indicator {
             position: absolute;
             top: 0;
             width: 30px;
@@ -62,6 +88,10 @@
             right: 2em;
             height: 20px;
             width: 150px;
+
+            @include respond(mobile) {
+                display: none;
+            }
         }
 
         button {

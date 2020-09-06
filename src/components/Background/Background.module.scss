@@ -1,7 +1,6 @@
 @import "../../settings/layers.scss";
 
 .Background {
-    position: absolute;
     top: 0;
     left: 0;
     z-index: zPushDown($z-background, 50);

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import titleize from "titleize";
 
 import styles from "./DataPanel.module.scss";
 
@@ -37,41 +38,25 @@ const DataPanel = ({ color, position, title, content }) => {
     };
 
     return (
-        <motion.div initial="hidden" animate="visible" exit="hidden" variants={variants}>
-            <StyledDataPanel color={color} position={position} className={styles.Panel}>
-                <motion.div className={styles.Content}>
-                    <motion.h1 variants={textVariants} position={position}>
-                        {title}
-                    </motion.h1>
-                    <motion.p variants={textVariants} position={position}>
-                        {content}
-                    </motion.p>
-                    <button>Ver más</button>
-                </motion.div>
-            </StyledDataPanel>
+        <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={variants}
+            className={`${styles.Panel} ${styles[titleize(position)]}`}
+        >
+            <motion.div className={styles.Content}>
+                <div className={styles.Indicator} style={{ background: color }}></div>
+                <motion.h1 variants={textVariants} position={position}>
+                    {title}
+                </motion.h1>
+                <motion.p variants={textVariants} position={position}>
+                    {content}
+                </motion.p>
+                <button style={{ borderColor: color }}>Ver más</button>
+            </motion.div>
         </motion.div>
     );
 };
-
-const StyledDataPanel = styled.div`
-    ${({ position }) => {
-        if (position === "left") {
-            return `left: ${barSize};top: ${barSize};`;
-        }
-        if (position === "right") {
-            return `right: ${barSize};bottom: ${barSize};`;
-        }
-    }}
-
-    > div {
-        &::before {
-            background: ${(props) => props.color};
-        }
-
-        button {
-            border-color: ${(props) => props.color};
-        }
-    }
-`;
 
 export default DataPanel;

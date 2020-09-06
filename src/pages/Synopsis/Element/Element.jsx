@@ -1,14 +1,22 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { useUserAgent } from "@oieduardorabelo/use-user-agent";
 
 import styles from "./Element.module.scss";
+
+import useOnScreen from "../../../hooks/useOnScreen";
 
 import Background from "../../../components/Background";
 import DataPanel from "./DataPanel";
 import GraphicElement from "./GraphicElement";
 import { NavigationContext } from "../NavigationContext";
+import ScrollIndicator from "../../../components/UI/ScrollIndicator";
 
 const Element = ({ id, name, synopsis, history, color, background, image, effect, size }) => {
+    const ref = useRef();
+    const scrollVisible = useOnScreen(ref, "50px", 0.95);
+    const details = useUserAgent();
+
     const { dispatch } = useContext(NavigationContext);
 
     useEffect(() => {
@@ -40,7 +48,7 @@ const Element = ({ id, name, synopsis, history, color, background, image, effect
         const letterVariants = {
             visible: {
                 opacity: 1,
-                letterSpacing: "15px",
+                letterSpacing: "10px",
                 y: 0,
                 transition: {
                     delay: 1,
@@ -82,21 +90,27 @@ const Element = ({ id, name, synopsis, history, color, background, image, effect
         );
     };
 
-    //TODO: Romper el delay al cambiar rapidamente entre secciones
-
     return (
         <>
-            <motion.div
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                variants={titleVariants}
-                className={styles.Title}
-            >
-                {splitWord(name)}
-                <GraphicElement image={image} effect={effect} size={size} color={color.flat} />
-            </motion.div>
+            <div className={styles.Container} ref={ref}>
+                <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={titleVariants}
+                    className={styles.Title}
+                >
+                    {splitWord(name)}
+                    <GraphicElement image={image} effect={effect} size={size} color={color.flat} />
 
+                    {details && details.device.type && (
+                        <ScrollIndicator
+                            style={{ position: "absolute", top: "-200px" }}
+                            visible={scrollVisible}
+                        />
+                    )}
+                </motion.div>
+            </div>
             <DataPanel
                 color={color.flat}
                 position={"left"}
@@ -110,7 +124,7 @@ const Element = ({ id, name, synopsis, history, color, background, image, effect
                 content={history}
             />
 
-            <Background src={background} blur="2px" />
+            <Background src={background} blur="2px" fixed />
         </>
     );
 };

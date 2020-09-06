@@ -1,15 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import styled from "styled-components";
 
 import styles from "./Background.module.scss";
 
-const StyledBackground = styled.img`
-    filter: ${(props) => props.blur};
-    object-position: ${(props) => props.objectPosition || "center"};
-`;
-
-const Background = ({ src, blur, transitionDuration = 0.5, objectPosition }) => {
+const Background = ({ src, blur, transitionDuration = 0.5, objectPosition, fixed = false }) => {
     let blurProp = `blur(${blur || "0px"})`;
 
     const variants = {
@@ -38,11 +32,11 @@ const Background = ({ src, blur, transitionDuration = 0.5, objectPosition }) => 
             exit="hidden"
             variants={variants}
             className={styles.Background}
+            style={{ position: fixed ? "fixed" : "absolute" }}
         >
-            <StyledBackground
+            <img
                 src={`${process.env.PUBLIC_URL}/assets/${src}`}
-                blur={blurProp}
-                objectPosition={objectPosition}
+                style={{ objectPosition: objectPosition || "center", filter: blurProp }}
                 alt=""
             />
         </motion.div>

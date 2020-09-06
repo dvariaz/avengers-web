@@ -16,7 +16,13 @@ const GraphicElement = ({ image, effect, color, size }) => {
     };
 
     return (
-        <motion.div initial="hidden" animate="visible" exit="hidden" variants={elementVariants}>
+        <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={elementVariants}
+            className={styles.Container}
+        >
             <img
                 className={styles.Effect}
                 src={`${process.env.PUBLIC_URL}/assets/${effect}`}
@@ -25,7 +31,6 @@ const GraphicElement = ({ image, effect, color, size }) => {
             />
             <GraphicIndicator color={color} location={"Desconocido"} />
             <img
-                variants={elementVariants}
                 className={styles.Element}
                 src={`${process.env.PUBLIC_URL}/assets/${image}`}
                 style={{ height: size === "small" ? "40%" : "60%" }}

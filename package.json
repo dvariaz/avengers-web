@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@oieduardorabelo/use-user-agent": "^2.0.0",
         "@types/youtube": "0.0.39",
         "eslint-plugin-react-hooks": "^4.1.0",
         "framer-motion": "^2.5.5",

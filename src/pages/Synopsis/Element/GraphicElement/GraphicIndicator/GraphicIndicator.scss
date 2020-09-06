@@ -17,6 +17,11 @@
         height: 300px;
     }
 
+    @include respond(mobile) {
+        width: 250px;
+        height: 250px;
+    }
+
     #Circle_Inner,
     #Circle_Outer {
         transform-origin: center;

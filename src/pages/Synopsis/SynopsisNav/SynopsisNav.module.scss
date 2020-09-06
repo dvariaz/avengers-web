@@ -2,6 +2,7 @@
 @import "./../../../settings/layers.scss";
 @import "./../../../settings/materials.scss";
 @import "./../../../settings/fonts.scss";
+@import "./../../../settings/breakpoints.scss";
 
 .SynopsisNav {
     @include darkGlass;
@@ -13,6 +14,10 @@
     flex-direction: row;
     justify-content: space-between;
     width: calc(100vw - #{$barSize} - #{$barSize});
+
+    @include respond(mobile) {
+        width: calc(100vw - #{$barSize});
+    }
 
     @include glassEdge;
     border-width: 2px 0 0;
@@ -45,10 +50,14 @@
         }
     }
 
-    .items {
+    .Items {
         display: flex;
-
         overflow-x: auto;
+        scroll-behavior: smooth;
+
+        @include respond(mobile) {
+            flex: 1;
+        }
 
         button {
             display: flex;
@@ -63,6 +72,15 @@
             outline: none;
             background: transparent;
             cursor: pointer;
+
+            @include respond(mobile) {
+                display: none;
+
+                &.Active {
+                    display: flex;
+                    flex: 1;
+                }
+            }
         }
 
         &::-webkit-scrollbar {

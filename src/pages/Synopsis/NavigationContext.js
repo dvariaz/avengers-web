@@ -6,12 +6,14 @@ import elements from "../../context/default/elements";
 const initialState = {
     elements,
     current: 0,
+    center: 0,
 };
 
 export const NavigationContext = createContext(initialState);
 
 //Actions
 const SET_INDEX = "SET_INDEX";
+const LOAD_CENTER = "LOAD_CENTER";
 const GO_FORWARD = "GO_FORWARD";
 const GO_BACKWARD = "GO_BACKWARD";
 
@@ -27,6 +29,23 @@ export const NavigationContextProvider = ({ children }) => {
                 return {
                     ...state,
                     current: nextItem,
+                    center: state.elements[nextItem].position,
+                };
+            }
+            case LOAD_CENTER: {
+                //Cargamos el centro del elemento
+                // console.log(action.payload);
+                let elementsUpdated = state.elements.map((element) => {
+                    if (element.id === action.payload.id) {
+                        return { ...element, position: action.payload.position };
+                    } else {
+                        return element;
+                    }
+                });
+
+                return {
+                    ...state,
+                    elements: elementsUpdated,
                 };
             }
             case GO_FORWARD: {
@@ -42,6 +61,7 @@ export const NavigationContextProvider = ({ children }) => {
                 return {
                     ...state,
                     current: nextItem,
+                    center: state.elements[nextItem].position,
                 };
             }
             case GO_BACKWARD: {
@@ -57,6 +77,7 @@ export const NavigationContextProvider = ({ children }) => {
                 return {
                     ...state,
                     current: nextItem,
+                    center: state.elements[nextItem].position,
                 };
             }
             default:

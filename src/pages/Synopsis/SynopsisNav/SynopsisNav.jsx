@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -8,7 +8,10 @@ import styles from "./SynopsisNav.module.scss";
 import { NavigationContext } from "../NavigationContext";
 import SynopsisLink from "./SynopsisLink";
 
+//TODO: Matchmedia podría utilizarse para obtener los mediaqueries y cambiar el letterspacing
+
 const SynopsisNav = () => {
+    const optionsRef = useRef();
     const history = useHistory();
     const match = useRouteMatch("/sinopsis/:element");
 
@@ -42,6 +45,7 @@ const SynopsisNav = () => {
     //Fired when the current section is updated
     useEffect(() => {
         history.push(state.elements[state.current].id);
+        optionsRef.current.scrollLeft = state.center - optionsRef.current.offsetWidth / 2;
     }, [state.current]);
 
     return (
@@ -59,7 +63,7 @@ const SynopsisNav = () => {
                     alt="Anterior sección"
                 />
             </button>
-            <div className={styles.items}>
+            <div className={styles.Items} ref={optionsRef}>
                 {state.elements.map((element, index) => (
                     <SynopsisLink
                         key={index}
@@ -67,6 +71,7 @@ const SynopsisNav = () => {
                         index={index}
                         name={element.name[0]}
                         color={element.color}
+                        className={state.current === index ? styles.Active : ""}
                     />
                 ))}
             </div>
