@@ -12,7 +12,7 @@ const Character = ({ name, description, background, photo, position, color }) =>
     const transition = {
         type: "spring",
         damping: 20,
-        stiffness: 200,
+        stiffness: 80,
         duration: 0.3,
     };
 

@@ -1,4 +1,5 @@
 @import "./../../../settings/global.scss";
+@import "./../../../settings/breakpoints.scss";
 @import "./../../../settings/layers.scss";
 @import "./../../../settings/materials.scss";
 @import "./../../../settings/fonts.scss";
@@ -15,6 +16,10 @@
     overflow-y: auto;
 
     &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @include respond(mobile) {
         display: none;
     }
 }

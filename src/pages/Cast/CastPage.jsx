@@ -6,8 +6,10 @@ import { useCharacters } from "./../../context/characters.context";
 
 import CastNav from "./CastNav";
 
-//Páginas
 import Character from "./Character";
+
+//TODO: Usar la misma lógica de navegación de la seccion de sinopsis y galería, convertirlo en hook
+//TODO: Añadir botones de navegación a las barras lateral de movil
 
 const CastPage = () => {
     const location = useLocation();
@@ -15,9 +17,7 @@ const CastPage = () => {
     const characters = useCharacters();
 
     return (
-        <div
-            className={`Container Respect-TopBar Respect-SideBars Respect-CastNav Layout-Horizontal`}
-        >
+        <div className="Container Respect-TopBar Respect-SideBars Respect-CastNav Layout-Horizontal">
             <CastNav items={characters} />
 
             <AnimatePresence exitBeforeEnter>

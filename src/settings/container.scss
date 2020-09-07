@@ -63,4 +63,8 @@ body {
 
 .Respect-CastNav {
     padding-left: calc(#{$barSize} + 300px);
+
+    @include respond(mobile) {
+        padding-left: 0;
+    }
 }
