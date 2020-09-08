@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Switch, Route, useRouteMatch, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
-import { useCharacters } from "./../../context/characters.context";
+import { NavigationContext } from "./NavigationContext";
 
 import CastNav from "./CastNav";
-
+import Scroller from "./Scroller";
 import Character from "./Character";
 
 //TODO: Usar la misma lógica de navegación de la seccion de sinopsis y galería, convertirlo en hook
@@ -14,16 +14,17 @@ import Character from "./Character";
 const CastPage = () => {
     const location = useLocation();
     const { path } = useRouteMatch();
-    const characters = useCharacters();
+    const { state } = useContext(NavigationContext);
 
     return (
         <div className="Container Respect-TopBar Respect-SideBars Respect-CastNav Layout-Horizontal">
-            <CastNav items={characters} />
+            <CastNav items={state.characters} />
+            <Scroller color={state.characters[state.current].color.gradient} />
 
             <AnimatePresence exitBeforeEnter>
                 <Switch location={location} key={location.pathname}>
-                    {characters.map((character) => (
-                        <Route key={character.id} exact path={`${path}/${character.slug}`}>
+                    {state.characters.map((character) => (
+                        <Route key={character.id} exact path={`${path}/${character.id}`}>
                             <Character
                                 name={character.name}
                                 description={character.description}

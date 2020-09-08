@@ -1,0 +1,51 @@
+@import "./../../../settings/global.scss";
+@import "./../../../settings/breakpoints.scss";
+@import "./../../../settings/layers.scss";
+@import "./../../../settings/fonts.scss";
+
+.Container {
+    width: $barSize;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: $z-ui;
+
+    @include respond(mobile) {
+        left: initial;
+        right: 0;
+    }
+
+    span {
+        @include navFont;
+
+        display: flex;
+        align-items: center;
+        writing-mode: vertical-lr;
+    }
+
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        overflow: hidden;
+        outline: none;
+        border: none;
+        cursor: pointer;
+
+        img {
+            width: 100%;
+            padding: 1.4em;
+        }
+
+        &:last-child {
+            img {
+                transform: rotateZ(180deg);
+            }
+        }
+    }
+}

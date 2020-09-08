@@ -22,26 +22,18 @@ const CastNav = ({ items }) => {
         },
     };
 
-    const handleScroll = (e) => {
-        let element = e.target;
-        if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-            // console.log('Movemos el CastNav');
-        }
-    };
-
     return (
         <motion.div
             initial="hidden"
             animate="visible"
             transition={{ type: "tween" }}
             variants={variants}
-            onScroll={handleScroll}
             className={styles.Nav}
         >
             {items.map((item) => (
                 <CastLink
                     key={item.id}
-                    to={`${path}/${item.slug}`}
+                    to={`${path}/${item.id}`}
                     image={item.profile}
                     color={item.color.flat}
                 >

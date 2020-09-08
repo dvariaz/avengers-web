@@ -1,9 +1,9 @@
 import React from "react";
 import CastPage from "./CastPage";
-import { CharactersProvider } from "./../../context/characters.context";
+import { NavigationContextProvider } from "./NavigationContext";
 
 export default () => (
-  <CharactersProvider>
-    <CastPage />
-  </CharactersProvider>
+    <NavigationContextProvider>
+        <CastPage />
+    </NavigationContextProvider>
 );
