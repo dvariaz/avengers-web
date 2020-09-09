@@ -18,10 +18,10 @@ const CastPage = () => {
 
     return (
         <div className="Container Respect-TopBar Respect-SideBars Respect-CastNav Layout-Horizontal">
-            <CastNav items={state.characters} />
+            <CastNav characters={state.characters} />
             <Scroller color={state.characters[state.current].color.gradient} />
 
-            <AnimatePresence exitBeforeEnter>
+            <AnimatePresence>
                 <Switch location={location} key={location.pathname}>
                     {state.characters.map((character) => (
                         <Route key={character.id} exact path={`${path}/${character.id}`}>

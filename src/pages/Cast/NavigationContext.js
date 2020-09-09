@@ -33,12 +33,12 @@ export const NavigationContextProvider = ({ children }) => {
                 };
             }
             case LOAD_CENTER: {
-                //Cargamos el centro del elemento
-                let charactersUpdated = state.characters.map((element) => {
-                    if (element.id === action.payload.id) {
-                        return { ...element, position: action.payload.position };
+                //Cargamos la posición del elemento
+                let charactersUpdated = state.characters.map((character) => {
+                    if (character.id === action.payload.id) {
+                        return { ...character, center: action.payload.center };
                     } else {
-                        return element;
+                        return character;
                     }
                 });
 
@@ -60,7 +60,7 @@ export const NavigationContextProvider = ({ children }) => {
                 return {
                     ...state,
                     current: nextItem,
-                    center: state.characters[nextItem].position,
+                    center: state.characters[nextItem].center,
                 };
             }
             case GO_BACKWARD: {
@@ -76,7 +76,7 @@ export const NavigationContextProvider = ({ children }) => {
                 return {
                     ...state,
                     current: nextItem,
-                    center: state.characters[nextItem].position,
+                    center: state.characters[nextItem].center,
                 };
             }
             default:

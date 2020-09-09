@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useRef, useContext, useEffect } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import styles from "./CastNav.module.scss";
 
+import { NavigationContext } from "../NavigationContext";
+
 import CastLink from "./CastLink";
 
 //TODO: Al reducir el tamaño de pantalla, convertirse en menu desplegable
 
-const CastNav = ({ items }) => {
-    let { path } = useRouteMatch();
+const CastNav = ({ characters }) => {
+    const ref = useRef();
+    const { path } = useRouteMatch();
+    const { state, dispatch } = useContext(NavigationContext);
+
+    useEffect(() => {
+        const nextPosition = state.characters[state.current].center;
+        ref.current.scrollTop = nextPosition;
+    }, [state.current]);
 
     const variants = {
         hidden: {
@@ -29,16 +38,17 @@ const CastNav = ({ items }) => {
             transition={{ type: "tween" }}
             variants={variants}
             className={styles.Nav}
+            ref={ref}
         >
-            {items.map((item) => (
+            {characters.map((character) => (
                 <CastLink
-                    key={item.id}
-                    to={`${path}/${item.id}`}
-                    image={item.profile}
-                    color={item.color.flat}
-                >
-                    {item.name}
-                </CastLink>
+                    key={character.id}
+                    id={character.id}
+                    to={`${path}/${character.id}`}
+                    name={character.name}
+                    image={character.profile}
+                    color={character.color.flat}
+                />
             ))}
         </motion.div>
     );

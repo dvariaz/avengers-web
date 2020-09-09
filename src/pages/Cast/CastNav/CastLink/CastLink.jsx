@@ -1,25 +1,15 @@
-import React, { useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import React, { useEffect, useRef, useContext } from "react";
+import { useRouteMatch } from "react-router-dom";
 import { transparentize } from "polished";
-import styled from "styled-components";
 import { motion } from "framer-motion";
 
 import styles from "./CastLink.module.scss";
+import { NavigationContext } from "../../NavigationContext";
 
-const StyledCastLink = styled(NavLink)`
-    > div {
-        border-color: ${(props) => props.color};
-        background-image: linear-gradient(
-                90deg,
-                ${(props) => transparentize(0.5, props.color)},
-                transparent
-            ),
-            url("${(props) => props.image}");
-    }
-`;
-
-const CastLink = ({ to, image, color, children }) => {
-    let location = useLocation();
+const CastLink = ({ id, name, image, color }) => {
+    const ref = useRef();
+    const match = useRouteMatch("/cast/:character");
+    const { dispatch } = useContext(NavigationContext);
 
     const variants = {
         active: {
@@ -34,27 +24,37 @@ const CastLink = ({ to, image, color, children }) => {
         },
     };
 
-    const isCurrent = (location) => {
-        return to === location.pathname;
+    useEffect(() => {
+        const scrollPosition = ref.current.offsetTop - 50;
+        dispatch({ type: "LOAD_CENTER", payload: { id, center: scrollPosition } });
+    }, []);
+
+    const handleClick = () => {
+        if (id != match.params.character) {
+            dispatch({ type: "SET_INDEX", payload: { id } });
+        }
     };
 
     return (
         <>
-            <StyledCastLink
-                to={to}
-                image={`${process.env.PUBLIC_URL}/assets/${image}`}
-                color={color}
+            <motion.button
+                ref={ref}
+                initial="inactive"
+                animate={id === match.params.character ? "active" : "inactive"}
+                transition={{ type: "tween" }}
+                variants={variants}
+                className={styles.Link}
+                style={{
+                    borderColor: color,
+                    backgroundImage: `linear-gradient(90deg,${transparentize(
+                        0.5,
+                        color
+                    )},transparent), url("${process.env.PUBLIC_URL}/assets/${image}")`,
+                }}
+                onClick={handleClick}
             >
-                <motion.div
-                    initial="inactive"
-                    animate={isCurrent(location) ? "active" : "inactive"}
-                    transition={{ type: "tween" }}
-                    variants={variants}
-                    className={styles.Link}
-                >
-                    {children}
-                </motion.div>
-            </StyledCastLink>
+                {name}
+            </motion.button>
         </>
     );
 };
