@@ -18,12 +18,14 @@ const Character = ({ name, description, background, photo, position, color }) =>
 
     const imageVariants = {
         visible: {
-            top: "0%",
+            x: 0,
+            y: 0,
             opacity: 1,
             transition,
         },
         hidden: {
-            top: "100%",
+            x: 0,
+            y: "100%",
             opacity: 0,
             transition,
         },
@@ -33,12 +35,29 @@ const Character = ({ name, description, background, photo, position, color }) =>
         },
     };
 
-    const titleVariants = {
+    const imageContainerVariants = {
         visible: {
             opacity: 1,
         },
         hidden: {
             opacity: 0,
+        },
+    };
+
+    const titleVariants = {
+        visible: {
+            x: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.5,
+            },
+        },
+        hidden: {
+            x: -200,
+            opacity: 0,
+            transition: {
+                duration: 0.5,
+            },
         },
     };
 
@@ -70,40 +89,49 @@ const Character = ({ name, description, background, photo, position, color }) =>
 
     return (
         <>
-            <motion.div
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                variants={descriptionVariants}
-                className={`${styles.Content} Respect-Image ${styles[titleize(position)]}`}
-            >
-                <motion.h1
-                    variants={titleVariants}
-                    className={styles.Title}
-                    style={{ borderColor: color }}
+            <div className={`${styles.Container} ${styles[titleize(position)]}`}>
+                <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={descriptionVariants}
+                    className={`${styles.Content} Respect-Image`}
                 >
-                    {name}
-                </motion.h1>
+                    <motion.h1
+                        variants={titleVariants}
+                        className={styles.Title}
+                        style={{ borderColor: color.flat }}
+                    >
+                        {name}
+                    </motion.h1>
 
-                <div className={styles.Description}>
-                    {description.split("\n").map((item, i) => (
-                        <motion.p variants={paragraphVariants} key={i}>
-                            {item}
-                        </motion.p>
-                    ))}
-                </div>
-            </motion.div>
-            <motion.div
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                variants={imageVariants}
-                transition={transition}
-                className={`${styles.Image} ${styles[titleize(position)]}`}
-            >
-                <img src={`${process.env.PUBLIC_URL}/assets/${photo}`} alt="" />
-            </motion.div>
-            <Background src={background} blur="5px" />
+                    <div className={styles.Description}>
+                        {description.split("\n").map((item, i) => (
+                            <motion.p variants={paragraphVariants} key={i}>
+                                {item}
+                            </motion.p>
+                        ))}
+                    </div>
+                </motion.div>
+                <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={imageContainerVariants}
+                    className={`${styles.Image} ${styles[titleize(position)]}`}
+                >
+                    <motion.img
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        variants={imageVariants}
+                        transition={transition}
+                        src={`${process.env.PUBLIC_URL}/assets/${photo}`}
+                        alt=""
+                    />
+                </motion.div>
+            </div>
+            <Background src={background} blur="5px" fixed />
         </>
     );
 };

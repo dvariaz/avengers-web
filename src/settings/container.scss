@@ -38,6 +38,10 @@ body {
     &.SlidesContainer {
         overflow-y: scroll;
     }
+
+    &.Restricted {
+        overflow: hidden;
+    }
 }
 
 .Respect-TopBar {

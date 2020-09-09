@@ -31,19 +31,21 @@ const Scroller = ({ color, next }) => {
 
     return (
         <div className={styles.Container}>
-            <button onClick={goBackward} style={{ background: color }}>
-                <img
-                    src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
-                    alt="Anterior sección"
-                />
-            </button>
-            <span>Scroll</span>
-            <button onClick={goForward} style={{ background: color }}>
-                <img
-                    src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
-                    alt="Siguiente sección"
-                />
-            </button>
+            <div className={styles.Body}>
+                <button onClick={goBackward} style={{ background: color }}>
+                    <img
+                        src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
+                        alt="Anterior sección"
+                    />
+                </button>
+                <span>Scroll</span>
+                <button onClick={goForward} style={{ background: color }}>
+                    <img
+                        src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
+                        alt="Siguiente sección"
+                    />
+                </button>
+            </div>
         </div>
     );
 };
