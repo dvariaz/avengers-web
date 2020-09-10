@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+#editables
+/editables
+
 # testing
 /coverage
 
