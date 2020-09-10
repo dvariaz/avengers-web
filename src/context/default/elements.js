@@ -11,7 +11,7 @@ const elements = [
             "Después de haber adquirido la Gema del Poder que había quedado bajo custodia de los Nova Corps en el planeta Xandar, el malvado titán intergaláctico Thanos, intercepta la nave espacial que transportaba a los sobrevivientes de la destrucción de Asgard y la ataca.",
         image: {
             src: "Items/General/Item.png",
-            size: "big",
+            size: "large",
             effect: "Items/General/Effect.png",
         },
         background: "Items/General/Background.jpg",
@@ -26,7 +26,7 @@ const elements = [
             "Debido a que tanto Loki como Ronan le fallaron en su intento de encontrar y recuperar las Gemas del Infinito, Thanos decidió buscar las gemas por sí mismo. Thanos obligó a los Enanos de Nidavellir a construir el Guantelete del Infinito para él en su misión de obtener todas las Gemas del Infinito. Una vez que lo hicieron, el Titán Loco procedió a exterminar a toda la raza de los Enanos. Solo el herrero Eitri se salvó.",
         image: {
             src: "Items/Gauntlet/Item.png",
-            size: "big",
+            size: "large",
             effect: "Items/Gauntlet/Effect.png",
         },
         background: "Items/Gauntlet/Background.jpg",

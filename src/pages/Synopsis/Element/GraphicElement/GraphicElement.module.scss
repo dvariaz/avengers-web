@@ -16,14 +16,10 @@
     left: 0;
     right: 0;
     object-fit: contain;
-
-    @include respond(mobile) {
-        width: 270px;
-    }
 }
 
 .Element {
-    z-index: zPushIn($z-page, 5);
+    z-index: zPushUp($z-page, 5);
 
     animation-name: element-enter;
     animation-timing-function: ease-out;
@@ -43,6 +39,24 @@
             transform: translateY(0px) rotate3d(0, 1, 1, 15deg);
         }
     }
+
+    &.Small {
+        height: 40%;
+
+        @include respond(mobile) {
+            z-index: zPushDown($z-page, 15);
+            height: 20%;
+        }
+    }
+
+    &.Large {
+        height: 60%;
+
+        @include respond(mobile) {
+            z-index: zPushDown($z-page, 15);
+            height: 40%;
+        }
+    }
 }
 
 .Effect {
@@ -51,6 +65,22 @@
     animation-duration: 1s;
     animation-delay: 1.5s;
     animation-fill-mode: both;
+
+    &.Small {
+        height: 50%;
+
+        @include respond(mobile) {
+            height: 40%;
+        }
+    }
+
+    &.Large {
+        height: 70%;
+
+        @include respond(mobile) {
+            height: 50%;
+        }
+    }
 
     @keyframes element-effect-enter {
         0% {

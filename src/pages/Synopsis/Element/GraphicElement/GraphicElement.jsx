@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import styles from "./GraphicElement.module.scss";
 
 import GraphicIndicator from "./GraphicIndicator";
+import titleize from "titleize";
 
 const GraphicElement = ({ image, effect, color, size }) => {
     const elementVariants = {
@@ -24,16 +25,14 @@ const GraphicElement = ({ image, effect, color, size }) => {
             className={styles.Container}
         >
             <img
-                className={styles.Effect}
+                className={`${styles.Effect} ${styles[titleize(size)]}`}
                 src={`${process.env.PUBLIC_URL}/assets/${effect}`}
-                style={{ height: size === "small" ? "50%" : "75%" }}
                 alt=""
             />
             <GraphicIndicator color={color} location={"Desconocido"} />
             <img
-                className={styles.Element}
+                className={`${styles.Element} ${styles[titleize(size)]}`}
                 src={`${process.env.PUBLIC_URL}/assets/${image}`}
-                style={{ height: size === "small" ? "40%" : "60%" }}
                 alt=""
             />
         </motion.div>

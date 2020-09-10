@@ -7,6 +7,7 @@ import { NavigationContext } from "./NavigationContext";
 import Element from "./Element";
 import SynopsisNav from "./SynopsisNav";
 
+//TODO: Los elementos no se ven bien en móvil
 const SynopsisPage = () => {
     const location = useLocation();
     const { path } = useRouteMatch();
