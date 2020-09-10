@@ -5,7 +5,7 @@
 
 .ActorNav {
     @include darkGlass;
-    position: fixed;
+    position: absolute;
     z-index: zPushUp($z-internal-ui, 1);
     bottom: 0;
     left: $barSize;
@@ -21,6 +21,11 @@
     align-items: center;
 
     @extend %titleFont;
+
+    @include respond(mobile) {
+        left: 0;
+        width: calc(100vw - #{$barSize});
+    }
 }
 
 .Buttons {
@@ -31,6 +36,13 @@
     right: 15%;
 
     @extend %titleFont;
+
+    @include respond(mobile) {
+        padding: 0 1em;
+        justify-content: space-between;
+        width: calc(100vw - #{$barSize});
+        right: 0;
+    }
 
     .RoundedButton {
         color: rgba(255, 255, 255, 0.7);
@@ -48,6 +60,11 @@
         margin: 0 1em;
 
         box-shadow: 2px 2px 20px;
+
+        @include respond(mobile) {
+            width: 50px;
+            height: 50px;
+        }
 
         img {
             width: 100%;

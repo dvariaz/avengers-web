@@ -1,4 +1,5 @@
 @import "../../../settings/global.scss";
+@import "../../../settings/breakpoints.scss";
 
 .Container {
     position: absolute;
@@ -7,4 +8,8 @@
     width: 100%;
     height: 100%;
     padding: $barSize;
+
+    @include respond(mobile) {
+        padding-left: 0;
+    }
 }

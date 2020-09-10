@@ -39,6 +39,7 @@ const GalleryPage = () => {
                         ))}
                     </Switch>
                 </AnimatePresence>
+
                 <ActorNav
                     name={state.cast[state.current].name}
                     color={state.cast[state.current].color}

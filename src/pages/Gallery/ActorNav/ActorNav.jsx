@@ -1,12 +1,16 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useHistory, useRouteMatch } from "react-router-dom";
 import { transparentize } from "polished";
+import { useUserAgent } from "@oieduardorabelo/use-user-agent";
 
 import { NavigationContext } from "../NavigationContext";
 
 import styles from "./ActorNav.module.scss";
 
+import Scroller from "../../../components/UI/Scroller";
+
 const ActorNav = ({ name, color }) => {
+    const details = useUserAgent();
     const location = useLocation();
     const history = useHistory();
     const match = useRouteMatch("/galeria/:actor");
@@ -16,14 +20,20 @@ const ActorNav = ({ name, color }) => {
     const slug = name.replace(" ", "+");
 
     const handleClick = async (e) => {
-        try {
-            await navigator.share({
-                title: name,
-                text: `Quieres saber más sobre ${name}, dale click aquí`,
-                url: location.pathname,
-            });
-        } catch (err) {
-            console.log("Error al compartir de forma nativa");
+        let data = {
+            title: name,
+            text: `Quieres saber más sobre ${name}, dale click aquí`,
+            url: location.pathname,
+        };
+        if (navigator.canShare && navigator.canShare({ text: data.text })) {
+            try {
+                await navigator.share(data);
+                console.log("Se ha compartido");
+            } catch (err) {
+                console.log("Error al compartir de forma nativa");
+            }
+        } else {
+            console.log("Acción no permitida en PC");
         }
     };
 
@@ -64,35 +74,46 @@ const ActorNav = ({ name, color }) => {
                             alt="Buscar en Google"
                         />
                     </a>
-                    <button className={styles.RoundedButton} onClick={handleClick}>
-                        <img
-                            src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/Share-Icon.svg`}
-                            alt="Compartir actor"
-                        />
-                    </button>
+                    {navigator.canShare && (
+                        <button className={styles.RoundedButton} onClick={handleClick}>
+                            <img
+                                src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/Share-Icon.svg`}
+                                alt="Compartir actor"
+                            />
+                        </button>
+                    )}
                 </div>
             </nav>
-
-            <button
-                onClick={goBackward}
-                className={styles.ArrowLeft}
-                style={{ background: color.gradient }}
-            >
-                <img
-                    src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
-                    alt="Atrás"
+            {details?.device.type ? (
+                <Scroller
+                    color={state.cast[state.current].color}
+                    backward={goBackward}
+                    forward={goForward}
                 />
-            </button>
-            <button
-                onClick={goForward}
-                className={styles.ArrowRight}
-                style={{ background: color.gradient }}
-            >
-                <img
-                    src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
-                    alt="Adelante"
-                />
-            </button>
+            ) : (
+                <>
+                    <button
+                        onClick={goBackward}
+                        className={styles.ArrowLeft}
+                        style={{ background: color.gradient }}
+                    >
+                        <img
+                            src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
+                            alt="Atrás"
+                        />
+                    </button>
+                    <button
+                        onClick={goForward}
+                        className={styles.ArrowRight}
+                        style={{ background: color.gradient }}
+                    >
+                        <img
+                            src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
+                            alt="Adelante"
+                        />
+                    </button>
+                </>
+            )}
         </>
     );
 };
