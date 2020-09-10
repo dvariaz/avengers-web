@@ -42,17 +42,24 @@
     }
 
     .SidebarButton {
-        display: flex;
+        display: none;
         justify-content: center;
         width: $barSize;
         height: $barSize;
         padding: 10px;
+        outline: none;
+        background: transparent;
+        cursor: pointer;
 
         @include glassEdge;
         border-width: 0 0 0 2px;
 
         img {
             width: 100%;
+        }
+
+        @include respond(mobile) {
+            display: flex;
         }
     }
 
@@ -91,5 +98,28 @@
                 pointer-events: none;
             }
         }
+    }
+}
+
+.Menu {
+    display: none;
+    @include darkGlass;
+    z-index: zPushUp($z-ui, 10);
+    position: absolute;
+    right: 0;
+    top: $barSize;
+    width: 100%;
+    height: calc(100vh - #{$barSize});
+    flex-direction: column;
+    padding: $barSize;
+    text-align: right;
+
+    @include respond(mobile) {
+        display: flex;
+    }
+
+    a {
+        @extend %titleFont;
+        font-size: 2.5em;
     }
 }
