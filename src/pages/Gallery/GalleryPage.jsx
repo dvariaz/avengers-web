@@ -7,6 +7,8 @@ import { NavigationContext } from "./NavigationContext";
 import Actor from "./Actor";
 import ActorNav from "./ActorNav";
 
+//TODO: Esperar a que framer-motion mejore los problemas de routing con AnimatePresence
+
 const GalleryPage = () => {
     const location = useLocation();
     const match = useRouteMatch("/galeria/:actor");

@@ -5,6 +5,7 @@
     position: absolute;
     z-index: $z-page;
     top: 0.25em;
+    font-size: 16em;
 
     @include respond(desktop) {
         font-size: 14em;

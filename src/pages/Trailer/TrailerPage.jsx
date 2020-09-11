@@ -20,8 +20,7 @@ const TrailerPage = () => {
     };
 
     const _onReady = (event) => {
-        console.log("Ready");
-        event.target.pauseVideo();
+        // event.target.pauseVideo();
     };
 
     const _handlePlay = (event) => {

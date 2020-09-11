@@ -6,8 +6,6 @@ import styles from "./Character.module.scss";
 
 import Background from "../../../components/Background";
 
-//TODO: Hacer que el texto siempre encaje en la pantalla
-
 const Character = ({ name, description, background, photo, position, color }) => {
     const transition = {
         type: "spring",

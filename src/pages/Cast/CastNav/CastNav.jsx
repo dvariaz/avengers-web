@@ -8,8 +8,6 @@ import { NavigationContext } from "../NavigationContext";
 
 import CastLink from "./CastLink";
 
-//TODO: Al reducir el tamaño de pantalla, convertirse en menu desplegable
-
 const CastNav = ({ characters }) => {
     const ref = useRef();
     const { path } = useRouteMatch();

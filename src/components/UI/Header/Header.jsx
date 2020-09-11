@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useRouteMatch } from "react-router-dom";
 import { motion } from "framer-motion";
 import styles from "./Header.module.scss";
 
 const Header = ({ logo, sections }) => {
     const { pathname } = useLocation();
     const currentSection = pathname.split("/")[1];
+    const match = useRouteMatch("/:section/:subsection");
 
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -49,6 +50,16 @@ const Header = ({ logo, sections }) => {
         setMenuOpen(!menuOpen);
     };
 
+    const checkActive = (id, location) => {
+        try {
+            const section = location.pathname.split("/")[1];
+            return id === section;
+        } catch (err) {
+            // console.log(err);
+        }
+        return false;
+    };
+
     useEffect(() => {
         setMenuOpen(false);
     }, [pathname]);
@@ -63,13 +74,14 @@ const Header = ({ logo, sections }) => {
                 </div>
                 <div className={styles.Sections}>
                     {sections.map((section, index) => (
-                        <Link
+                        <NavLink
                             key={index}
                             to={section.url}
-                            className={currentSection === "" ? "active" : ""}
+                            isActive={(match, location) => checkActive(section.id, location)}
+                            activeClassName={styles["active"]}
                         >
                             {section.name}
-                        </Link>
+                        </NavLink>
                     ))}
                 </div>
                 <button className={styles.SidebarButton} onClick={handleClick}>
@@ -86,12 +98,8 @@ const Header = ({ logo, sections }) => {
                 className={styles.Menu}
             >
                 {sections.map((section, index) => (
-                    <motion.div variants={linkVariants}>
-                        <Link
-                            key={index}
-                            to={section.url}
-                            className={currentSection === "" ? "active" : ""}
-                        >
+                    <motion.div key={index} variants={linkVariants}>
+                        <Link to={section.url} className={currentSection === "" ? "active" : ""}>
                             {section.name}
                         </Link>
                     </motion.div>

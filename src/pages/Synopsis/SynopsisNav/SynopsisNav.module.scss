@@ -79,6 +79,7 @@
                 &.Active {
                     display: flex;
                     flex: 1;
+                    background: transparent !important;
                 }
             }
         }

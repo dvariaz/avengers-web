@@ -11,11 +11,11 @@ const UI = ({ children }) => {
             <Header
                 logo={`${process.env.PUBLIC_URL}/assets/Icons/Avengers-Logo.svg`}
                 sections={[
-                    { name: "Inicio", url: "/" },
-                    { name: "Sinopsis", url: "/sinopsis/general" },
-                    { name: "Cast", url: "/cast/thanos" },
-                    { name: "Galeria", url: "/galeria/joshbrolin" },
-                    { name: "Trailer", url: "/trailer" },
+                    { id: "", name: "Inicio", url: "/" },
+                    { id: "sinopsis", name: "Sinopsis", url: "/sinopsis/general" },
+                    { id: "cast", name: "Cast", url: "/cast/thanos" },
+                    { id: "galeria", name: "Galeria", url: "/galeria/joshbrolin" },
+                    { id: "trailer", name: "Trailer", url: "/trailer" },
                 ]}
             />
             <Sidebar position="left" social />
