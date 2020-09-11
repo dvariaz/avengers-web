@@ -1,61 +1,32 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import styles from "./WakandaSection.module.scss";
+import {
+    titleVariants,
+    paragraphVariants,
+    containerVariants,
+} from "../../../../settings/animationVariants";
 
 import Background from "../../../../components/Background";
 import TrapezoidButton from "../../../../components/UI/TrapezoidButton/index.js";
 
-const WakandaSection = ({ visible }) => {
-    let transition = {
-        duration: 0.8,
-    };
+import useOnScreen from "../../../../hooks/useOnScreen";
 
-    let titleVariants = {
-        enter: {
-            y: 0,
-            opacity: 1,
-            transition,
-        },
-        exit: {
-            y: -20,
-            opacity: 0,
-            transition,
-        },
-    };
-
-    let paragraphVariants = {
-        enter: {
-            y: 0,
-            opacity: 1,
-            transition,
-        },
-        exit: {
-            y: 20,
-            opacity: 0,
-            transition,
-        },
-    };
-
-    let containerVariants = {
-        enter: {
-            transition: { duration: 0.3, staggerChildren: 0.3 },
-        },
-        exit: {
-            transition: { duration: 0.3, staggerChildren: 0.3 },
-        },
-    };
+const WakandaSection = () => {
+    const ref = useRef();
+    const isVisible = useOnScreen(ref, "10px", 0.5);
 
     let captainAmericaVariants = {
         enter: {
             x: 0,
             y: 50,
-            transition,
+            transition: { duration: 0.8 },
         },
         exit: {
             x: 0,
             y: 200,
-            transition,
+            transition: { duration: 0.8 },
         },
     };
 
@@ -63,12 +34,12 @@ const WakandaSection = ({ visible }) => {
         enter: {
             x: -400,
             y: 0,
-            transition,
+            transition: { duration: 0.8 },
         },
         exit: {
             x: -400,
             y: 150,
-            transition,
+            transition: { duration: 0.8 },
         },
     };
 
@@ -76,52 +47,44 @@ const WakandaSection = ({ visible }) => {
         enter: {
             x: 400,
             y: 0,
-            transition,
+            transition: { duration: 0.8 },
         },
         exit: {
             x: 400,
             y: 160,
-            transition,
+            transition: { duration: 0.8 },
         },
     };
 
     return (
-        <section className="PageContent Respect-TopBar Respect-SideBars SlideContent">
+        <motion.section
+            initial="exit"
+            animate={isVisible ? "enter" : "exit"}
+            className="PageContent Respect-TopBar Respect-SideBars SlideContent"
+            ref={ref}
+        >
             <motion.img
                 className="Character"
                 initial="exit"
-                animate="enter"
                 variants={captainAmericaVariants}
                 src={`${process.env.PUBLIC_URL}/assets/Backgrounds/Wakanda/CaptainAmerica.png`}
             />
             <motion.img
                 className="Character"
                 initial="exit"
-                animate="enter"
                 variants={blackWidowVariants}
                 src={`${process.env.PUBLIC_URL}/assets/Backgrounds/Wakanda/BlackWidow.png`}
             />
             <motion.img
                 className="Character"
                 initial="exit"
-                animate="enter"
                 variants={blackPantherVariants}
                 src={`${process.env.PUBLIC_URL}/assets/Backgrounds/Wakanda/BlackPanther.png`}
             />
-            <motion.h1
-                className={styles.BigTitle}
-                initial="exit"
-                animate="enter"
-                variants={titleVariants}
-            >
+            <motion.h1 className={styles.BigTitle} initial="exit" variants={titleVariants}>
                 INFINITY WAR
             </motion.h1>
-            <motion.div
-                className="TextContainer"
-                initial="exit"
-                animate="enter"
-                variants={containerVariants}
-            >
+            <motion.div className="TextContainer" initial="exit" variants={containerVariants}>
                 <motion.h2 variants={paragraphVariants}>
                     PREMIERE MUNDIAL <strong>23 DE ABRIL</strong> NO MÁS ESPERAS
                 </motion.h2>
@@ -134,7 +97,7 @@ const WakandaSection = ({ visible }) => {
             </motion.div>
 
             <Background src="Backgrounds/Wakanda/Wakanda.jpg" />
-        </section>
+        </motion.section>
     );
 };
 

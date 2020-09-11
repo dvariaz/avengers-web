@@ -15,6 +15,11 @@
         font-size: 8em;
     }
 
+    @include respond(mobile) {
+        font-size: 4em;
+        top: 1em;
+    }
+
     font-weight: bold;
     text-transform: uppercase;
     margin: 0;
