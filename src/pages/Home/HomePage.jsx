@@ -8,17 +8,17 @@ import TitanSection from "./contents/TitanSection/TitanSection";
 import NYSanctumSection from "./contents/NYSacntumSection";
 import KnowhereSection from "./contents/KnowhereSection";
 
-//TODO: Add a IntersectionObserver and useScroll
+//TODO: Add an useScroll
 
 const HomePage = () => {
-    return (
-        <div className="Container SlidesContainer">
-            <WakandaSection />
-            <TitanSection />
-            <KnowhereSection />
-            <NYSanctumSection />
-        </div>
-    );
+  return (
+    <div className="Container SlidesContainer">
+      <WakandaSection />
+      <TitanSection />
+      <KnowhereSection />
+      <NYSanctumSection />
+    </div>
+  );
 };
 
 export default HomePage;
