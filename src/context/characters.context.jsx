@@ -1,7 +1,7 @@
-import React from "react";
+import { createContext, useContext } from "react";
 import characters from "./default/characters";
 
-const CharactersContext = React.createContext();
+const CharactersContext = createContext();
 
 export const CharactersProvider = (props) => {
   const value = characters;
@@ -10,7 +10,7 @@ export const CharactersProvider = (props) => {
 };
 
 export function useCharacters() {
-  const context = React.useContext(CharactersContext);
+  const context = useContext(CharactersContext);
 
   if (!context) {
     throw new Error(

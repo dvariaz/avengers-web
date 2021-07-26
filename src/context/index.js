@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import { createContext, useReducer } from "react";
 
 export const SET_CURRENT_SECTION = "SET_CURRENT_SECTION";
 

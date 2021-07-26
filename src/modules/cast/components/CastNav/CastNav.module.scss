@@ -1,0 +1,26 @@
+@import "settings/global.scss";
+@import "settings/breakpoints.scss";
+@import "settings/layers.scss";
+@import "settings/materials.scss";
+@import "settings/fonts.scss";
+
+.Nav {
+  position: absolute;
+  top: $barSize;
+  left: $barSize;
+  z-index: $z-internal-ui;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - #{$barSize});
+  width: #{$sidebarSize};
+  overflow-y: auto;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include respond(mobile) {
+    display: none;
+  }
+}

@@ -1,0 +1,38 @@
+@import "settings/global.scss";
+@import "settings/materials.scss";
+
+.Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include darkGlass;
+  @include glassEdge;
+
+  width: 50px;
+  height: 80px;
+
+  border-width: 2px 2px 0;
+
+  position: absolute;
+  bottom: $barSize;
+
+  img {
+    width: 15px;
+    transform: rotateZ(180deg) translateY(-30px);
+    animation: arrow-down 1.5s ease-in-out infinite;
+
+    @keyframes arrow-down {
+      0% {
+        transform: rotateZ(180deg) translateY(30px);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: rotateZ(180deg) translateY(-30px);
+        opacity: 0;
+      }
+    }
+  }
+}

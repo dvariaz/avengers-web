@@ -1,23 +1,22 @@
-import React, { useRef } from "react";
 import { motion } from "framer-motion";
 
 import styles from "./NYSanctumSection.module.scss";
 
 // Components
-import Background from "../../../../components/Background";
-import TrapezoidButton from "../../../../components/UI/TrapezoidButton/index.js";
+import Background from "modules/common/components/Background";
+import TrapezoidButton from "modules/common/components/TrapezoidButton/index.js";
 
 // Hooks
-import useOnScreen from "../../../../hooks/useOnScreen";
+import useOnScreen from "modules/common/hooks/useOnScreen";
 
 // Animation Generators
 import {
   generateFadeIn,
-  generateOrchestrator,
-} from "../../../../common/animation-generators";
+  fadeInOrchestrator,
+} from "modules/common/utils/animation-generators";
 
 // Animation Variants
-const containerVariants = generateOrchestrator();
+const containerVariants = fadeInOrchestrator();
 const titleVariants = generateFadeIn({ enter: { y: 0 }, exit: { y: -20 } });
 const paragraphVariants = generateFadeIn({ enter: { y: 0 }, exit: { y: 20 } });
 
@@ -32,8 +31,7 @@ const drStrangeVariants = generateFadeIn({
 });
 
 const NYSanctumSection = () => {
-  const ref = useRef();
-  const isVisible = useOnScreen(ref, "10px", 0.5);
+  const [ref, isVisible] = useOnScreen("10px", 0.5);
 
   return (
     <motion.section

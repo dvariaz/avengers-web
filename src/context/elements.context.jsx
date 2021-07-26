@@ -1,7 +1,7 @@
-import React from "react";
+import { createContext, useContext } from "react";
 import elements from "./default/elements";
 
-const ElementsContext = React.createContext();
+const ElementsContext = createContext();
 
 export const ElementsProvider = (props) => {
   const value = elements;
@@ -10,7 +10,7 @@ export const ElementsProvider = (props) => {
 };
 
 export function useElements() {
-  const context = React.useContext(ElementsContext);
+  const context = useContext(ElementsContext);
 
   if (!context) {
     throw new Error(
