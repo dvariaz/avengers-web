@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 //Styles
 import styles from "./SynopsisNav.module.scss";
+import colors from "settings/colors";
 
 // Animation Variants
 const navVariants = {
@@ -17,7 +18,7 @@ const navVariants = {
   },
 };
 
-const SynopsisNav = ({ current, elements, onChange }) => {
+const SynopsisNav = ({ current, links, onChange }) => {
   const ref = useRef();
 
   const centerNavOnTarget = (target) => {
@@ -26,24 +27,24 @@ const SynopsisNav = ({ current, elements, onChange }) => {
     ref.current.scrollLeft = target.offsetLeft - navMiddle;
   };
 
-  const handleClick = (id, targetElement) => {
+  const handleClick = (path, targetElement) => {
     centerNavOnTarget(targetElement);
-    onChange(id);
+    onChange(path);
   };
 
   const handleBackward = () => {
-    let previousIndex = current === 0 ? elements.length - 1 : current - 1;
+    let previousIndex = current === 0 ? links.length - 1 : current - 1;
     const target = ref.current.children[previousIndex];
-    const previousLink = elements[previousIndex].id;
+    const previousLink = links[previousIndex].path;
 
     centerNavOnTarget(target);
     onChange(previousLink);
   };
 
   const handleForward = () => {
-    const nextIndex = (current + 1) % elements.length;
+    const nextIndex = (current + 1) % links.length;
     const target = ref.current.children[nextIndex];
-    let nextLink = elements[nextIndex].id;
+    let nextLink = links[nextIndex].path;
 
     centerNavOnTarget(target);
     onChange(nextLink);
@@ -65,19 +66,19 @@ const SynopsisNav = ({ current, elements, onChange }) => {
         />
       </button>
       <div className={styles.Items} ref={ref}>
-        {elements.map((element, index) => (
+        {links.map((link, index) => (
           <button
-            key={element.name[0]}
+            key={link.name}
             onClick={(e) => {
-              handleClick(element.id, e.target);
+              handleClick(link.path, e.target);
             }}
             className={current === index ? styles.Active : ""}
             style={{
               background:
-                current === index ? element.color.gradient : "transparent",
+                current === index ? colors[link.color].gradient : "transparent",
             }}
           >
-            {element.name[0]}
+            {link.name}
           </button>
         ))}
       </div>
@@ -98,7 +99,13 @@ SynopsisNav.defaultProps = {
 
 SynopsisNav.propTypes = {
   current: PropTypes.number.isRequired,
-  elements: PropTypes.array.isRequired,
+  elements: PropTypes.arrayOf(
+    PropTypes.shape({
+      path: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      color: PropTypes.string.isRequired,
+    })
+  ),
   onBackward: PropTypes.func,
   onForward: PropTypes.func,
 };

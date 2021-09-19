@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useUserAgent } from "@oieduardorabelo/use-user-agent";
 
 import styles from "./Element.module.scss";
+import colors from "settings/colors";
 
 // Hooks
 import useOnScreen from "modules/common/hooks/useOnScreen";
@@ -56,12 +57,12 @@ const Element = ({
           variants={titleVariants}
           className={styles.Title}
         >
-          <SplittedText text={name[0]} depths={name[1]} />
+          <SplittedText text={name.text} depths={name.depth} />
           <GraphicElement
             image={image}
             effect={effect}
             size={size}
-            color={color.flat}
+            color={colors[color].flat}
           />
 
           {details && details.device.type && (
@@ -75,13 +76,13 @@ const Element = ({
       <DataPanel
         color={color.flat}
         position={"left"}
-        title={`Sinopsis ${name[0]}`}
+        title={`Sinopsis ${name.text}`}
         content={synopsis}
       />
       <DataPanel
         color="white"
         position={"right"}
-        title={`Historia ${name[0]}`}
+        title={`Historia ${name.text}`}
         content={history}
       />
 

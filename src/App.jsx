@@ -39,7 +39,7 @@ const App = () => {
             <Route exact path="/sinopsis">
               <Redirect to="/sinopsis/general" />
             </Route>
-            <Route path="/sinopsis" component={SynopsisPage} />
+            <Route path="/sinopsis/:element" component={SynopsisPage} />
             <Route exact path="/cast">
               <Redirect to="/cast/thanos" />
             </Route>
