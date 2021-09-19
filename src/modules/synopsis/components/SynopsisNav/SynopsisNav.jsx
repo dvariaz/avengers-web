@@ -1,10 +1,11 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 
 //Styles
 import styles from "./SynopsisNav.module.scss";
 import colors from "settings/colors";
+import classNames from "classnames";
 
 // Animation Variants
 const navVariants = {
@@ -20,6 +21,14 @@ const navVariants = {
 
 const SynopsisNav = ({ current, links, onChange }) => {
   const ref = useRef();
+  const currentIndex = links.findIndex((link) => link.path === current);
+
+  useEffect(() => {
+    if(currentIndex >= 0){
+      const target = ref.current.children[currentIndex];
+      centerNavOnTarget(target)
+    }
+  }, []);
 
   const centerNavOnTarget = (target) => {
     const navMiddle = ref.current.offsetWidth / 2;
@@ -33,7 +42,7 @@ const SynopsisNav = ({ current, links, onChange }) => {
   };
 
   const handleBackward = () => {
-    let previousIndex = current === 0 ? links.length - 1 : current - 1;
+    let previousIndex = currentIndex === 0 ? links.length - 1 : currentIndex - 1;
     const target = ref.current.children[previousIndex];
     const previousLink = links[previousIndex].path;
 
@@ -42,7 +51,7 @@ const SynopsisNav = ({ current, links, onChange }) => {
   };
 
   const handleForward = () => {
-    const nextIndex = (current + 1) % links.length;
+    const nextIndex = (currentIndex + 1) % links.length;
     const target = ref.current.children[nextIndex];
     let nextLink = links[nextIndex].path;
 
@@ -72,10 +81,10 @@ const SynopsisNav = ({ current, links, onChange }) => {
             onClick={(e) => {
               handleClick(link.path, e.target);
             }}
-            className={current === index ? styles.Active : ""}
+            className={classNames({[styles.Active]: link.path === current})}
             style={{
               background:
-                current === index ? colors[link.color].gradient : "transparent",
+                link.path === current ? colors[link.color].gradient : "transparent",
             }}
           >
             {link.name}
@@ -98,7 +107,7 @@ SynopsisNav.defaultProps = {
 };
 
 SynopsisNav.propTypes = {
-  current: PropTypes.number.isRequired,
+  current: PropTypes.string.isRequired,
   elements: PropTypes.arrayOf(
     PropTypes.shape({
       path: PropTypes.string.isRequired,

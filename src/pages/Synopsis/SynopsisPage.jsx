@@ -9,9 +9,6 @@ import {
   useParams,
 } from "react-router-dom";
 
-// Default data
-import defaultElements from "context/default/elements.json";
-
 // Components
 import Element from "modules/synopsis/components/Element";
 import SynopsisNav from "modules/synopsis/components/SynopsisNav";
@@ -24,12 +21,11 @@ const SynopsisPage = () => {
   const history = useHistory();
   const location = useLocation();
   const { element: currentElement } = useParams();
-  const { current, elements, setElements, updateIndexById } = useSynopsis();
+  const { elements, loadElements } = useSynopsis();
 
   useEffect(() => {
     // Load the elements to display
-    setElements(defaultElements);
-    updateIndexById(currentElement);
+    loadElements()
   }, []);
 
   return (
@@ -37,11 +33,10 @@ const SynopsisPage = () => {
       {elements.length > 0 && (
         <>
           <SynopsisNav
-            current={current}
+            current={currentElement}
             links={extractLinkData(elements)}
             onChange={(elementId) => {
               history.push(elementId);
-              updateIndexById(elementId);
             }}
           />
           <AnimatePresence>
