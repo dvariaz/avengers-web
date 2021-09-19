@@ -1,4 +1,3 @@
-import { useState, useContext, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useUserAgent } from "@oieduardorabelo/use-user-agent";
 
@@ -11,7 +10,6 @@ import useOnScreen from "modules/common/hooks/useOnScreen";
 import Background from "modules/common/components/Background";
 import DataPanel from "modules/synopsis/components/DataPanel";
 import GraphicElement from "modules/synopsis/components/GraphicElement";
-import { NavigationContext } from "pages/Synopsis/NavigationContext";
 import ScrollIndicator from "modules/common/components/ScrollIndicator";
 import SplittedText from "modules/common/components/SplittedText";
 
@@ -47,12 +45,6 @@ const Element = ({
 }) => {
   const [ref, scrollVisible] = useOnScreen("50px", 0.95);
   const details = useUserAgent();
-
-  const { dispatch } = useContext(NavigationContext);
-
-  useEffect(() => {
-    dispatch({ type: "SET_INDEX", payload: { id } });
-  }, []);
 
   return (
     <>

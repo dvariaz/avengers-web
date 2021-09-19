@@ -1,53 +1,53 @@
-import { useContext, useEffect, useRef } from "react";
-import { useHistory, useRouteMatch } from "react-router-dom";
+import { useRef } from "react";
+import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 
 //Styles
 import styles from "./SynopsisNav.module.scss";
 
-import { NavigationContext } from "pages/Synopsis/NavigationContext";
-import SynopsisLink from "./SynopsisLink";
+// Animation Variants
+const navVariants = {
+  hidden: {
+    y: 100,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
 
-//TODO: Matchmedia podría utilizarse para obtener los mediaqueries y cambiar el letterspacing
+const SynopsisNav = ({ current, elements, onChange }) => {
+  const ref = useRef();
 
-const SynopsisNav = () => {
-  const optionsRef = useRef();
-  const history = useHistory();
-  const match = useRouteMatch("/sinopsis/:element");
+  const centerNavOnTarget = (target) => {
+    const navMiddle = ref.current.offsetWidth / 2;
 
-  const { state, dispatch } = useContext(NavigationContext);
-
-  const variants = {
-    hidden: {
-      y: 100,
-      opacity: 0,
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
+    ref.current.scrollLeft = target.offsetLeft - navMiddle;
   };
 
-  const goBackward = () => {
-    dispatch({ type: "GO_BACKWARD" });
+  const handleClick = (id, targetElement) => {
+    centerNavOnTarget(targetElement);
+    onChange(id);
   };
 
-  const goForward = () => {
-    dispatch({ type: "GO_FORWARD" });
+  const handleBackward = () => {
+    let previousIndex = current === 0 ? elements.length - 1 : current - 1;
+    const target = ref.current.children[previousIndex];
+    const previousLink = elements[previousIndex].id;
+
+    centerNavOnTarget(target);
+    onChange(previousLink);
   };
 
-  //Fired when access to section by url
-  useEffect(() => {
-    let element = match.params.element;
-    dispatch({ type: "SET_INDEX", payload: { id: element } });
-  }, []);
+  const handleForward = () => {
+    const nextIndex = (current + 1) % elements.length;
+    const target = ref.current.children[nextIndex];
+    let nextLink = elements[nextIndex].id;
 
-  //Fired when the current section is updated
-  useEffect(() => {
-    history.push(state.elements[state.current].id);
-    optionsRef.current.scrollLeft =
-      state.center - optionsRef.current.offsetWidth / 2;
-  }, [state.current]);
+    centerNavOnTarget(target);
+    onChange(nextLink);
+  };
 
   return (
     <motion.div
@@ -55,28 +55,33 @@ const SynopsisNav = () => {
       animate="visible"
       exit="hidden"
       transition={{ type: "tween" }}
-      variants={variants}
+      variants={navVariants}
       className={styles.SynopsisNav}
     >
-      <button onClick={goBackward} className={styles.Controller}>
+      <button onClick={handleBackward} className={styles.Controller}>
         <img
           src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
           alt="Anterior sección"
         />
       </button>
-      <div className={styles.Items} ref={optionsRef}>
-        {state.elements.map((element, index) => (
-          <SynopsisLink
-            key={index}
-            id={element.id}
-            index={index}
-            name={element.name[0]}
-            color={element.color}
-            className={state.current === index ? styles.Active : ""}
-          />
+      <div className={styles.Items} ref={ref}>
+        {elements.map((element, index) => (
+          <button
+            key={element.name[0]}
+            onClick={(e) => {
+              handleClick(element.id, e.target);
+            }}
+            className={current === index ? styles.Active : ""}
+            style={{
+              background:
+                current === index ? element.color.gradient : "transparent",
+            }}
+          >
+            {element.name[0]}
+          </button>
         ))}
       </div>
-      <button onClick={goForward} className={styles.Controller}>
+      <button onClick={handleForward} className={styles.Controller}>
         <img
           src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
           alt="Siguiente sección"
@@ -84,6 +89,18 @@ const SynopsisNav = () => {
       </button>
     </motion.div>
   );
+};
+
+SynopsisNav.defaultProps = {
+  current: 0,
+  elements: [],
+};
+
+SynopsisNav.propTypes = {
+  current: PropTypes.number.isRequired,
+  elements: PropTypes.array.isRequired,
+  onBackward: PropTypes.func,
+  onForward: PropTypes.func,
 };
 
 export default SynopsisNav;

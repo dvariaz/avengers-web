@@ -2,19 +2,20 @@ import { motion } from "framer-motion";
 
 import styles from "./GraphicElement.module.scss";
 
-import GraphicIndicator from "./GraphicIndicator";
+import GraphicIndicator from "modules/synopsis/components/GraphicIndicator";
 import titleize from "titleize";
 
-const GraphicElement = ({ image, effect, color, size }) => {
-  const elementVariants = {
-    visible: {
-      opacity: 1,
-    },
-    hidden: {
-      opacity: 0,
-    },
-  };
+// Animation Variants
+const elementVariants = {
+  visible: {
+    opacity: 1,
+  },
+  hidden: {
+    opacity: 0,
+  },
+};
 
+const GraphicElement = ({ image, effect, color, size }) => {
   return (
     <motion.div
       initial="hidden"
