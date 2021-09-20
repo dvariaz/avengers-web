@@ -41,7 +41,7 @@
   }
 
   &.Small {
-    height: 40%;
+    height: 30%;
 
     @include respond(mobile) {
       z-index: zPushDown($z-page, 15);
@@ -50,7 +50,7 @@
   }
 
   &.Large {
-    height: 60%;
+    height: 50%;
 
     @include respond(mobile) {
       z-index: zPushDown($z-page, 15);
