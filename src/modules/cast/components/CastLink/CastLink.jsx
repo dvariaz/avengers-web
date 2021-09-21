@@ -1,39 +1,27 @@
-import { useEffect, useRef, useContext } from "react";
+import { useRef } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { transparentize } from "polished";
 import { motion } from "framer-motion";
 
 import styles from "./CastLink.module.scss";
-import { NavigationContext } from "pages/Cast/NavigationContext";
 
-const CastLink = ({ id, name, image, color }) => {
+// Animation variants
+const variants = {
+  active: {
+    fontSize: "1.4em",
+    borderLeftWidth: "0.3em",
+    backgroundSize: "100%, cover",
+  },
+  inactive: {
+    fontSize: "1.2em",
+    borderLeftWidth: "0em",
+    backgroundSize: "0%, cover",
+  },
+};
+
+const CastLink = ({ id, name, image, color, onClick }) => {
   const ref = useRef();
   const match = useRouteMatch("/cast/:character");
-  const { dispatch } = useContext(NavigationContext);
-
-  const variants = {
-    active: {
-      fontSize: "1.4em",
-      borderLeftWidth: "0.3em",
-      backgroundSize: "100%, cover",
-    },
-    inactive: {
-      fontSize: "1.2em",
-      borderLeftWidth: "0em",
-      backgroundSize: "0%, cover",
-    },
-  };
-
-  useEffect(() => {
-    const scrollPosition = ref.current.offsetTop - 50;
-    dispatch({ type: "LOAD_CENTER", payload: { id, center: scrollPosition } });
-  }, []);
-
-  const handleClick = () => {
-    if (id != match.params.character) {
-      dispatch({ type: "SET_INDEX", payload: { id } });
-    }
-  };
 
   return (
     <>
@@ -51,7 +39,7 @@ const CastLink = ({ id, name, image, color }) => {
             color
           )},transparent), url("${process.env.PUBLIC_URL}/assets/${image}")`,
         }}
-        onClick={handleClick}
+        onClick={(e) => onClick(id, e.target)}
       >
         {name}
       </motion.button>

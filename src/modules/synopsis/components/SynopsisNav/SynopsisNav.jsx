@@ -21,12 +21,17 @@ const navVariants = {
 
 const SynopsisNav = ({ current, links, onChange }) => {
   const ref = useRef();
+
+  // Element indexes
   const currentIndex = links.findIndex((link) => link.path === current);
+  const previousIndex =
+    currentIndex === 0 ? links.length - 1 : currentIndex - 1;
+  const nextIndex = (currentIndex + 1) % links.length;
 
   useEffect(() => {
-    if(currentIndex >= 0){
+    if (currentIndex >= 0) {
       const target = ref.current.children[currentIndex];
-      centerNavOnTarget(target)
+      centerNavOnTarget(target);
     }
   }, []);
 
@@ -42,7 +47,6 @@ const SynopsisNav = ({ current, links, onChange }) => {
   };
 
   const handleBackward = () => {
-    let previousIndex = currentIndex === 0 ? links.length - 1 : currentIndex - 1;
     const target = ref.current.children[previousIndex];
     const previousLink = links[previousIndex].path;
 
@@ -51,7 +55,6 @@ const SynopsisNav = ({ current, links, onChange }) => {
   };
 
   const handleForward = () => {
-    const nextIndex = (currentIndex + 1) % links.length;
     const target = ref.current.children[nextIndex];
     let nextLink = links[nextIndex].path;
 
@@ -81,10 +84,12 @@ const SynopsisNav = ({ current, links, onChange }) => {
             onClick={(e) => {
               handleClick(link.path, e.target);
             }}
-            className={classNames({[styles.Active]: link.path === current})}
+            className={classNames({ [styles.Active]: link.path === current })}
             style={{
               background:
-                link.path === current ? colors[link.color].gradient : "transparent",
+                link.path === current
+                  ? colors[link.color].gradient
+                  : "transparent",
             }}
           >
             {link.name}

@@ -1,70 +1,72 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import {
   Switch,
   Route,
-  useRouteMatch,
+  Redirect,
+  useParams,
   useLocation,
   useHistory,
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
-import { NavigationContext } from "./NavigationContext";
-
 import CastNav from "modules/cast/components/CastNav";
 import Scroller from "modules/common/components/Scroller";
 import Character from "modules/cast/components/Character";
 
+// Hooks
+import useCharacters from "modules/cast/hooks/useCharacters";
+import { extractLinkData } from "modules/common/utils/paths";
+
 const CastPage = () => {
   const location = useLocation();
   const history = useHistory();
-  const { path } = useRouteMatch();
-  const match = useRouteMatch("/cast/:character");
-
-  const { state, dispatch } = useContext(NavigationContext);
-
-  const goForward = () => {
-    dispatch({ type: "GO_FORWARD" });
-  };
-
-  const goBackward = () => {
-    dispatch({ type: "GO_BACKWARD" });
-  };
+  const { character: currentCharacter } = useParams();
+  const { characters, loadCharacters } = useCharacters();
 
   //Fired when access to section by url
   useEffect(() => {
-    let character = match.params.character;
-    dispatch({ type: "SET_INDEX", payload: { id: character } });
+    loadCharacters();
   }, []);
-
-  useEffect(() => {
-    history.push(state.characters[state.current].id);
-  }, [state.current]);
 
   return (
     <div className="Container Respect-TopBar Respect-SideBars Respect-CastNav Layout-Horizontal Restricted">
-      <CastNav characters={state.characters} />
-      <Scroller
-        color={state.characters[state.current].color.gradient}
-        backward={goBackward}
-        forward={goForward}
-      />
+      {characters.length > 0 && (
+        <>
+          <CastNav
+            links={characters}
+            onChange={(characterId) => {
+              history.push(characterId);
+            }}
+          />
+          <Scroller
+            current={currentCharacter}
+            links={extractLinkData(characters)}
+            onChange={(characterId) => {
+              history.push(characterId);
+            }}
+          />
 
-      <AnimatePresence>
-        <Switch location={location} key={location.pathname}>
-          {state.characters.map((character) => (
-            <Route key={character.id} exact path={`${path}/${character.id}`}>
-              <Character
-                name={character.name}
-                description={character.description}
-                photo={character.photo}
-                background={character.background}
-                position={character.position}
-                color={character.color}
-              />
-            </Route>
-          ))}
-        </Switch>
-      </AnimatePresence>
+          <AnimatePresence>
+            <Switch location={location} key={location.pathname}>
+              {characters.map((character) => (
+                <Route key={character.id} exact path={`/cast/${character.id}`}>
+                  <Character
+                    name={character.name}
+                    description={character.description}
+                    photo={character.photo}
+                    background={character.background}
+                    position={character.position}
+                    color={character.color}
+                  />
+                </Route>
+              ))}
+              <Route key={characters[0].id}>
+                <Redirect to={`/cast/${characters[0].id}`} />
+              </Route>
+            </Switch>
+          </AnimatePresence>
+        </>
+      )}
     </div>
   );
 };

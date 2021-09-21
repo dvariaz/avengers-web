@@ -15,7 +15,7 @@ import SynopsisNav from "modules/synopsis/components/SynopsisNav";
 
 // Hooks
 import useSynopsis from "modules/synopsis/hooks/useSynopsis";
-import { extractLinkData } from "modules/synopsis/utils/paths";
+import { extractLinkData } from "modules/common/utils/paths";
 
 const SynopsisPage = () => {
   const history = useHistory();
@@ -25,7 +25,7 @@ const SynopsisPage = () => {
 
   useEffect(() => {
     // Load the elements to display
-    loadElements()
+    loadElements();
   }, []);
 
   return (

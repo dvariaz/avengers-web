@@ -36,14 +36,8 @@ const App = () => {
         <UILayout>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/sinopsis">
-              <Redirect to="/sinopsis/general" />
-            </Route>
             <Route path="/sinopsis/:element" component={SynopsisPage} />
-            <Route exact path="/cast">
-              <Redirect to="/cast/thanos" />
-            </Route>
-            <Route path="/cast" component={CastPage} />
+            <Route path="/cast/:character" component={CastPage} />
             <Route exact path="/galeria">
               <Redirect to="/galeria/joshbrolin" />
             </Route>

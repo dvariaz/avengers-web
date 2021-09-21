@@ -7,26 +7,25 @@ import styles from "./CastNav.module.scss";
 import { NavigationContext } from "pages/Cast/NavigationContext";
 
 import CastLink from "modules/cast/components/CastLink";
+import colors from "settings/colors";
 
-const CastNav = ({ characters }) => {
+// Animation variants
+const variants = {
+  hidden: {
+    x: -300,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+  },
+};
+
+const CastNav = ({ links, onChange }) => {
   const ref = useRef();
-  const { path } = useRouteMatch();
-  const { state, dispatch } = useContext(NavigationContext);
 
-  useEffect(() => {
-    const nextPosition = state.characters[state.current].center;
-    ref.current.scrollTop = nextPosition;
-  }, [state.current]);
-
-  const variants = {
-    hidden: {
-      x: -300,
-      opacity: 0,
-    },
-    visible: {
-      x: 0,
-      opacity: 1,
-    },
+  const centerNavOnTarget = (target) => {
+    ref.current.scrollTop = target.offsetTop;
   };
 
   return (
@@ -38,14 +37,17 @@ const CastNav = ({ characters }) => {
       className={styles.Nav}
       ref={ref}
     >
-      {characters.map((character) => (
+      {links.map((link) => (
         <CastLink
-          key={character.id}
-          id={character.id}
-          to={`${path}/${character.id}`}
-          name={character.name}
-          image={character.profile}
-          color={character.color.flat}
+          key={link.id}
+          id={link.id}
+          name={link.name.text}
+          image={link.profile}
+          color={colors[link.color].flat}
+          onClick={(path, targetElement) => {
+            centerNavOnTarget(targetElement);
+            onChange(path);
+          }}
         />
       ))}
     </motion.div>

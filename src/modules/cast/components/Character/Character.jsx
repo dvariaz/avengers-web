@@ -5,6 +5,66 @@ import styles from "./Character.module.scss";
 
 import Background from "modules/common/components/Background";
 
+// Animation variants
+const transition = {
+  type: "spring",
+  damping: 20,
+  stiffness: 80,
+  duration: 0.3,
+};
+
+const imageContainerVariants = {
+  visible: {
+    opacity: 1,
+  },
+  hidden: {
+    opacity: 0,
+  },
+};
+
+const titleVariants = {
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  hidden: {
+    x: -200,
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+const paragraphVariants = {
+  visible: {
+    x: 0,
+    opacity: 1,
+  },
+  hidden: {
+    x: -100,
+    opacity: 0,
+  },
+};
+
+const descriptionVariants = {
+  visible: {
+    transition: {
+      staggerChildren: 0.05,
+      type: "tween",
+    },
+  },
+  hidden: {
+    transition: {
+      staggerChildren: 0.05,
+      type: "tween",
+    },
+  },
+};
+
 const Character = ({
   name,
   description,
@@ -13,13 +73,6 @@ const Character = ({
   position,
   color,
 }) => {
-  const transition = {
-    type: "spring",
-    damping: 20,
-    stiffness: 80,
-    duration: 0.3,
-  };
-
   const imageVariants = {
     visible: {
       x: 0,
@@ -39,58 +92,6 @@ const Character = ({
     },
   };
 
-  const imageContainerVariants = {
-    visible: {
-      opacity: 1,
-    },
-    hidden: {
-      opacity: 0,
-    },
-  };
-
-  const titleVariants = {
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-    hidden: {
-      x: -200,
-      opacity: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
-  const paragraphVariants = {
-    visible: {
-      x: 0,
-      opacity: 1,
-    },
-    hidden: {
-      x: -100,
-      opacity: 0,
-    },
-  };
-
-  const descriptionVariants = {
-    visible: {
-      transition: {
-        staggerChildren: 0.05,
-        type: "tween",
-      },
-    },
-    hidden: {
-      transition: {
-        staggerChildren: 0.05,
-        type: "tween",
-      },
-    },
-  };
-
   return (
     <>
       <div className={`${styles.Container} ${styles[titleize(position)]}`}>
@@ -106,7 +107,7 @@ const Character = ({
             className={styles.Title}
             style={{ borderColor: color.flat }}
           >
-            {name}
+            {name.text}
           </motion.h1>
 
           <div className={styles.Description}>
