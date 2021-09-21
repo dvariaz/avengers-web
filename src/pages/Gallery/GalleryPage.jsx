@@ -1,51 +1,67 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-import { Switch, Route, useLocation, useRouteMatch } from "react-router-dom";
-
-import { NavigationContext } from "./NavigationContext";
+import {
+  Switch,
+  Route,
+  Redirect,
+  useLocation,
+  useHistory,
+  useParams,
+} from "react-router-dom";
 
 import Actor from "modules/gallery/components/Actor";
 import ActorNav from "modules/gallery/components/ActorNav";
 
-//TODO: Esperar a que framer-motion mejore los problemas de routing con AnimatePresence
+// Hooks
+import useCast from "modules/gallery/hooks/useCast";
+import { extractLinkData } from "modules/common/utils/paths";
 
 const GalleryPage = () => {
   const location = useLocation();
-  const match = useRouteMatch("/galeria/:actor");
+  const history = useHistory();
+  const { actor: currentActor } = useParams();
   const [isLoading, setLoadingStatus] = useState(true);
-
-  const { state, dispatch } = useContext(NavigationContext);
+  const { cast, loadCast } = useCast();
 
   useEffect(() => {
-    const id = match.params.actor;
-    dispatch({ type: "SET_INDEX", payload: { id } });
+    loadCast();
     setLoadingStatus(false);
   }, []);
 
   if (!isLoading) {
     return (
       <div className="Container Respect-AllBars">
-        <AnimatePresence>
-          <Switch location={location} key={location.pathname}>
-            {state.cast.map((actor, index) => (
-              <Route key={index} path={`/galeria/${actor.id}`}>
-                <Actor
-                  index={`${index + 1}`.padStart(2, "0")}
-                  name={actor.name}
-                  score={actor.score}
-                  color={actor.color}
-                  role={actor.role}
-                  background={actor.background}
-                />
-              </Route>
-            ))}
-          </Switch>
-        </AnimatePresence>
+        {cast && (
+          <>
+            <AnimatePresence>
+              <Switch location={location} key={location.pathname}>
+                {cast.map((actor, index) => (
+                  <Route key={actor.id} path={`/galeria/${actor.id}`}>
+                    <Actor
+                      index={`${index + 1}`.padStart(2, "0")}
+                      name={actor.name.text}
+                      score={actor.score}
+                      color={actor.color}
+                      role={actor.role}
+                      background={actor.background}
+                    />
+                  </Route>
+                ))}
+                <Route>
+                  <Redirect to={`/galeria/${cast[0].id}`} />
+                </Route>
+              </Switch>
+            </AnimatePresence>
 
-        <ActorNav
-          name={state.cast[state.current].name}
-          color={state.cast[state.current].color}
-        />
+            <ActorNav
+              current={currentActor}
+              links={extractLinkData(cast)}
+              onChange={(actorId) => {
+                history.push(actorId);
+              }}
+            />
+          </>
+        )}
       </div>
     );
   } else {

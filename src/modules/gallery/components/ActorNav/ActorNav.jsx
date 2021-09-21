@@ -1,25 +1,27 @@
-import { useContext, useEffect, useState } from "react";
-import { useLocation, useHistory, useRouteMatch } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { transparentize } from "polished";
 import { useUserAgent } from "@oieduardorabelo/use-user-agent";
-
-import { NavigationContext } from "pages/Gallery/NavigationContext";
 
 import styles from "./ActorNav.module.scss";
 
 import Scroller from "modules/common/components/Scroller";
+import colors from "settings/colors";
 
-const ActorNav = ({ name, color }) => {
+const ActorNav = ({ current, links, onChange }) => {
   const details = useUserAgent();
   const location = useLocation();
-  const history = useHistory();
-  const match = useRouteMatch("/galeria/:actor");
 
-  const { state, dispatch } = useContext(NavigationContext);
+  // Element indexes
+  const currentIndex = links.findIndex((link) => link.path === current);
+  const previousIndex =
+    currentIndex === 0 ? links.length - 1 : currentIndex - 1;
+  const nextIndex = (currentIndex + 1) % links.length;
 
-  const slug = name.replace(" ", "+");
+  const slug = links[currentIndex].name.replace(" ", "+");
 
   const handleClick = async (e) => {
+    const { name } = links[currentIndex];
+
     let data = {
       title: name,
       text: `Quieres saber más sobre ${name}, dale click aquí`,
@@ -37,27 +39,22 @@ const ActorNav = ({ name, color }) => {
     }
   };
 
-  const goBackward = () => {
-    dispatch({ type: "GO_BACKWARD" });
+  const handleBackward = () => {
+    const previousLink = links[previousIndex].path;
+
+    onChange(previousLink);
   };
 
-  const goForward = () => {
-    dispatch({ type: "GO_FORWARD" });
+  const handleForward = () => {
+    let nextLink = links[nextIndex].path;
+
+    onChange(nextLink);
   };
-
-  useEffect(() => {
-    const id = match.params.actor;
-    dispatch({ type: "SET_INDEX", payload: { id } });
-  }, []);
-
-  useEffect(() => {
-    history.push(state.cast[state.current].id);
-  }, [state.current]);
 
   return (
     <>
       <nav className={styles.ActorNav}>
-        {name}
+        {links[currentIndex].name}
         <div className={styles.Buttons}>
           <a
             href={`https://www.google.com/search?q=${slug}`}
@@ -65,8 +62,11 @@ const ActorNav = ({ name, color }) => {
             rel="noopener noreferrer"
             className={styles.RoundedButton}
             style={{
-              background: color.gradient,
-              color: transparentize(0.3, color.flat),
+              background: colors[links[currentIndex].color].gradient,
+              color: transparentize(
+                0.3,
+                colors[links[currentIndex].color].flat
+              ),
             }}
           >
             <img
@@ -85,17 +85,13 @@ const ActorNav = ({ name, color }) => {
         </div>
       </nav>
       {details?.device.type ? (
-        <Scroller
-          color={state.cast[state.current].color}
-          backward={goBackward}
-          forward={goForward}
-        />
+        <Scroller current={current} links={links} onChange={onChange} />
       ) : (
         <>
           <button
-            onClick={goBackward}
+            onClick={handleBackward}
             className={styles.ArrowLeft}
-            style={{ background: color.gradient }}
+            style={{ background: colors[links[currentIndex].color].gradient }}
           >
             <img
               src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
@@ -103,9 +99,9 @@ const ActorNav = ({ name, color }) => {
             />
           </button>
           <button
-            onClick={goForward}
+            onClick={handleForward}
             className={styles.ArrowRight}
-            style={{ background: color.gradient }}
+            style={{ background: colors[links[currentIndex].color].gradient }}
           >
             <img
               src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}

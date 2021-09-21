@@ -1,10 +1,7 @@
-import { useRef, useContext, useEffect } from "react";
-import { useRouteMatch } from "react-router-dom";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 
 import styles from "./CastNav.module.scss";
-
-import { NavigationContext } from "pages/Cast/NavigationContext";
 
 import CastLink from "modules/cast/components/CastLink";
 import colors from "settings/colors";

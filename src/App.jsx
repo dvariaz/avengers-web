@@ -38,9 +38,6 @@ const App = () => {
             <Route exact path="/" component={HomePage} />
             <Route path="/sinopsis/:element" component={SynopsisPage} />
             <Route path="/cast/:character" component={CastPage} />
-            <Route exact path="/galeria">
-              <Redirect to="/galeria/joshbrolin" />
-            </Route>
             <Route path="/galeria/:actor" component={GalleryPage} />
             <Route exact path="/trailer" component={TrailerPage} />
           </Switch>

@@ -1,7 +1,9 @@
 [
   {
     "id": "joshbrolin",
-    "name": "Josh Brolin",
+    "name": {
+      "text": "Josh Brolin"
+    },
     "score": 4.0,
     "role": { "name": "Thanos", "movies": 1 },
     "background": "Cast/JoshBrolin.jpg",
@@ -9,7 +11,9 @@
   },
   {
     "id": "chrisevans",
-    "name": "Chris Evans",
+    "name": {
+      "text": "Chris Evans"
+    },
     "score": 5.0,
     "role": { "name": "Capitán América", "movies": 7 },
     "background": "Cast/ChrisEvans.jpg",
@@ -17,7 +21,9 @@
   },
   {
     "id": "robertdowneyjr",
-    "name": "Robert Downey Jr",
+    "name": {
+      "text": "Robert Downey Jr"
+    },
     "score": 5.0,
     "role": { "name": "Iron Man", "movies": 1 },
     "background": "Cast/RobertDowneyJr.jpg",
@@ -25,7 +31,9 @@
   },
   {
     "id": "chrishemsworth",
-    "name": "Chris Hemsworth",
+    "name": {
+      "text": "Chris Hemsworth"
+    },
     "score": 4.9,
     "role": { "name": "Thor", "movies": 6 },
     "background": "Cast/ChrisHemsworth.jpg",
@@ -33,7 +41,9 @@
   },
   {
     "id": "chrispatt",
-    "name": "Chris Patt",
+    "name": {
+      "text": "Chris Patt"
+    },
     "score": 5.0,
     "role": { "name": "Star Lord", "movies": 3 },
     "background": "Cast/ChrisPatt.jpg",
@@ -41,7 +51,9 @@
   },
   {
     "id": "scarlettjohansson",
-    "name": "Scarlett Johansson",
+    "name": {
+      "text": "Scarlett Johansson"
+    },
     "score": 5.0,
     "role": { "name": "Black Widow", "movies": 6 },
     "background": "Cast/ScarlettJohansson.jpg",
