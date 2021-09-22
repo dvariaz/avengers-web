@@ -6,21 +6,20 @@ import styles from "./ActorNav.module.scss";
 
 import Scroller from "modules/common/components/Scroller";
 import colors from "settings/colors";
+import useCircularNavigation from "modules/common/hooks/useCircularNavigation";
 
 const ActorNav = ({ current, links, onChange }) => {
   const details = useUserAgent();
   const location = useLocation();
+  const { currentItem, previousItem, nextItem } = useCircularNavigation(
+    current,
+    links
+  );
 
-  // Element indexes
-  const currentIndex = links.findIndex((link) => link.path === current);
-  const previousIndex =
-    currentIndex === 0 ? links.length - 1 : currentIndex - 1;
-  const nextIndex = (currentIndex + 1) % links.length;
-
-  const slug = links[currentIndex].name.replace(" ", "+");
+  const slug = currentItem.name.replace(" ", "+");
 
   const handleClick = async (e) => {
-    const { name } = links[currentIndex];
+    const { name } = currentItem;
 
     let data = {
       title: name,
@@ -40,13 +39,13 @@ const ActorNav = ({ current, links, onChange }) => {
   };
 
   const handleBackward = () => {
-    const previousLink = links[previousIndex].path;
+    const previousLink = previousItem.path;
 
     onChange(previousLink);
   };
 
   const handleForward = () => {
-    let nextLink = links[nextIndex].path;
+    let nextLink = nextItem.path;
 
     onChange(nextLink);
   };
@@ -54,7 +53,7 @@ const ActorNav = ({ current, links, onChange }) => {
   return (
     <>
       <nav className={styles.ActorNav}>
-        {links[currentIndex].name}
+        {currentItem.name}
         <div className={styles.Buttons}>
           <a
             href={`https://www.google.com/search?q=${slug}`}
@@ -62,11 +61,8 @@ const ActorNav = ({ current, links, onChange }) => {
             rel="noopener noreferrer"
             className={styles.RoundedButton}
             style={{
-              background: colors[links[currentIndex].color].gradient,
-              color: transparentize(
-                0.3,
-                colors[links[currentIndex].color].flat
-              ),
+              background: colors[currentItem.color].gradient,
+              color: transparentize(0.3, colors[currentItem.color].flat),
             }}
           >
             <img
@@ -91,7 +87,7 @@ const ActorNav = ({ current, links, onChange }) => {
           <button
             onClick={handleBackward}
             className={styles.ArrowLeft}
-            style={{ background: colors[links[currentIndex].color].gradient }}
+            style={{ background: colors[currentItem.color].gradient }}
           >
             <img
               src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
@@ -101,7 +97,7 @@ const ActorNav = ({ current, links, onChange }) => {
           <button
             onClick={handleForward}
             className={styles.ArrowRight}
-            style={{ background: colors[links[currentIndex].color].gradient }}
+            style={{ background: colors[currentItem.color].gradient }}
           >
             <img
               src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}

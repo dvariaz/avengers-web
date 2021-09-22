@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import styles from "./SynopsisNav.module.scss";
 import colors from "settings/colors";
 import classNames from "classnames";
+import useCircularNavigation from "modules/common/hooks/useCircularNavigation";
 
 // Animation Variants
 const navVariants = {
@@ -22,11 +23,10 @@ const navVariants = {
 const SynopsisNav = ({ current, links, onChange }) => {
   const ref = useRef();
 
-  // Element indexes
-  const currentIndex = links.findIndex((link) => link.path === current);
-  const previousIndex =
-    currentIndex === 0 ? links.length - 1 : currentIndex - 1;
-  const nextIndex = (currentIndex + 1) % links.length;
+  const { currentIndex, previousIndex, nextIndex } = useCircularNavigation(
+    current,
+    links
+  );
 
   useEffect(() => {
     if (currentIndex >= 0) {
@@ -73,7 +73,7 @@ const SynopsisNav = ({ current, links, onChange }) => {
     >
       <button onClick={handleBackward} className={styles.Controller}>
         <img
-          src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
+          src={"/assets/Icons/Navigation/ChevronArrow-Icon.svg"}
           alt="Anterior sección"
         />
       </button>
@@ -98,7 +98,7 @@ const SynopsisNav = ({ current, links, onChange }) => {
       </div>
       <button onClick={handleForward} className={styles.Controller}>
         <img
-          src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
+          src={"/assets/Icons/Navigation/ChevronArrow-Icon.svg"}
           alt="Siguiente sección"
         />
       </button>

@@ -1,20 +1,22 @@
 import styles from "./Scroller.module.scss";
 import colors from "settings/colors";
 
+//Hooks
+import useCircularNavigation from "modules/common/hooks/useCircularNavigation";
+
 const Scroller = ({ current, links, onChange }) => {
-  // Characters indexes
-  const currentIndex = links.findIndex((link) => link.path === current);
-  const previousIndex =
-    currentIndex === 0 ? links.length - 1 : currentIndex - 1;
-  const nextIndex = (currentIndex + 1) % links.length;
+  const { currentItem, previousItem, nextItem } = useCircularNavigation(
+    current,
+    links
+  );
 
   const handleBackward = () => {
-    const previousLink = links[previousIndex].path;
+    const previousLink = previousItem.path;
     onChange(previousLink);
   };
 
   const handleForward = () => {
-    let nextLink = links[nextIndex].path;
+    let nextLink = nextItem.path;
     onChange(nextLink);
   };
 
@@ -23,20 +25,20 @@ const Scroller = ({ current, links, onChange }) => {
       <div className={styles.Body}>
         <button
           onClick={handleBackward}
-          style={{ background: colors[links[currentIndex].color].gradient }}
+          style={{ background: colors[currentItem.color].gradient }}
         >
           <img
-            src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
+            src={"/assets/Icons/Navigation/ChevronArrow-Icon.svg"}
             alt="Anterior sección"
           />
         </button>
         <span>Scroll</span>
         <button
           onClick={handleForward}
-          style={{ background: colors[links[currentIndex].color].gradient }}
+          style={{ background: colors[currentItem.color].gradient }}
         >
           <img
-            src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
+            src={"/assets/Icons/Navigation/ChevronArrow-Icon.svg"}
             alt="Siguiente sección"
           />
         </button>

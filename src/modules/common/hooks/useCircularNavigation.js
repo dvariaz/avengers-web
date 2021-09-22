@@ -1,11 +1,24 @@
-import { useState } from "react";
+export default function useCircularNavigation(current, links) {
+  if (links.some((link) => !link.path))
+    throw new Error("All links must have path property");
 
-export default function useCircularNavigation(initialIndex, elements) {
-  const [state, setState] = useState({ current: initialIndex, elements });
+  // Index
+  const currentIndex = links.findIndex((link) => link.path === current);
+  const previousIndex =
+    currentIndex === 0 ? links.length - 1 : currentIndex - 1;
+  const nextIndex = (currentIndex + 1) % links.length;
 
-  const goForward = () => {
-    set;
+  // Links
+  const currentItem = links[currentIndex];
+  const previousItem = links[previousIndex];
+  const nextItem = links[nextIndex];
+
+  return {
+    currentItem,
+    previousItem,
+    nextItem,
+    currentIndex,
+    previousIndex,
+    nextIndex,
   };
-
-  return state;
 }

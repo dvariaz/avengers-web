@@ -22,6 +22,7 @@ const ActorScore = ({ score }) => {
   const mvCounter = useSpring(0, { stiffness: 150 });
 
   useEffect(() => {
+    // Score interpolator
     mvCounter.set(score);
     mvCounter.onChange((latest) => setCounter(latest));
   }, []);
