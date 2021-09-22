@@ -19,10 +19,6 @@ const TrailerPage = () => {
     },
   };
 
-  const _onReady = (event) => {
-    // event.target.pauseVideo();
-  };
-
   const _handlePlay = (event) => {
     setIsExpanded(true);
   };
@@ -40,7 +36,6 @@ const TrailerPage = () => {
           videoId="823iAZOEKt8"
           opts={opts}
           onPlay={_handlePlay}
-          onReady={_onReady}
           onPause={_handlePause}
         />
       </motion.div>
