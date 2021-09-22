@@ -1,6 +1,6 @@
 import { useState } from "react";
 // Default data
-import defaultCharacters from "context/default/characters.json";
+import defaultCharacters from "data/characters.json";
 
 export default function useCharacters() {
   const [state, setState] = useState({

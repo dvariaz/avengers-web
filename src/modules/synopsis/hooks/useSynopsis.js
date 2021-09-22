@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // Default data
-import defaultElements from "context/default/elements.json";
+import defaultElements from "data/elements.json";
 
 export default function useSynopsis() {
   const [state, setState] = useState({

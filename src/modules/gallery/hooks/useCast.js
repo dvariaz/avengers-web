@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // Default data
-import defaultCast from "context/default/cast.json";
+import defaultCast from "data/cast.json";
 
 export default function useCast() {
   const [state, setState] = useState({
