@@ -41,6 +41,8 @@ const GalleryPage = () => {
                     color={actor.color}
                     role={actor.role}
                     background={actor.background}
+                    wallpapers={actor.wallpapers}
+                    photos={actor.photos}
                   />
                 </Route>
               ))}

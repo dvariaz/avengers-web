@@ -7,7 +7,55 @@
     "score": 4.0,
     "role": { "name": "Thanos", "movies": 1 },
     "background": "Cast/JoshBrolin.jpg",
-    "color": "sapphire"
+    "color": "sapphire",
+    "wallpapers": [
+      {
+        "id": "jb-w-1",
+        "src": "https://images5.alphacoders.com/907/thumb-1920-907053.jpg"
+      },
+      {
+        "id": "jb-w-2",
+        "src": "https://images6.alphacoders.com/917/thumb-1920-917631.png"
+      },
+      {
+        "id": "jb-w-3",
+        "src": "https://images.alphacoders.com/594/thumb-1920-594683.jpg"
+      },
+      {
+        "id": "jb-w-4",
+        "src": "https://images.alphacoders.com/887/thumb-1920-887769.jpg"
+      },
+      {
+        "id": "jb-w-5",
+        "src": "https://images6.alphacoders.com/981/thumb-1920-981160.jpg"
+      },
+      {
+        "id": "jb-w-6",
+        "src": "https://images3.alphacoders.com/100/thumb-1920-1005136.jpg"
+      }
+    ],
+    "photos": [
+      {
+        "id": "jb-p-1",
+        "src": "https://www.puroshow.com/u/fotografias/m/2020/12/27/f608x342-6535_36258_22.jpg"
+      },
+      {
+        "id": "jb-p-2",
+        "src": "https://media.gettyimages.com/photos/josh-brolin-attends-the-sicario-day-of-the-soldado-photo-call-at-four-picture-id974427700?s=2048x2048"
+      },
+      {
+        "id": "jb-p-3",
+        "src": "https://media.gettyimages.com/photos/actor-josh-brolin-attends-the-marvel-studios-panel-during-comiccon-picture-id452755966?s=2048x2048"
+      },
+      {
+        "id": "jb-p-4",
+        "src": "https://media.gettyimages.com/photos/episode-688-pictured-actor-josh-brolin-during-an-interview-on-may-16-picture-id959326444?s=2048x2048"
+      },
+      {
+        "id": "jb-p-5",
+        "src": "https://media.gettyimages.com/photos/actor-josh-brolin-attends-marvels-hall-h-press-line-for-antman-and-picture-id452774658?s=2048x2048"
+      }
+    ]
   },
   {
     "id": "chrisevans",
@@ -17,7 +65,71 @@
     "score": 5.0,
     "role": { "name": "Capitán América", "movies": 7 },
     "background": "Cast/ChrisEvans.jpg",
-    "color": "neonBlue"
+    "color": "neonBlue",
+    "wallpapers": [
+      {
+        "id": "ce-w-1",
+        "src": "https://www.pixel4k.com/wp-content/uploads/2019/07/captain-america_1562106226.jpg"
+      },
+      {
+        "id": "ce-w-2",
+        "src": "https://cdn.wallpapersafari.com/86/51/sO4Eam.jpg"
+      },
+      {
+        "id": "ce-w-3",
+        "src": "https://wallpaperaccess.com/full/4744.jpg"
+      },
+      {
+        "id": "ce-w-4",
+        "src": "https://wallpaperbat.com/img/79126-free-download-78-captain-america-wallpaper.jpg"
+      },
+      {
+        "id": "ce-w-5",
+        "src": "https://wallpapercave.com/wp/wp1808940.jpg"
+      },
+      {
+        "id": "ce-w-6",
+        "src": "https://wallpapercave.com/wp/wp1808954.jpg"
+      },
+      {
+        "id": "ce-w-7",
+        "src": "https://wallpapercave.com/wp/wp1808958.jpg"
+      }
+    ],
+    "photos": [
+      {
+        "id": "ce-p-1",
+        "src": "https://aws.revistavanityfair.es/prod/designs/v1/assets/785x589/235369.jpg"
+      },
+      {
+        "id": "ce-p-2",
+        "src": "https://img.bekia.es/galeria/91000/91761_chris-evans-premiere-pelicula-capitan-america-civil-war-londres.jpg"
+      },
+      {
+        "id": "ce-p-3",
+        "src": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/chris-evans-1559265565.jpg"
+      },
+      {
+        "id": "ce-p-4",
+        "src": "https://fotografias.antena3.com/clipping/cmsimages01/2018/05/18/B3C0B484-125C-4EBA-B396-C348BDC42A8E/98.jpg?crop=1200,675,x0,y37&width=1900&height=1069&optimize=high&format=webply"
+      },
+      {
+        "id": "ce-p-5",
+        "src": "https://www.bolsamania.com/cine/wp-content/uploads/2018/05/28-1.jpg"
+      },
+      {
+        "id": "ce-p-6",
+        "src": "https://cdn.noticiasdequeretaro.com.mx/wp-content/uploads/2020/02/13150038/chris-evans-actors-on-actors.jpg"
+      },
+      {
+        "id": "ce-p-7",
+        "src": "https://images-na.ssl-images-amazon.com/images/I/71cP5QtelVL.jpg"
+      },
+      {
+        "id": "ce-p-8",
+        "src": "https://i.redd.it/quxstv38poc11.jpg"
+      }
+    ]
   },
   {
     "id": "robertdowneyjr",
@@ -27,7 +139,9 @@
     "score": 5.0,
     "role": { "name": "Iron Man", "movies": 1 },
     "background": "Cast/RobertDowneyJr.jpg",
-    "color": "torchRed"
+    "color": "torchRed",
+    "wallpapers": [],
+    "photos": []
   },
   {
     "id": "chrishemsworth",
@@ -37,7 +151,9 @@
     "score": 4.9,
     "role": { "name": "Thor", "movies": 6 },
     "background": "Cast/ChrisHemsworth.jpg",
-    "color": "neonBlue"
+    "color": "neonBlue",
+    "wallpapers": [],
+    "photos": []
   },
   {
     "id": "chrispatt",
@@ -47,7 +163,9 @@
     "score": 5.0,
     "role": { "name": "Star Lord", "movies": 3 },
     "background": "Cast/ChrisPatt.jpg",
-    "color": "darkViolet"
+    "color": "darkViolet",
+    "wallpapers": [],
+    "photos": []
   },
   {
     "id": "scarlettjohansson",
@@ -57,6 +175,8 @@
     "score": 5.0,
     "role": { "name": "Black Widow", "movies": 6 },
     "background": "Cast/ScarlettJohansson.jpg",
-    "color": "gamboge"
+    "color": "gamboge",
+    "wallpapers": [],
+    "photos": []
   }
 ]

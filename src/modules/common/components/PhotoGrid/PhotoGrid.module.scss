@@ -1,0 +1,22 @@
+.Grid {
+  display: flex;
+  width: auto;
+  max-width: 1800px;
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+.Column {
+  padding: 0 1rem;
+  background-clip: padding-box;
+  pointer-events: none;
+
+  > img {
+    /* change div to reference your elements you put in <Masonry> */
+    width: 100%;
+    margin: 1rem;
+    pointer-events: all;
+    // height: 100%;
+    // object-fit: cover;
+  }
+}
