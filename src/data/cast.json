@@ -1,6 +1,7 @@
 [
   {
     "id": "joshbrolin",
+    "path": "/joshbrolin",
     "name": {
       "text": "Josh Brolin"
     },
@@ -59,6 +60,7 @@
   },
   {
     "id": "chrisevans",
+    "path": "/chrisevans",
     "name": {
       "text": "Chris Evans"
     },
@@ -133,6 +135,7 @@
   },
   {
     "id": "robertdowneyjr",
+    "path": "/robertdowneyjr",
     "name": {
       "text": "Robert Downey Jr"
     },
@@ -140,11 +143,82 @@
     "role": { "name": "Iron Man", "movies": 1 },
     "background": "Cast/RobertDowneyJr.jpg",
     "color": "torchRed",
-    "wallpapers": [],
-    "photos": []
+    "wallpapers": [
+      {
+        "id": "rd-w-1",
+        "src": "http://cdn30.us1.fansshare.com/image/hdwallpapersformac/iron-man-wallpaper-hd-wallpapers-city-754513768.jpg"
+      },
+      {
+        "id": "rd-w-2",
+        "src": "https://wallpaperaccess.com/full/1135428.jpg"
+      },
+      {
+        "id": "rd-w-3",
+        "src": "https://wallpapercave.com/wp/wp2586322.jpg"
+      },
+      {
+        "id": "rd-w-4",
+        "src": "https://wallpaperaccess.com/full/2420668.jpg"
+      },
+      {
+        "id": "rd-w-5",
+        "src": "https://i.pinimg.com/originals/f6/cb/9f/f6cb9fba9a2184176cfca39e4e303858.jpg"
+      },
+      {
+        "id": "rd-w-6",
+        "src": "https://wallpaperaccess.com/full/1135438.jpg"
+      },
+      {
+        "id": "rd-w-7",
+        "src": "https://images5.alphacoders.com/329/thumb-1920-329544.jpg"
+      },
+      {
+        "id": "rd-w-8",
+        "src": "https://www.pixel4k.com/wp-content/uploads/2019/08/new-iron-man-2019_1565054188.jpg"
+      },
+      {
+        "id": "rd-w-9",
+        "src": "https://besthqwallpapers.com/Uploads/2-3-2020/123251/thumb2-4k-ironman-battle-superheroes-iron-man-mask.jpg"
+      }
+    ],
+    "photos": [
+      {
+        "id": "rd-p-1",
+        "src": "https://img.vixdata.io/pd/jpg-large/es/sites/default/files/r/robert_downey_jr_en_premiere_de_avengers.jpg"
+      },
+      {
+        "id": "rd-p-2",
+        "src": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/robert-downey-jr-fotogramas-1617222563.jpg"
+      },
+      {
+        "id": "rd-p-3",
+        "src": "https://www.theplace2.ru/cache/archive/robert_downey_jr/img/1905456_bdcd3278-gthumb-gwdata1200-ghdata1200-gfitdatamax.jpg"
+      },
+      {
+        "id": "rd-p-4",
+        "src": "https://pbs.twimg.com/media/DcxqptHWAAAeBTV.jpg"
+      },
+      {
+        "id": "rd-p-5",
+        "src": "https://thesuccessbug.com/wp-content/uploads/2021/02/Copy-of-SVU-1140x641.png"
+      },
+      {
+        "id": "rd-p-6",
+        "src": "https://data.whicdn.com/images/168889662/original.jpg"
+      },
+      {
+        "id": "rd-p-7",
+        "src": "http://media.vanityfair.com/photos/540b789a193f09557a7d1abc/master/w_768,c_limit/robert-downey-jr-tiff-porttraits-vf.jpg"
+      },
+      {
+        "id": "rd-p-8",
+        "src": "https://m.media-amazon.com/images/M/MV5BNjIyMDBlYWQtZDQ0OC00NTY4LWJmYjktMTc2MDA2YzE0NDZiXkEyXkFqcGdeQXVyMTU3NTQyMTg@._V1_.jpg"
+      }
+    ]
   },
   {
     "id": "chrishemsworth",
+    "path": "/chrishemsworth",
     "name": {
       "text": "Chris Hemsworth"
     },
@@ -152,11 +226,86 @@
     "role": { "name": "Thor", "movies": 6 },
     "background": "Cast/ChrisHemsworth.jpg",
     "color": "neonBlue",
-    "wallpapers": [],
-    "photos": []
+    "wallpapers": [
+      {
+        "id": "ch-w-1",
+        "src": "https://fondosmil.com/fondo/38211.jpg"
+      },
+      {
+        "id": "ch-w-2",
+        "src": "https://fondosmil.com/fondo/38213.png"
+      },
+      {
+        "id": "ch-w-3",
+        "src": "https://s1.1zoom.me/big0/362/354567-admin.jpg"
+      },
+      {
+        "id": "ch-w-4",
+        "src": "https://i.pinimg.com/originals/ab/d5/f5/abd5f53d180ab7221d961020e6f9c972.jpg"
+      },
+      {
+        "id": "ch-w-5",
+        "src": "https://i.imgur.com/ZNp0Uvt.png"
+      },
+      {
+        "id": "ch-w-6",
+        "src": "https://wallpapercave.com/wp/wp4244325.jpg"
+      },
+      {
+        "id": "ch-w-7",
+        "src": "https://www.syfy.com/sites/syfy/files/2018/04/thor.png"
+      },
+      {
+        "id": "ch-w-8",
+        "src": "https://wallpaperaccess.com/full/699751.jpg"
+      },
+      {
+        "id": "ch-w-9",
+        "src": "https://i.pinimg.com/originals/b7/eb/e7/b7ebe7ddb0547a5e349de4df6f8995f8.jpg"
+      },
+      {
+        "id": "ch-w-10  ",
+        "src": "https://www.latercera.com/resizer/-M2l2VOP5SuGNzc_UWqAyXw56sw=/900x600/smart/arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/WEFQFUASBRFPVPI52C3A3PPRH4.jpg"
+      }
+    ],
+    "photos": [
+      {
+        "id": "ch-p-1",
+        "src": "https://64.media.tumblr.com/5dd41f3cbd7cb5365d742f3954aa9a5c/c950cd2e804c4d1f-d8/s1280x1920/13791a5733022e75fa2def45e0cedf584b67615f.jpg"
+      },
+      {
+        "id": "ch-p-2",
+        "src": "https://64.media.tumblr.com/dee9af6e0e16bfea91d8a8a66f8daa7a/1f71a896d188233e-fd/s1280x1920/009c4852b00214c2543c4fc8b9cd297b05f7887f.jpg"
+      },
+      {
+        "id": "ch-p-3",
+        "src": "https://i.sellphoto.ru/o/fv/chris-hemsworth-male-celebrities-boys.jpeg"
+      },
+      {
+        "id": "ch-p-4",
+        "src": "https://p.favim.com/orig/2018/08/13/photoshoot-beautiful-chris-hemsworth-Favim.com-6141054.jpg"
+      },
+      {
+        "id": "ch-p-5",
+        "src": "https://i.dailymail.co.uk/i/newpix/2018/04/24/06/4B7A921100000578-5650147-God_of_Thunder_Chris_Hemsworth_looked_effortlessly_cool_in_a_thr-a-37_1524549197053.jpg"
+      },
+      {
+        "id": "ch-p-6",
+        "src": "https://www.mensjournal.com/wp-content/uploads/2018/05/gettyimages-951739026.jpg?w=900&h=506&crop=1&quality=86&strip=all"
+      },
+      {
+        "id": "ch-p-7",
+        "src": "https://fotos.perfil.com//2020/12/01/900/0/chris-hemsworth-1093377.jpg"
+      },
+      {
+        "id": "ch-p-8",
+        "src": "https://www.gentleman.excelsior.com.mx/wp-content/uploads/2021/04/web.002_BOSS_ChrisHemsworth_SR21-2-scaled.jpg"
+      }
+    ]
   },
   {
     "id": "chrispatt",
+    "path": "/chrispatt",
     "name": {
       "text": "Chris Patt"
     },
@@ -164,11 +313,78 @@
     "role": { "name": "Star Lord", "movies": 3 },
     "background": "Cast/ChrisPatt.jpg",
     "color": "darkViolet",
-    "wallpapers": [],
-    "photos": []
+    "wallpapers": [
+      {
+        "id": "cp-w-1",
+        "src": "https://cdn.wallpapersafari.com/65/53/6eiAIu.jpg"
+      },
+      {
+        "id": "cp-w-2",
+        "src": "https://cdn.wallpapersafari.com/1/95/Z5Qgok.jpg"
+      },
+      {
+        "id": "cp-w-3",
+        "src": "https://c.wallhere.com/photos/f7/34/Avengers_Infinity_War_Guardians_of_the_Galaxy_Starlord_Chris_Pratt_The_Avengers-1309325.jpg!d"
+      },
+      {
+        "id": "cp-w-4",
+        "src": "https://wallpapercave.com/wp/wp2147501.jpg"
+      },
+      {
+        "id": "cp-w-5",
+        "src": "https://cutewallpaper.org/21/guardians-of-the-galaxy-star-lord-wallpapers/Star-Lord-4k-2018-superheroes-wallpapers-star-lord-.jpg"
+      },
+      {
+        "id": "cp-w-6",
+        "src": "https://daemoniaca.mx/wp-content/uploads/2020/12/20201214_154805.jpg"
+      },
+      {
+        "id": "cp-w-7",
+        "src": "https://img.vixdata.io/pd/jpg-large/es/sites/default/files/s/star-lord-guardianes-de-la-galaxia-vol-2.jpg"
+      },
+      {
+        "id": "cp-w-8",
+        "src": "https://i2.wp.com/wipy.tv/wp-content/uploads/2020/02/Star-Lord-aniquil%C3%B3-a-un-Dios.jpg?fit=1000%2C600&ssl=1"
+      }
+    ],
+    "photos": [
+      {
+        "id": "cp-p-1",
+        "src": "https://i2.wp.com/elfildeo.com/wp-content/uploads/2020/06/guardianes-de-la-galaxia-star-lord.jpg?fit=1200%2C800&ssl=1"
+      },
+      {
+        "id": "cp-p-2",
+        "src": "https://pbs.twimg.com/media/D8cj1lgXYAAztA8.jpg"
+      },
+      {
+        "id": "cp-p-3",
+        "src": "https://wallpaperaccess.com/full/1181808.jpg"
+      },
+      {
+        "id": "cp-p-4",
+        "src": "https://img.ecartelera.com/img/96200/96237_chris-pratt-premiere-mundial-vengadores-infintiy-war.jpg"
+      },
+      {
+        "id": "cp-p-5",
+        "src": "https://img1.goodfon.com/wallpaper/nbig/c/47/kris-pratt-chris-pratt-akter-4984.jpg"
+      },
+      {
+        "id": "cp-p-6",
+        "src": "https://elheraldoslp.com.mx/wp-content/uploads/2021/01/Chris-Pratt.jpg"
+      },
+      {
+        "id": "cp-p-7",
+        "src": "https://i.pinimg.com/originals/fc/ef/b7/fcefb72480b6812f9c785116ac6e3806.jpg"
+      },
+      {
+        "id": "cp-p-8",
+        "src": "https://cdn.vox-cdn.com/thumbor/FcDT8eJgSCuAylD_bH2Wkv6I_Xs=/0x0:3196x2264/1200x800/filters:focal(1343x877:1853x1387)/cdn.vox-cdn.com/uploads/chorus_image/image/68764083/AP18114201122937.0.jpg"
+      }
+    ]
   },
   {
     "id": "scarlettjohansson",
+    "path": "/scarlettjohansson",
     "name": {
       "text": "Scarlett Johansson"
     },
@@ -176,7 +392,73 @@
     "role": { "name": "Black Widow", "movies": 6 },
     "background": "Cast/ScarlettJohansson.jpg",
     "color": "gamboge",
-    "wallpapers": [],
-    "photos": []
+    "wallpapers": [
+      {
+        "id": "sj-w-1",
+        "src": "https://wallpaperaccess.com/full/3808536.jpg"
+      },
+      {
+        "id": "sj-w-2",
+        "src": "https://i.pinimg.com/originals/c8/4d/41/c84d410dd7fd375807d9f529f7c52ff6.jpg"
+      },
+      {
+        "id": "sj-w-3",
+        "src": "https://i1.wp.com/wipy.tv/wp-content/uploads/2021/06/black-widow-scarlett-infinity-war.jpg?fit=1000%2C600&ssl=1"
+      },
+      {
+        "id": "sj-w-4",
+        "src": "https://img5.goodfon.com/wallpaper/nbig/a/af/mstiteli-voina-beskonechnosti-skarlet-iokhanson-scarlett-joh.jpg"
+      },
+      {
+        "id": "sj-w-5",
+        "src": "https://www.syfy.com/sites/syfy/files/styles/1200x680_hero/public/2018/11/black_widow_2.jpg"
+      },
+      {
+        "id": "sj-w-6",
+        "src": "https://cutewallpaper.org/21/black-widow-wallpaper/4K-Pic-of-Superhero-Black-Widow-HD-Wallpapers.jpg"
+      },
+      {
+        "id": "sj-w-7",
+        "src": "https://i.pinimg.com/originals/35/ed/fe/35edfe9908a01d039c67fa307ea7637c.jpg"
+      },
+      {
+        "id": "sj-w-8",
+        "src": "https://f.vividscreen.info/soft/ee253f6f62ca8a91988bf7938294d3a3/Captain-America-The-Winter-Soldier-Black-Widow-1680x1050.jpg"
+      }
+    ],
+    "photos": [
+      {
+        "id": "sj-p-1",
+        "src": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/elm110119wlscarlett0004logo-1570027927.jpg?crop=1.00xw:0.335xh;0,0.104xh&resize=1200:*"
+      },
+      {
+        "id": "sj-p-2",
+        "src": "https://www.hotcelebrities.xyz/wp-content/uploads/2021/08/scarlett-johansson-photoshoot-for-vanity-fair-2014-5.jpg"
+      },
+      {
+        "id": "sj-p-3",
+        "src": "https://img.bekia.es/galeria/142000/142223_scarlett-johansson-premiere-vengadores-endgame.jpg"
+      },
+      {
+        "id": "sj-p-4",
+        "src": "https://www.teahub.io/photos/full/318-3180812_scarlett-johansson-hot-wallpaper.jpg"
+      },
+      {
+        "id": "sj-p-5",
+        "src": "https://elcomercio.pe/resizer/sX1rfKAzFmrpAnvvBQYSqrI36sA=/980x0/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/O7LNLH2H2FEBNNIGKX4XLPWAJQ.jpg"
+      },
+      {
+        "id": "sj-p-6",
+        "src": "https://img.vixdata.io/pd/jpg-large/es/sites/default/files/g/gettyimages-950533610.jpg"
+      },
+      {
+        "id": "sj-p-7",
+        "src": "https://mocah.org/uploads/posts/326306-Scarlett-Johansson-Photoshoot-Blonde-Short-Hair-4K-iphone-wallpaper.jpg"
+      },
+      {
+        "id": "sj-p-8",
+        "src": "https://i.redd.it/gyznh3n6g9f21.jpg"
+      }
+    ]
   }
 ]

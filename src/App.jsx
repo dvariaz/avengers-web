@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //Styles
 import "./settings/container.scss";
+import "./settings/icons.scss";
 import "./settings/global.scss";
 import "./App.scss";
 

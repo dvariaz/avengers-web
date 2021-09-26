@@ -1,3 +1,5 @@
+@import "settings/layers.scss";
+
 .Grid {
   display: flex;
   width: auto;
@@ -12,11 +14,31 @@
   pointer-events: none;
 
   > img {
-    /* change div to reference your elements you put in <Masonry> */
     width: 100%;
     margin: 1rem;
     pointer-events: all;
-    // height: 100%;
-    // object-fit: cover;
   }
+}
+
+.Fullscreen {
+  position: fixed;
+  display: flex;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: zPushUp($z-ui, 100);
+}
+
+.FullscreenImage {
+  margin: auto;
+}
+
+.Overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 }

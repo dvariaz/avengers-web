@@ -1,12 +1,11 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 
 // Styling
 import styles from "./PhotoGrid.module.scss";
 
 // Components
 import Masonry from "react-masonry-css";
-
-//TODO: Implement photo viewer with AnimatedSharedLayout
 
 // Animation Variants
 const imageVariants = {
@@ -32,32 +31,100 @@ const imageVariants = {
   }),
 };
 
+const overlayVariants = {
+  initial: {
+    opacity: 0,
+  },
+  enter: {
+    opacity: 1,
+  },
+  exit: {
+    opacity: 0,
+  },
+};
+
 const PhotoGrid = ({ images }) => {
+  const [imageOnFullscreen, setImageOnFullscreen] = useState({
+    id: "",
+    alt: "",
+    src: "",
+    orientation: "",
+  });
+
+  const closeImage = () => {
+    setImageOnFullscreen({
+      id: "",
+      src: "",
+      alt: "",
+      orientation: "",
+    });
+  };
+
   return (
-    <Masonry
-      breakpointCols={{
-        default: 3,
-        1200: 3,
-        800: 2,
-        500: 1,
-      }}
-      className={styles.Grid}
-      columnClassName={styles.Column}
-    >
-      {images.map((image, index) => (
-        <motion.img
-          initial="initial"
-          animate="enter"
-          exit="exit"
-          variants={imageVariants}
-          custom={{ index, length: images.length }}
-          key={image.id}
-          src={image.src}
-          alt={image.description || "Imagen"}
-          onClick={(e) => console.log("Evento de imagen", e)}
-        />
-      ))}
-    </Masonry>
+    <AnimateSharedLayout type="crossfade">
+      <Masonry
+        breakpointCols={{
+          default: 3,
+          1200: 3,
+          800: 2,
+          500: 1,
+        }}
+        className={styles.Grid}
+        columnClassName={styles.Column}
+      >
+        {images.map((image, index) => (
+          <motion.img
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            layoutId={image.id}
+            variants={imageVariants}
+            custom={{ index, length: images.length }}
+            key={image.id}
+            src={image.src}
+            alt={image.description || "Imagen"}
+            onClick={(e) => {
+              // We calculate the image's orientation according to its dimensions
+              const orientation =
+                e.target.offsetWidth > e.target.offsetHeight
+                  ? "horizontal"
+                  : "vertical";
+              setImageOnFullscreen({
+                id: image.id,
+                src: image.src,
+                alt: image.alt,
+                orientation,
+              });
+            }}
+          />
+        ))}
+      </Masonry>
+      <AnimatePresence>
+        {imageOnFullscreen.id !== "" && (
+          <div className={styles.Fullscreen}>
+            <motion.img
+              layoutId={imageOnFullscreen.id}
+              src={imageOnFullscreen.src}
+              alt={imageOnFullscreen.alt}
+              className={styles.FullscreenImage}
+              style={
+                imageOnFullscreen.orientation === "horizontal"
+                  ? { width: "90vw" }
+                  : { height: "90vh" }
+              }
+            />
+            <motion.div
+              initial="initial"
+              animate="enter"
+              exit="exit"
+              variants={overlayVariants}
+              className={styles.Overlay}
+              onClick={closeImage}
+            ></motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+    </AnimateSharedLayout>
   );
 };
 

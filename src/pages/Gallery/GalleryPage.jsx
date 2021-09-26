@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 
 import Actor from "modules/gallery/components/Actor";
-import ActorNav from "modules/gallery/components/ActorNav";
+import GalleryNav from "modules/gallery/components/GalleryNav";
 
 // Hooks
 import useCast from "modules/gallery/hooks/useCast";
@@ -31,11 +31,13 @@ const GalleryPage = () => {
       {cast.length > 0 && (
         <>
           <AnimatePresence>
-            <Switch location={location} key={location.pathname}>
+            <Switch location={location} key={currentActor}>
               {cast.map((actor, index) => (
                 <Route key={actor.id} path={`/galeria/${actor.id}`}>
                   <Actor
                     index={`${index + 1}`.padStart(2, "0")}
+                    id={actor.id}
+                    basepath={actor.path}
                     name={actor.name.text}
                     score={actor.score}
                     color={actor.color}
@@ -52,11 +54,11 @@ const GalleryPage = () => {
             </Switch>
           </AnimatePresence>
 
-          <ActorNav
+          <GalleryNav
             current={currentActor}
             links={extractLinkData(cast)}
             onChange={(actorId) => {
-              history.push(actorId);
+              history.push(`/galeria/${actorId}`);
             }}
           />
         </>
