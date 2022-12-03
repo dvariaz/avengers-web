@@ -9,9 +9,9 @@ You can watch the demo here
 
 ### Screenshots
 
-![Index](https://github.com/dvariaz/avengers-web/blob/develop/docs/screenshots/Index_Screenshot.PNG?raw=true)
-![Synopsis](https://github.com/dvariaz/avengers-web/blob/develop/docs/screenshots/Synopsis_Screenshot.PNG?raw=true)
-![Cast](https://github.com/dvariaz/avengers-web/blob/develop/docs/screenshots/Cast_Screenshot.PNG?raw=true)
+![Index](https://github.com/dvariaz/avengers-web/blob/master/docs/screenshots/Index_Screenshot.PNG)
+![Synopsis](https://raw.githubusercontent.com/dvariaz/avengers-web/master/docs/screenshots/Synopsis_Screenshot.PNG)
+![Cast](https://raw.githubusercontent.com/dvariaz/avengers-web/master/docs/screenshots/Cast_Screenshot.PNG)
 
 ### Implementation
 
