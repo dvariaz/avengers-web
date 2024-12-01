@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { transparentize } from "polished";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 import styles from "./CastLink.module.scss";
 

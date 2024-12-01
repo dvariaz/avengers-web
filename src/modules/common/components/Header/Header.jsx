@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation, useRouteMatch } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import styles from "./Header.module.scss";
 
 const Header = ({ logo, sections }) => {

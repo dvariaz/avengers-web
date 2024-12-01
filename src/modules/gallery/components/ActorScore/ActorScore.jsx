@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, useSpring } from "framer-motion";
+import { motion, useSpring } from "motion/react";
 
 // Styling
 import styles from "./ActorScore.module.scss";

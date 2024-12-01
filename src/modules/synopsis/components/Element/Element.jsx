@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useUserAgent } from "@oieduardorabelo/use-user-agent";
 
 import styles from "./Element.module.scss";

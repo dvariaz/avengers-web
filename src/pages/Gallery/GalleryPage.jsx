@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 import {
   Switch,
   Route,

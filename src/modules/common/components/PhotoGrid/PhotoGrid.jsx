@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
+import { AnimatePresence, AnimateSharedLayout, motion } from "motion/react";
 
 // Styling
 import styles from "./PhotoGrid.module.scss";

@@ -1,5 +1,5 @@
 import { useHistory, useRouteMatch } from "react-router";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 // Styling
 import styles from "./Actor.module.scss";

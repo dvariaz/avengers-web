@@ -3,14 +3,14 @@
     "version": "0.1.0",
     "private": true,
     "engines": {
-        "node": ">=16.10.0"
+        "node": ">=20.9.0"
     },
     "dependencies": {
         "@oieduardorabelo/use-user-agent": "^2.0.0",
         "@types/youtube": "0.0.39",
         "classnames": "^2.3.2",
         "eslint-plugin-react-hooks": "^4.6.0",
-        "framer-motion": "^7.6.5",
+        "motion": "^11.12.0",
         "polished": "^3.6.5",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",

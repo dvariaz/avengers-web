@@ -7,7 +7,7 @@ import {
   useLocation,
   useHistory,
 } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 
 import CastNav from "modules/cast/components/CastNav";
 import Scroller from "modules/common/components/Scroller";

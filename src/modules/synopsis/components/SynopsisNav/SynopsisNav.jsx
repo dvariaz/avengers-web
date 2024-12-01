@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 //Styles
 import styles from "./SynopsisNav.module.scss";

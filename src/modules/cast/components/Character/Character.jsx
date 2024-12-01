@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import titleize from "titleize";
 
 import styles from "./Character.module.scss";

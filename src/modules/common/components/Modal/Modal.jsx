@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import ReactDOM from "react-dom";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 
 // Styling
 import classNames from "classnames";
