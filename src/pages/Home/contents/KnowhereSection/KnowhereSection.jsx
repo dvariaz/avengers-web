@@ -1,17 +1,17 @@
 import { motion } from "motion/react";
 
 // Components
-import Background from "modules/common/components/Background";
-import TrapezoidButton from "modules/common/components/TrapezoidButton/index.js";
+import Background from "@/modules/common/components/Background";
+import TrapezoidButton from "@/modules/common/components/TrapezoidButton/index.js";
 
 // Hooks
-import useOnScreen from "modules/common/hooks/useOnScreen";
+import useOnScreen from "@/modules/common/hooks/useOnScreen";
 
 // Animation Generators
 import {
   generateFadeIn,
   fadeInOrchestrator,
-} from "modules/common/utils/animation-generators";
+} from "@/modules/common/utils/animation-generators";
 
 // Animation Variants
 const containerVariants = fadeInOrchestrator();

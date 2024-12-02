@@ -1,6 +1,6 @@
-@import "settings/global.scss";
-@import "settings/layers.scss";
-@import "settings/breakpoints.scss";
+@use "@/settings/global.scss" as global;
+@use "@/settings/layers.scss" as layers;
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 .Container {
   position: absolute;
@@ -8,9 +8,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  padding: $barSize;
+  padding: global.$barSize;
 
-  @include respond(mobile) {
+  @include breakpoints.respond(mobile) {
     padding-left: 0;
   }
 }
@@ -20,7 +20,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  z-index: zPushUp($z-ui, 10);
+  z-index: layers.zPushUp(layers.$z-ui, 10);
 
   img {
     cursor: pointer;

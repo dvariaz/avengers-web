@@ -1,5 +1,5 @@
-@import "settings/global.scss";
-@import "settings/breakpoints.scss";
+@use "@/settings/global.scss";
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 .Ribbon {
   position: absolute;
@@ -7,26 +7,26 @@
   @extend %titleFont;
   font-size: 4em;
   height: 100%;
-  left: $barSize;
+  left: global.$barSize;
 
-  @include respond(laptop) {
+  @include breakpoints.respond(laptop) {
     font-size: 3em;
   }
 
-  @include respond(mobile) {
+  @include breakpoints.respond(mobile) {
     left: 0;
     font-size: 0.8em;
-    width: calc(100% - #{$barSize});
-    height: calc(100% - #{$barSize * 1.5});
+    width: calc(100% - #{global.$barSize});
+    height: calc(100% - #{global.$barSize * 1.5});
   }
 
-  @include respond(mini-mobile) {
+  @include breakpoints.respond(mini-mobile) {
     font-size: 0.7em;
   }
 
   .Text {
     position: absolute;
-    bottom: calc(#{$barSize} + 1em);
+    bottom: calc(#{global.$barSize} + 1em);
     overflow: hidden;
 
     .Index,
@@ -34,9 +34,9 @@
       white-space: normal;
       display: block;
       line-height: 1em;
-      margin: 0 0 0 $barSize;
+      margin: 0 0 0 global.$barSize;
 
-      @include respond(mobile) {
+      @include breakpoints.respond(mobile) {
         font-size: 4em;
         white-space: wrap;
         margin-left: 1rem;
@@ -47,7 +47,7 @@
       margin-right: 0.5em;
       font-size: 3em;
 
-      @include respond(mobile) {
+      @include breakpoints.respond(mobile) {
         font-size: 4em;
       }
     }
@@ -59,8 +59,8 @@
     bottom: 0;
     width: 300px;
 
-    @include respond(mobile) {
-      width: $barSize * 1.4;
+    @include breakpoints.respond(mobile) {
+      width: global.$barSize * 1.4;
     }
   }
 }

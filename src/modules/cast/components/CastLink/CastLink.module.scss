@@ -1,4 +1,5 @@
-@import "settings/fonts.scss";
+@use "@/settings/global.scss" as global;
+@use "@/settings/fonts.scss" as fonts;
 
 .Link {
   display: flex;
@@ -17,5 +18,5 @@
   cursor: pointer;
   outline: none;
 
-  @include navFont;
+  @include fonts.navFont;
 }

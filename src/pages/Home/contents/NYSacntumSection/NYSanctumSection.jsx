@@ -3,17 +3,17 @@ import { motion } from "motion/react";
 import styles from "./NYSanctumSection.module.scss";
 
 // Components
-import Background from "modules/common/components/Background";
-import TrapezoidButton from "modules/common/components/TrapezoidButton/index.js";
+import Background from "@/modules/common/components/Background";
+import TrapezoidButton from "@/modules/common/components/TrapezoidButton/index.js";
 
 // Hooks
-import useOnScreen from "modules/common/hooks/useOnScreen";
+import useOnScreen from "@/modules/common/hooks/useOnScreen";
 
 // Animation Generators
 import {
   generateFadeIn,
   fadeInOrchestrator,
-} from "modules/common/utils/animation-generators";
+} from "@/modules/common/utils/animation-generators";
 
 // Animation Variants
 const containerVariants = fadeInOrchestrator();
@@ -44,9 +44,9 @@ const NYSanctumSection = () => {
         className="Character"
         initial="exit"
         variants={drStrangeVariants}
-        src={`${process.env.PUBLIC_URL}/assets/Backgrounds/NewYorkSanctum/DoctorStrange.png`}
+        src={`/assets/Backgrounds/NewYorkSanctum/DoctorStrange.png`}
       />
-      <motion.h1 variants={titleVariants} className={styles.BigTitle}>
+      <motion.h1 variants={titleVariants} className={styles.bigTitle}>
         DOCTOR STRANGE
       </motion.h1>
       <motion.div variants={containerVariants} className="TextContainer">

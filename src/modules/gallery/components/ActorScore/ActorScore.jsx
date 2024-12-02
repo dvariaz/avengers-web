@@ -5,7 +5,7 @@ import { motion, useSpring } from "motion/react";
 import styles from "./ActorScore.module.scss";
 
 // Utils
-import { renderStars } from "modules/gallery/utils/ranking";
+import { renderStars } from "@/modules/gallery/utils/ranking";
 
 // Animation Variants
 const scoreVariants = {

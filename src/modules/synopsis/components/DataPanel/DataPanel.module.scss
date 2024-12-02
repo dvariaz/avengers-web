@@ -1,53 +1,53 @@
-@import "settings/global.scss";
-@import "settings/materials.scss";
-@import "settings/layers.scss";
-@import "settings/fonts.scss";
-@import "settings/breakpoints.scss";
+@use "@/settings/global.scss" as global;
+@use "@/settings/materials.scss" as materials;
+@use "@/settings/layers.scss" as layers;
+@use "@/settings/fonts.scss" as fonts;
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 .Panel {
   overflow: hidden;
   position: absolute;
 
   &.Left {
-    left: $barSize;
-    top: $barSize;
+    left: global.$barSize;
+    top: global.$barSize;
 
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
       position: static;
     }
   }
 
   &.Right {
-    right: $barSize;
-    bottom: $barSize;
+    right: global.$barSize;
+    bottom: global.$barSize;
 
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
       position: static;
     }
   }
 
-  @include respond(tablet-portrait) {
+  @include breakpoints.respond(tablet-portrait) {
     display: none;
   }
 
-  @include respond(mobile) {
+  @include breakpoints.respond(mobile) {
     display: block;
   }
 
   .Content {
-    @include darkGlass;
-    @include cardFont;
+    @include materials.darkGlass;
+    @include fonts.cardFont;
 
     margin: 4em 0;
     padding: 0 2em 3em 3em;
     color: white;
     width: 500px;
 
-    @include respond(laptop) {
+    @include breakpoints.respond(laptop) {
       width: 450px;
     }
 
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
       width: 100%;
     }
 
@@ -81,7 +81,7 @@
     }
 
     &::after {
-      @include darkGlass;
+      @include materials.darkGlass;
       content: "";
       position: absolute;
       bottom: -20px;
@@ -89,20 +89,20 @@
       height: 20px;
       width: 150px;
 
-      @include respond(mobile) {
+      @include breakpoints.respond(mobile) {
         display: none;
       }
     }
 
     button {
-      @include buttonFont;
+      @include fonts.buttonFont;
       cursor: pointer;
       position: absolute;
       bottom: -20px;
       width: 150px;
       height: 40px;
       right: 2em;
-      z-index: $z-internal-ui;
+      z-index: layers.$z-internal-ui;
       background: transparent;
 
       border: 2px solid;

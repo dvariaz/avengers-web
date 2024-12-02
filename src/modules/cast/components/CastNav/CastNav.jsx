@@ -3,8 +3,8 @@ import { motion } from "motion/react";
 
 import styles from "./CastNav.module.scss";
 
-import CastLink from "modules/cast/components/CastLink";
-import colors from "settings/colors";
+import CastLink from "@/modules/cast/components/CastLink";
+import colors from "@/settings/colors";
 
 // Animation variants
 const variants = {

@@ -1,14 +1,14 @@
-@import "settings/global.scss";
-@import "settings/layers.scss";
-@import "settings/breakpoints.scss";
+@use "@/settings/global.scss" as global;
+@use "@/settings/layers.scss" as layers;
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 .Container {
   display: flex;
   position: absolute;
-  left: $sidebarSize + $barSize;
-  height: calc(100% - #{$barSize});
+  left: global.$sidebarSize + global.$barSize;
+  height: calc(100% - #{global.$barSize});
 
-  @include respond(mobile) {
+  @include breakpoints.respond(mobile) {
     left: 0;
     width: 100%;
   }
@@ -26,7 +26,7 @@
       padding-left: 0;
       bottom: 0;
 
-      @include respond(mobile) {
+      @include breakpoints.respond(mobile) {
         img {
           position: relative;
           left: -180px;
@@ -46,17 +46,17 @@
 
   @extend %titleFont;
 
-  @include respond(laptop) {
+  @include breakpoints.respond(laptop) {
     font-size: 0.8em;
     padding: 2em 4em 0;
   }
 
-  @include respond(mobile) {
-    z-index: $z-internal-ui;
+  @include breakpoints.respond(mobile) {
+    z-index: layers.$z-internal-ui;
     position: absolute;
     font-size: 0.8em;
     width: 100%;
-    padding: 0 calc(2em + #{$barSize}) 0 2em;
+    padding: 0 calc(2em + #{global.$barSize}) 0 2em;
     height: 60%;
     bottom: 0;
   }
@@ -75,14 +75,14 @@
 
   @extend %titleFont;
 
-  @include respond(laptop) {
+  @include breakpoints.respond(laptop) {
     margin-top: 1.5rem;
     font-size: 6em;
     line-height: 5rem;
     margin-bottom: 1.8rem;
   }
 
-  @include respond(mobile) {
+  @include breakpoints.respond(mobile) {
     font-size: 3em;
     line-height: 1em;
     width: 100%;
@@ -101,22 +101,22 @@
 }
 
 .Image {
-  z-index: zPushUp($z-page, 10);
+  z-index: layers.zPushUp(layers.$z-page, 10);
   height: 100%;
   display: flex;
   justify-content: center;
 
-  @include respond(mobile) {
+  @include breakpoints.respond(mobile) {
     padding-left: 0;
     width: 100%;
-    height: calc(100vh - #{$barSize});
+    height: calc(100vh - #{global.$barSize});
 
     &:before {
       content: "";
       position: absolute;
       width: 100%;
       height: 100%;
-      z-index: zPushUp($z-page, 10);
+      z-index: layers.zPushUp(layers.$z-page, 10);
       background-image: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0) 20%,
@@ -127,9 +127,9 @@
 
   img {
     height: 100%;
-    padding-top: $barSize;
+    padding-top: global.$barSize;
 
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
       padding-top: 0;
       height: 100%;
       object-fit: contain;

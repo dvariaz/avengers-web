@@ -1,15 +1,16 @@
-@import "settings/fonts.scss";
-@import "settings/breakpoints.scss";
+@use "@/settings/global.scss" as global;
+@use "@/settings/fonts.scss" as fonts;
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 .Button {
   width: 250px;
   height: auto;
 
-  @include navFont;
+  @include fonts.navFont;
 
   font-size: 0.3em;
 
-  @include respond(mobile) {
+  @include breakpoints.respond(mobile) {
     width: 200px;
     font-size: 0.5em;
   }

@@ -1,4 +1,4 @@
-@import "../../settings/breakpoints.scss";
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 .Container {
     display: flex;
@@ -11,7 +11,7 @@
         width: 200px;
         margin: auto;
 
-        @include respond(mobile) {
+        @include breakpoints.respond(mobile) {
             width: 120px;
         }
 
@@ -27,7 +27,7 @@
             height: 10px;
             border-radius: 1em;
 
-            @include respond(mobile) {
+            @include breakpoints.respond(mobile) {
                 height: 5px;
             }
         }

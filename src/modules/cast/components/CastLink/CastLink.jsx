@@ -37,7 +37,7 @@ const CastLink = ({ id, name, image, color, onClick }) => {
           backgroundImage: `linear-gradient(90deg,${transparentize(
             0.5,
             color
-          )},transparent), url("${process.env.PUBLIC_URL}/assets/${image}")`,
+          )},transparent), url("/assets/${image}")`,
         }}
         onClick={(e) => onClick(id, e.target)}
       >

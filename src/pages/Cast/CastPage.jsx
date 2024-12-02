@@ -9,13 +9,13 @@ import {
 } from "react-router-dom";
 import { AnimatePresence } from "motion/react";
 
-import CastNav from "modules/cast/components/CastNav";
-import Scroller from "modules/common/components/Scroller";
-import Character from "modules/cast/components/Character";
+import CastNav from "@/modules/cast/components/CastNav";
+import Scroller from "@/modules/common/components/Scroller";
+import Character from "@/modules/cast/components/Character";
 
 // Hooks
-import useCharacters from "modules/cast/hooks/useCharacters";
-import { extractLinkData } from "modules/common/utils/paths";
+import useCharacters from "@/modules/cast/hooks/useCharacters";
+import { extractLinkData } from "@/modules/common/utils/paths";
 
 const CastPage = () => {
   const location = useLocation();

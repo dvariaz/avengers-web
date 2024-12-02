@@ -1,5 +1,5 @@
-@import "settings/layers.scss";
-@import "settings/breakpoints.scss";
+@use "@/settings/layers.scss";
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 .Container {
   width: 100%;
@@ -19,7 +19,7 @@
 }
 
 .Element {
-  z-index: zPushUp($z-page, 5);
+  z-index: layers.zPushUp(layers.$z-page, 5);
 
   animation-name: element-enter;
   animation-timing-function: ease-out;
@@ -43,8 +43,8 @@
   &.Small {
     height: 30%;
 
-    @include respond(mobile) {
-      z-index: zPushDown($z-page, 15);
+    @include breakpoints.respond(mobile) {
+      z-index: layers.zPushDown(layers.$z-page, 15);
       height: 20%;
     }
   }
@@ -52,8 +52,8 @@
   &.Large {
     height: 50%;
 
-    @include respond(mobile) {
-      z-index: zPushDown($z-page, 15);
+    @include breakpoints.respond(mobile) {
+      z-index: layers.zPushDown(layers.$z-page, 15);
       height: 40%;
     }
   }
@@ -69,7 +69,7 @@
   &.Small {
     height: 50%;
 
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
       height: 40%;
     }
   }
@@ -77,7 +77,7 @@
   &.Large {
     height: 70%;
 
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
       height: 50%;
     }
   }

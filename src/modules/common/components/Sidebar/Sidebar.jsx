@@ -12,7 +12,7 @@ const Sidebar = ({ position, social, scroller, lang }) => {
               rel="noopener noreferrer"
             >
               <img
-                src={`${process.env.PUBLIC_URL}/assets/Icons/Social/Youtube-Icon.png`}
+                src={`/assets/Icons/Social/Youtube-Icon.png`}
                 alt="Visita Youtube"
               />
             </a>
@@ -22,7 +22,7 @@ const Sidebar = ({ position, social, scroller, lang }) => {
               rel="noopener noreferrer"
             >
               <img
-                src={`${process.env.PUBLIC_URL}/assets/Icons/Social/Twitter-Icon.png`}
+                src={`/assets/Icons/Social/Twitter-Icon.png`}
                 alt="Visita Twitter"
               />
             </a>
@@ -32,7 +32,7 @@ const Sidebar = ({ position, social, scroller, lang }) => {
               rel="noopener noreferrer"
             >
               <img
-                src={`${process.env.PUBLIC_URL}/assets/Icons/Social/Instagram-Icon.png`}
+                src={`/assets/Icons/Social/Instagram-Icon.png`}
                 alt="Visita Instagram"
               />
             </a>

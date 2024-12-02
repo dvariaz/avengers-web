@@ -4,7 +4,7 @@ import titleize from "titleize";
 
 import styles from "./DataPanel.module.scss";
 
-import { barSize } from "settings/global";
+import { barSize } from "@/settings/global";
 
 const DataPanel = ({ color, position, title, content }) => {
   const variants = {

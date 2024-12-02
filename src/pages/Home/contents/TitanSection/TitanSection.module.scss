@@ -1,33 +1,32 @@
-@import "../../../../settings/breakpoints.scss";
-@import "../../../../settings/layers.scss";
+@use "@/settings/breakpoints.scss" as breakpoints;
+@use "@/settings/layers.scss" as layers;
 
-.BigTitle {
+.bigTitle {
     position: absolute;
-    z-index: $z-page;
+    z-index: layers.$z-page;
     top: 0.25em;
     font-size: 16em;
-
-    @include respond(desktop) {
-        font-size: 14em;
-    }
-
-    @include respond(laptop) {
-        font-size: 8em;
-    }
-
-    @include respond(mobile) {
-        font-size: 4em;
-        top: 1em;
-    }
-
     font-weight: bold;
     text-transform: uppercase;
     margin: 0;
     top: 0.5em;
+
+    @include breakpoints.respond(desktop) {
+        font-size: 14em;
+    }
+
+    @include breakpoints.respond(laptop) {
+        font-size: 8em;
+    }
+
+    @include breakpoints.respond(mobile) {
+        font-size: 4em;
+        top: 1em;
+    }
 }
 
 .Character {
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
         left: 0;
     }
 }

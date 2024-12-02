@@ -1,11 +1,11 @@
-@import "../../settings/global.scss";
-@import "../../settings/breakpoints.scss";
+@use "@/settings/global.scss";
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 .VideoPlayer {
     iframe {
         display: flex;
         width: 100%;
-        height: calc(100vh - #{$barSize});
+        height: calc(100vh - #{global.$barSize});
         padding: 0;
         transition: padding 0.25s ease;
     }
@@ -14,7 +14,7 @@
         iframe {
             padding: 5em 10em;
 
-            @include respond(mobile) {
+            @include breakpoints.respond(mobile) {
                 padding: 60% 1em;
             }
         }

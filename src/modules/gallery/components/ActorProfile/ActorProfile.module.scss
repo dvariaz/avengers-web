@@ -1,5 +1,5 @@
-@import "settings/global.scss";
-@import "settings/breakpoints.scss";
+@use "@/settings/global.scss";
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 .ProfileContent {
   position: relative;

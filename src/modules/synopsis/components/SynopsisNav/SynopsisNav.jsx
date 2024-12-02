@@ -4,9 +4,9 @@ import { motion } from "motion/react";
 
 //Styles
 import styles from "./SynopsisNav.module.scss";
-import colors from "settings/colors";
+import colors from "@/settings/colors";
 import classNames from "classnames";
-import useCircularNavigation from "modules/common/hooks/useCircularNavigation";
+import useCircularNavigation from "@/modules/common/hooks/useCircularNavigation";
 
 // Animation Variants
 const navVariants = {

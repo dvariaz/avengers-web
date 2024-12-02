@@ -1,10 +1,10 @@
-@import "settings/layers.scss";
-@import "settings/breakpoints.scss";
+@use "@/settings/layers.scss";
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 #ElementIndicator {
   position: absolute;
   margin: auto;
-  z-index: zPushDown($z-page, 15);
+  z-index: layers.zPushDown(layers.$z-page, 15);
   top: 0;
   bottom: 0;
   left: 0;
@@ -12,12 +12,12 @@
   width: 500px;
   height: 500px;
 
-  @include respond(laptop) {
+  @include breakpoints.respond(laptop) {
     width: 300px;
     height: 300px;
   }
 
-  @include respond(mobile) {
+  @include breakpoints.respond(mobile) {
     width: 250px;
     height: 250px;
   }

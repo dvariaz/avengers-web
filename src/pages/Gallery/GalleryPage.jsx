@@ -9,12 +9,12 @@ import {
   useParams,
 } from "react-router-dom";
 
-import Actor from "modules/gallery/components/Actor";
-import GalleryNav from "modules/gallery/components/GalleryNav";
+import Actor from "@/modules/gallery/components/Actor";
+import GalleryNav from "@/modules/gallery/components/GalleryNav";
 
 // Hooks
-import useCast from "modules/gallery/hooks/useCast";
-import { extractLinkData } from "modules/common/utils/paths";
+import useCast from "@/modules/gallery/hooks/useCast";
+import { extractLinkData } from "@/modules/common/utils/paths";
 
 const GalleryPage = () => {
   const location = useLocation();

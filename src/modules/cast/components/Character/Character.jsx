@@ -3,7 +3,7 @@ import titleize from "titleize";
 
 import styles from "./Character.module.scss";
 
-import Background from "modules/common/components/Background";
+import Background from "@/modules/common/components/Background";
 
 // Animation variants
 const transition = {
@@ -131,7 +131,7 @@ const Character = ({
             exit="exit"
             variants={imageVariants}
             transition={transition}
-            src={`${process.env.PUBLIC_URL}/assets/${photo}`}
+            src={`/assets/${photo}`}
             alt=""
           />
         </motion.div>

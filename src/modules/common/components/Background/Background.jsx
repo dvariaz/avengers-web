@@ -40,7 +40,7 @@ const Background = ({
       style={{ position: fixed ? "fixed" : "absolute" }}
     >
       <img
-        src={`${process.env.PUBLIC_URL}/assets/${src}`}
+        src={`/assets/${src}`}
         style={{ objectPosition: objectPosition || "center", filter: blurProp }}
         alt=""
       />

@@ -1,26 +1,26 @@
-@import "settings/global.scss";
-@import "settings/layers.scss";
-@import "settings/materials.scss";
-@import "settings/fonts.scss";
-@import "settings/breakpoints.scss";
+@use "@/settings/global.scss" as global;
+@use "@/settings/layers.scss" as layers;
+@use "@/settings/materials.scss" as materials;
+@use "@/settings/fonts.scss" as fonts;
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 .SynopsisNav {
-  @include darkGlass;
+  @include materials.darkGlass;
   position: fixed;
-  z-index: $z-internal-ui;
+  z-index: layers.$z-internal-ui;
   bottom: 0;
-  height: $barSize;
+  height: global.$barSize;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: calc(100vw - #{$barSize} - #{$barSize});
-
-  @include respond(mobile) {
-    width: calc(100vw - #{$barSize});
-  }
-
-  @include glassEdge;
+  width: calc(100vw - #{global.$barSize} - #{global.$barSize});
   border-width: 2px 0 0;
+
+  @include materials.glassEdge;
+
+  @include breakpoints.respond(mobile) {
+    width: calc(100vw - #{global.$barSize});
+  }
 
   .Controller {
     border: none;
@@ -55,7 +55,7 @@
     overflow-x: auto;
     scroll-behavior: smooth;
 
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
       flex: 1;
     }
 
@@ -63,17 +63,17 @@
       display: flex;
       justify-content: center;
       padding: 0 3em;
-      @include navFont;
+      @include fonts.navFont;
       text-align: center;
       min-width: 150px;
       max-width: 300px;
-      line-height: $barSize;
+      line-height: global.$barSize;
       border: none;
       outline: none;
       background: transparent;
       cursor: pointer;
 
-      @include respond(mobile) {
+      @include breakpoints.respond(mobile) {
         display: none;
 
         &.Active {

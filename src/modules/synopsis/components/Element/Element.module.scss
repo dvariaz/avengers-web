@@ -1,5 +1,5 @@
-@import "settings/fonts.scss";
-@import "settings/breakpoints.scss";
+@use "@/settings/fonts.scss" as fonts;
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 .Container {
   display: flex;
@@ -13,13 +13,13 @@
   justify-content: center;
   align-items: center;
   margin: auto;
-  @include bigTitle;
+  @include fonts.bigTitle;
 
-  @include respond(laptop) {
+  @include breakpoints.respond(laptop) {
     font-size: 5em;
   }
 
-  @include respond(mobile) {
+  @include breakpoints.respond(mobile) {
     font-size: 1.25em;
   }
 

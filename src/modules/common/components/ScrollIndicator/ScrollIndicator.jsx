@@ -23,7 +23,7 @@ const ScrollIndicator = ({ visible }) => {
       className={styles.Container}
     >
       <img
-        src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
+        src={`/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
         alt=""
       />
     </motion.div>

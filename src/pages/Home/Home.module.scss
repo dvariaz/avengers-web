@@ -1,6 +1,6 @@
-@import "../../settings/global.scss";
-@import "../../settings/layers.scss";
-@import "../../settings/breakpoints.scss";
+@use "@/settings/global.scss" as global;
+@use "@/settings/layers.scss" as layers;
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 :global(.PageContent) {
     position: relative;
@@ -27,14 +27,14 @@
 
     justify-content: center;
 
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
         justify-content: flex-end;
     }
 }
 
 :global(.Character) {
     position: absolute;
-    z-index: zPushUp($z-page, 10);
+    z-index: layers.zPushUp(layers.$z-page, 10);
     bottom: -100px;
 
     height: 100%;
@@ -58,13 +58,13 @@
 
 :global(.TextContainer) {
     text-align: center;
-    z-index: zPushUp($z-page, 10);
+    z-index: layers.zPushUp(layers.$z-page, 10);
 
-    @include respond(laptop) {
+    @include breakpoints.respond(laptop) {
         font-size: 0.8em;
     }
 
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
         padding: 1.5em 1.5em 4em;
         font-size: 0.6em;
     }
@@ -72,10 +72,10 @@
     p {
         font-size: 1.2em;
         font-weight: lighter;
-        z-index: zPushUp($z-page, 11);
+        z-index: layers.zPushUp(layers.$z-page, 11);
         margin-top: 0;
 
-        @include respond(mobile) {
+        @include breakpoints.respond(mobile) {
             font-size: 1.5em;
         }
     }
@@ -88,7 +88,7 @@
     h6 {
         letter-spacing: 3px;
         font-weight: lighter;
-        z-index: zPushUp($z-page, 11);
+        z-index: layers.zPushUp(layers.$z-page, 11);
         text-transform: uppercase;
     }
 
@@ -98,5 +98,5 @@
 }
 
 svg {
-    z-index: zPushUp($z-page, 11);
+    z-index: layers.zPushUp(layers.$z-page, 11);
 }

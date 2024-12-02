@@ -1,19 +1,19 @@
-@import "settings/global.scss";
-@import "settings/materials.scss";
-@import "settings/layers.scss";
-@import "settings/breakpoints.scss";
+@use "@/settings/global.scss" as global;
+@use "@/settings/materials.scss" as materials;
+@use "@/settings/layers.scss" as layers;
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 .ActorNav {
-  @include darkGlass;
+  @include materials.darkGlass;
   position: absolute;
-  z-index: zPushUp($z-internal-ui, 1);
+  z-index: layers.zPushUp(layers.$z-internal-ui, 1);
   bottom: 0;
-  left: $barSize;
-  width: calc(100vw - #{$barSize * 2});
-  padding: 0 $barSize;
-  height: $barSize;
+  left: global.$barSize;
+  width: calc(100vw - #{global.$barSize * 2});
+  padding: 0 global.$barSize;
+  height: global.$barSize;
 
-  @include glassEdge;
+  @include materials.glassEdge;
   border-width: 2px 0 0;
 
   display: flex;
@@ -22,9 +22,9 @@
 
   @extend %titleFont;
 
-  @include respond(mobile) {
+  @include breakpoints.respond(mobile) {
     left: 0;
-    width: calc(100vw - #{$barSize});
+    width: calc(100vw - #{global.$barSize});
   }
 }
 
@@ -37,10 +37,10 @@
 
   @extend %titleFont;
 
-  @include respond(mobile) {
+  @include breakpoints.respond(mobile) {
     padding: 0 1em;
     justify-content: space-between;
-    width: calc(100vw - #{$barSize});
+    width: calc(100vw - #{global.$barSize});
     right: 0;
   }
 
@@ -61,7 +61,7 @@
 
     box-shadow: 2px 2px 20px;
 
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
       width: 50px;
       height: 50px;
     }
@@ -76,9 +76,9 @@
 .ArrowLeft,
 .ArrowRight {
   position: absolute;
-  z-index: zPushUp($z-internal-ui, 1);
+  z-index: layers.zPushUp(layers.$z-internal-ui, 1);
   top: calc(50% - 50px);
-  width: $barSize;
+  width: global.$barSize;
   height: 100px;
   padding: 1em;
   display: flex;

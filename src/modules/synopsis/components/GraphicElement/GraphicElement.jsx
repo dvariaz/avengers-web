@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 import styles from "./GraphicElement.module.scss";
 
-import GraphicIndicator from "modules/synopsis/components/GraphicIndicator";
+import GraphicIndicator from "@/modules/synopsis/components/GraphicIndicator";
 import titleize from "titleize";
 
 // Animation Variants
@@ -26,13 +26,13 @@ const GraphicElement = ({ image, effect, color, size }) => {
     >
       <img
         className={`${styles.Effect} ${styles[titleize(size)]}`}
-        src={`${process.env.PUBLIC_URL}/assets/${effect}`}
+        src={`/assets/${effect}`}
         alt=""
       />
       <GraphicIndicator color={color} location={"Desconocido"} />
       <img
         className={`${styles.Element} ${styles[titleize(size)]}`}
-        src={`${process.env.PUBLIC_URL}/assets/${image}`}
+        src={`/assets/${image}`}
         alt=""
       />
     </motion.div>

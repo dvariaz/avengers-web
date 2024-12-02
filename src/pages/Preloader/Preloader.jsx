@@ -7,7 +7,7 @@ const Preloader = ({ progress }) => {
     <div className={styles.Container}>
       <div className={styles.Preloader}>
         <img
-          src={`${process.env.PUBLIC_URL}/assets/Icons/Avengers-Logo.svg`}
+          src="/assets/Icons/Avengers-Logo.svg"
           className={styles.Logo}
           alt=""
         />

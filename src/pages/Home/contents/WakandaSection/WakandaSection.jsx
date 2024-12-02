@@ -3,17 +3,17 @@ import { motion } from "motion/react";
 import styles from "./WakandaSection.module.scss";
 
 // Components
-import Background from "modules/common/components/Background";
-import TrapezoidButton from "modules/common/components/TrapezoidButton/index.js";
+import Background from "@/modules/common/components/Background";
+import TrapezoidButton from "@/modules/common/components/TrapezoidButton/index.js";
 
 // Hooks
-import useOnScreen from "modules/common/hooks/useOnScreen";
+import useOnScreen from "@/modules/common/hooks/useOnScreen";
 
 // Animation Function Generators
 import {
   generateFadeIn,
   fadeInOrchestrator,
-} from "modules/common/utils/animation-generators";
+} from "@/modules/common/utils/animation-generators";
 
 // Animation Variants
 const containerVariants = fadeInOrchestrator();
@@ -38,7 +38,7 @@ const WakandaSection = () => {
           exit: { x: 0, y: 200 },
           fadeOpacity: false,
         })}
-        src={`${process.env.PUBLIC_URL}/assets/Backgrounds/Wakanda/CaptainAmerica.png`}
+        src={`/assets/Backgrounds/Wakanda/CaptainAmerica.png`}
       />
       <motion.img
         className="Character"
@@ -47,7 +47,7 @@ const WakandaSection = () => {
           exit: { x: 400, y: 160 },
           fadeOpacity: false,
         })}
-        src={`${process.env.PUBLIC_URL}/assets/Backgrounds/Wakanda/BlackWidow.png`}
+        src={`/assets/Backgrounds/Wakanda/BlackWidow.png`}
       />
       <motion.img
         className="Character"
@@ -56,9 +56,9 @@ const WakandaSection = () => {
           exit: { x: -400, y: 150 },
           fadeOpacity: false,
         })}
-        src={`${process.env.PUBLIC_URL}/assets/Backgrounds/Wakanda/BlackPanther.png`}
+        src={`/assets/Backgrounds/Wakanda/BlackPanther.png`}
       />
-      <motion.h1 className={styles.BigTitle} variants={titleVariants}>
+      <motion.h1 className={styles.bigTitle} variants={titleVariants}>
         INFINITY WAR
       </motion.h1>
       <motion.div className="TextContainer" variants={containerVariants}>

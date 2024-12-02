@@ -1,4 +1,4 @@
-@import "settings/breakpoints.scss";
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 .Score {
   height: 100%;
@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
 
-  @include respond(mobile) {
+  @include breakpoints.respond(mobile) {
     left: 1rem;
     font-size: 0.5em;
     width: 100px;
@@ -47,7 +47,7 @@
       margin: 0 5px;
       width: 20px;
 
-      @include respond(mobile) {
+      @include breakpoints.respond(mobile) {
         width: 10px;
       }
     }

@@ -3,15 +3,15 @@ import { motion } from "motion/react";
 
 // Styling
 import styles from "./Actor.module.scss";
-import colors from "settings/colors";
+import colors from "@/settings/colors";
 
 // Components
-import Modal from "modules/common/components/Modal";
-import Background from "modules/common/components/Background";
-import ActorNav from "modules/gallery/components/ActorNav";
-import ActorRibbon from "modules/gallery/components/ActorRibbon";
-import ActorProfile from "modules/gallery/components/ActorProfile";
-import PhotoGrid from "modules/common/components/PhotoGrid";
+import Modal from "@/modules/common/components/Modal";
+import Background from "@/modules/common/components/Background";
+import ActorNav from "@/modules/gallery/components/ActorNav";
+import ActorRibbon from "@/modules/gallery/components/ActorRibbon";
+import ActorProfile from "@/modules/gallery/components/ActorProfile";
+import PhotoGrid from "@/modules/common/components/PhotoGrid";
 
 const Actor = ({
   index,

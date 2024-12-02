@@ -5,7 +5,7 @@ import classNames from "classnames";
 import styles from "./ActorProfile.module.scss";
 
 // Components
-import ActorScore from "modules/gallery/components/ActorScore";
+import ActorScore from "@/modules/gallery/components/ActorScore";
 
 // Animation Variants
 const roleVariants = {

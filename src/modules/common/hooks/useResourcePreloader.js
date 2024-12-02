@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 
 const useResourcePreloader = (resources) => {
-    const [isPreloaded, setIsPreloaded] = useState(false);
-    const [loadingProgress, setLoadingProgress] = useState(0);
+    const [imagesLoadedCount, setImagesLoadedCount] = useState(0);
 
     const updateProgress = () => {
-        setLoadingProgress((loadingProgress) => loadingProgress + 1);
+        setImagesLoadedCount((loadingProgress) => loadingProgress + 1);
     };
 
     useEffect(() => {
@@ -19,13 +18,11 @@ const useResourcePreloader = (resources) => {
         });
     }, []);
 
-    useEffect(() => {
-        if (loadingProgress === resources.length) {
-            setIsPreloaded(true);
-        }
-    }, [loadingProgress]);
+    const loadingProgress = (imagesLoadedCount / resources.length) * 100;
 
-    return [isPreloaded, loadingProgress / resources.length];
+    const isPreloaded = imagesLoadedCount === resources.length;
+
+    return [isPreloaded, loadingProgress];
 };
 
 export default useResourcePreloader;

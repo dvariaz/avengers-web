@@ -87,7 +87,7 @@ const Header = ({ logo, sections }) => {
         </div>
         <button className={styles.SidebarButton} onClick={handleClick}>
           <img
-            src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/Menu-Icon.svg`}
+            src={`/assets/Icons/Navigation/Menu-Icon.svg`}
             alt="Menu"
           />
         </button>

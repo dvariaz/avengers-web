@@ -1,8 +1,8 @@
 import styles from "./Scroller.module.scss";
-import colors from "settings/colors";
+import colors from "@/settings/colors";
 
 //Hooks
-import useCircularNavigation from "modules/common/hooks/useCircularNavigation";
+import useCircularNavigation from "@/modules/common/hooks/useCircularNavigation";
 
 const Scroller = ({ current, links, onChange }) => {
   const { currentItem, previousItem, nextItem } = useCircularNavigation(

@@ -1,4 +1,4 @@
-@import "settings/layers.scss";
+@use "@/settings/layers.scss";
 
 .Overlay {
   background: rgba(0, 0, 0, 0.6);
@@ -7,7 +7,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: zPushUp($z-ui, 10);
+  z-index: layers.zPushUp(layers.$z-ui, 10);
   overflow-y: scroll;
 
   &::-webkit-scrollbar {

@@ -4,9 +4,9 @@ import { useUserAgent } from "@oieduardorabelo/use-user-agent";
 
 import styles from "./GalleryNav.module.scss";
 
-import Scroller from "modules/common/components/Scroller";
-import colors from "settings/colors";
-import useCircularNavigation from "modules/common/hooks/useCircularNavigation";
+import Scroller from "@/modules/common/components/Scroller";
+import colors from "@/settings/colors";
+import useCircularNavigation from "@/modules/common/hooks/useCircularNavigation";
 
 const GalleryNav = ({ current, links, onChange }) => {
   const details = useUserAgent();
@@ -66,14 +66,14 @@ const GalleryNav = ({ current, links, onChange }) => {
             }}
           >
             <img
-              src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/Search-Icon.svg`}
+              src={`/assets/Icons/Navigation/Search-Icon.svg`}
               alt="Buscar en Google"
             />
           </a>
           {navigator.canShare && (
             <button className={styles.RoundedButton} onClick={handleClick}>
               <img
-                src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/Share-Icon.svg`}
+                src={`/assets/Icons/Navigation/Share-Icon.svg`}
                 alt="Compartir actor"
               />
             </button>
@@ -90,7 +90,7 @@ const GalleryNav = ({ current, links, onChange }) => {
             style={{ background: colors[currentItem.color].gradient }}
           >
             <img
-              src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
+              src={`/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
               alt="Atrás"
             />
           </button>
@@ -100,7 +100,7 @@ const GalleryNav = ({ current, links, onChange }) => {
             style={{ background: colors[currentItem.color].gradient }}
           >
             <img
-              src={`${process.env.PUBLIC_URL}/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
+              src={`/assets/Icons/Navigation/ChevronArrow-Icon.svg`}
               alt="Adelante"
             />
           </button>

@@ -1,9 +1,9 @@
-@import "settings/layers.scss";
+@use "@/settings/layers.scss" as layers;
 
 .Background {
   top: 0;
   left: 0;
-  z-index: zPushDown($z-background, 50);
+  z-index: layers.zPushDown(layers.$z-background, 50);
   width: 100vw;
   height: 100vh;
 

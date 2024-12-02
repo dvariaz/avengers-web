@@ -1,4 +1,4 @@
-@import "settings/layers.scss";
+@use "@/settings/layers.scss" as layers;
 
 .Grid {
   display: flex;
@@ -26,7 +26,7 @@
   top: 0;
   width: 100vw;
   height: 100vh;
-  z-index: zPushUp($z-ui, 100);
+  z-index: layers.zPushUp(layers.$z-ui, 100);
 }
 
 .FullscreenImage {

@@ -1,20 +1,20 @@
-@import "settings/global.scss";
-@import "settings/breakpoints.scss";
-@import "settings/layers.scss";
-@import "settings/fonts.scss";
+@use "@/settings/global.scss" as global;
+@use "@/settings/breakpoints.scss" as breakpoints;
+@use "@/settings/layers.scss" as layers;
+@use "@/settings/fonts.scss" as fonts;
 
 .Container {
   display: flex;
   align-items: flex-end;
   height: 100%;
-  width: $barSize;
+  width: global.$barSize;
   position: absolute;
   left: 0;
   bottom: 0;
-  z-index: $z-ui;
+  z-index: layers.$z-ui;
   pointer-events: none;
 
-  @include respond(mobile) {
+  @include breakpoints.respond(mobile) {
     left: initial;
     right: 0;
     align-items: center;
@@ -29,7 +29,7 @@
     pointer-events: all;
 
     span {
-      @include navFont;
+      @include fonts.navFont;
 
       display: flex;
       align-items: center;
@@ -51,7 +51,7 @@
         padding: 1.4em;
       }
 
-      @include respond(mobile) {
+      @include breakpoints.respond(mobile) {
         background: transparent !important;
       }
 

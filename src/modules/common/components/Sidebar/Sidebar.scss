@@ -1,24 +1,25 @@
-@import "settings/global.scss";
-@import "settings/layers.scss";
-@import "settings/materials.scss";
-@import "settings/fonts.scss";
-@import "settings/breakpoints.scss";
+@use "@/settings/global.scss" as global;
+@use "@/settings/layers.scss" as layers;
+@use "@/settings/materials.scss" as materials;
+@use "@/settings/fonts.scss" as fonts;
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 .Sidebar {
-  @include darkGlass;
   position: fixed;
-  z-index: zPushUp($z-internal-ui, 1);
-  top: $barSize;
-  width: $barSize;
-  height: calc(100vh - #{$barSize});
-  @include glassEdge;
+  z-index: layers.zPushUp(layers.$z-internal-ui, 1);
+  top: global.$barSize;
+  width: global.$barSize;
+  height: calc(100vh - #{global.$barSize});
   border-width: 0;
+
+  @include materials.darkGlass;
+  @include materials.glassEdge;
 
   &.left {
     left: 0;
     border-right-width: 2px;
 
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
       left: initial;
       right: 0;
       border-right-width: 0;
@@ -30,7 +31,7 @@
     right: 0;
     border-left-width: 2px;
 
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
       display: none;
     }
   }
@@ -56,7 +57,7 @@
   .CastSections {
     display: flex;
     flex-direction: column;
-    height: calc(100% - #{$barSize});
+    height: calc(100% - #{global.$barSize});
 
     a {
       display: flex;
@@ -76,9 +77,9 @@
     text-align: center;
     bottom: 0;
     width: 100%;
-    height: #{$barSize};
-    line-height: #{$barSize};
+    height: #{global.$barSize};
+    line-height: #{global.$barSize};
 
-    @include navFont;
+    @include fonts.navFont;
   }
 }

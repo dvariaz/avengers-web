@@ -2,17 +2,17 @@ import { motion } from "motion/react";
 import { useUserAgent } from "@oieduardorabelo/use-user-agent";
 
 import styles from "./Element.module.scss";
-import colors from "settings/colors";
+import colors from "@/settings/colors";
 
 // Hooks
-import useOnScreen from "modules/common/hooks/useOnScreen";
+import useOnScreen from "@/modules/common/hooks/useOnScreen";
 
 // Components
-import Background from "modules/common/components/Background";
-import DataPanel from "modules/synopsis/components/DataPanel";
-import GraphicElement from "modules/synopsis/components/GraphicElement";
-import ScrollIndicator from "modules/common/components/ScrollIndicator";
-import SplittedText from "modules/common/components/SplittedText";
+import Background from "@/modules/common/components/Background";
+import DataPanel from "@/modules/synopsis/components/DataPanel";
+import GraphicElement from "@/modules/synopsis/components/GraphicElement";
+import ScrollIndicator from "@/modules/common/components/ScrollIndicator";
+import SplittedText from "@/modules/common/components/SplittedText";
 
 // Animation variants
 const titleVariants = {

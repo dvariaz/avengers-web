@@ -7,7 +7,7 @@ import "./settings/global.scss";
 import "./App.scss";
 
 //UI
-import UILayout from "modules/common/components/UILayout";
+import UILayout from "@/modules/common/components/UILayout";
 
 //Views
 import Preloader from "./pages/Preloader";
@@ -18,7 +18,7 @@ import GalleryPage from "./pages/Gallery";
 import TrailerPage from "./pages/Trailer";
 
 //Hooks
-import useResourcePreloader from "modules/common/hooks/useResourcePreloader";
+import useResourcePreloader from "@/modules/common/hooks/useResourcePreloader";
 import resources from "./preload";
 
 const App = () => {

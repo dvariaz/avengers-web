@@ -1,12 +1,12 @@
-@import "settings/global.scss";
-@import "settings/materials.scss";
+@use "@/settings/global.scss";
+@use "@/settings/materials.scss" as materials;
 
 .Container {
   display: flex;
   align-items: center;
   justify-content: center;
-  @include darkGlass;
-  @include glassEdge;
+  @include materials.darkGlass;
+  @include materials.glassEdge;
 
   width: 50px;
   height: 80px;
@@ -14,7 +14,7 @@
   border-width: 2px 2px 0;
 
   position: absolute;
-  bottom: $barSize;
+  bottom: global.$barSize;
 
   img {
     width: 15px;

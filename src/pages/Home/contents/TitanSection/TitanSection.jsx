@@ -3,17 +3,17 @@ import { motion } from "motion/react";
 import styles from "./TitanSection.module.scss";
 
 // Components
-import Background from "modules/common/components/Background";
-import TrapezoidButton from "modules/common/components/TrapezoidButton/index.js";
+import Background from "@/modules/common/components/Background";
+import TrapezoidButton from "@/modules/common/components/TrapezoidButton/index.js";
 
 // Animation Generators
 import {
   generateFadeIn,
   fadeInOrchestrator,
-} from "modules/common/utils/animation-generators";
+} from "@/modules/common/utils/animation-generators";
 
 // Hooks
-import useOnScreen from "modules/common/hooks/useOnScreen";
+import useOnScreen from "@/modules/common/hooks/useOnScreen";
 
 // Animation Variants
 const containerVariants = fadeInOrchestrator();
@@ -39,9 +39,9 @@ const TitanSection = () => {
       <motion.img
         className={`Character ${styles.Character}`}
         variants={thanosVariants}
-        src={`${process.env.PUBLIC_URL}/assets/Backgrounds/Titan/Thanos.png`}
+        src={`/assets/Backgrounds/Titan/Thanos.png`}
       />
-      <motion.h1 className={styles.BigTitle} variants={titleVariants}>
+      <motion.h1 className={styles.bigTitle} variants={titleVariants}>
         THANOS
       </motion.h1>
       <motion.div variants={containerVariants} className="TextContainer">

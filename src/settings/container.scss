@@ -1,6 +1,6 @@
-@import "./global.scss";
-@import "./layers.scss";
-@import "./breakpoints.scss";
+@use "@/settings/global.scss" as global;
+@use "@/settings/layers.scss" as layers;
+@use "@/settings/breakpoints.scss" as breakpoints;
 
 body {
     background: black;
@@ -17,7 +17,7 @@ body {
     height: 100vh;
     padding: 0;
 
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
         overflow-y: scroll;
     }
 
@@ -45,30 +45,30 @@ body {
 }
 
 .Respect-TopBar {
-    padding-top: $barSize;
+    padding-top: global.$barSize;
 }
 
 .Respect-SideBars {
-    padding-left: $barSize;
-    padding-right: $barSize;
+    padding-left: global.$barSize;
+    padding-right: global.$barSize;
 
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
         padding-left: 0;
     }
 }
 
 .Respect-AllBars {
-    padding: $barSize;
+    padding: global.$barSize;
 
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
         padding-left: 0;
     }
 }
 
 .Respect-CastNav {
-    padding-left: calc(#{$barSize} + 300px);
+    padding-left: calc(#{global.$barSize} + 300px);
 
-    @include respond(mobile) {
+    @include breakpoints.respond(mobile) {
         padding-left: 0;
     }
 }

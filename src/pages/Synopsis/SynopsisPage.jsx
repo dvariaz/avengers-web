@@ -10,12 +10,12 @@ import {
 } from "react-router-dom";
 
 // Components
-import Element from "modules/synopsis/components/Element";
-import SynopsisNav from "modules/synopsis/components/SynopsisNav";
+import Element from "@/modules/synopsis/components/Element";
+import SynopsisNav from "@/modules/synopsis/components/SynopsisNav";
 
 // Hooks
-import useSynopsis from "modules/synopsis/hooks/useSynopsis";
-import { extractLinkData } from "modules/common/utils/paths";
+import useSynopsis from "@/modules/synopsis/hooks/useSynopsis";
+import { extractLinkData } from "@/modules/common/utils/paths";
 
 const SynopsisPage = () => {
   const history = useHistory();
