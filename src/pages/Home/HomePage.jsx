@@ -1,10 +1,10 @@
-import styles from "./Home.module.scss";
-
 //Sections
 import WakandaSection from "./contents/WakandaSection";
 import TitanSection from "./contents/TitanSection/TitanSection";
 import NYSanctumSection from "./contents/NYSacntumSection";
 import KnowhereSection from "./contents/KnowhereSection";
+
+import "./Home.scss";
 
 //TODO: Add an useScroll
 

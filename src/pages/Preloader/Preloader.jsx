@@ -12,7 +12,7 @@ const Preloader = ({ progress }) => {
           alt=""
         />
         <div
-          style={{ width: `${progress * 100}%` }}
+          style={{ width: `${(progress * 100) % 100}%` }}
           className={styles.ProgressBar}
         ></div>
       </div>

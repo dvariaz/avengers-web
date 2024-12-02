@@ -2,7 +2,7 @@
 @use "@/settings/layers.scss" as layers;
 @use "@/settings/breakpoints.scss" as breakpoints;
 
-:global(.PageContent) {
+.PageContent {
     position: relative;
     height: 100%;
     width: 100%;
@@ -18,7 +18,7 @@
     }
 }
 
-:global(.SlideContent) {
+.SlideContent {
     display: flex;
     height: 100vh;
     flex-direction: column;
@@ -32,7 +32,7 @@
     }
 }
 
-:global(.Character) {
+.Character {
     position: absolute;
     z-index: layers.zPushUp(layers.$z-page, 10);
     bottom: -100px;
@@ -40,7 +40,7 @@
     height: 100%;
 }
 
-:global(.Background) {
+.Background {
     position: absolute;
     object-fit: cover;
     top: 0;
@@ -56,7 +56,7 @@
     }
 }
 
-:global(.TextContainer) {
+.TextContainer {
     text-align: center;
     z-index: layers.zPushUp(layers.$z-page, 10);
 

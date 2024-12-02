@@ -4,16 +4,16 @@ $sidebarSize: 300px;
 //Tipografias
 @font-face {
   font-family: "Draft B";
-  src: local("Draft B"), url(../fonts/DraftB-Regular.woff2) format("woff2"),
-    url(../fonts/DraftB-Regular.woff) format("woff");
+  src: local("Draft B"), url('/fonts/DraftB-Regular.woff2') format("woff2"),
+    url('/fonts/DraftB-Regular.woff') format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Explogos";
-  src: local("Explogos"), url(../fonts/Explogos.woff2) format("woff2"),
-    url(../fonts/Explogos.woff) format("woff");
+  src: local("Explogos"), url('/fonts/Explogos.woff2') format("woff2"),
+    url('/fonts/Explogos.woff') format("woff");
   font-weight: lighter;
   font-style: normal;
 }
