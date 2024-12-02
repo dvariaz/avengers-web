@@ -4,7 +4,9 @@ import styles from "./Preloader.module.scss";
 
 const Preloader = ({ progress }) => {
   return (
-    <div className={styles.Container}>
+    <div
+      className={styles.Container}
+      data-testid="preloader">
       <div className={styles.Preloader}>
         <img
           src="/assets/Icons/Avengers-Logo.svg"

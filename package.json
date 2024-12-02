@@ -8,7 +8,6 @@
     "dependencies": {
         "@oieduardorabelo/use-user-agent": "^2.0.0",
         "@types/youtube": "0.0.39",
-        "@vitejs/plugin-react-swc": "^3.7.2",
         "classnames": "^2.3.2",
         "eslint-plugin-react-hooks": "^4.6.0",
         "motion": "^11.12.0",
@@ -28,8 +27,8 @@
         "start": "vite",
         "build": "vite build",
         "serve": "vite preview",
-        "test": "vitest",
-        "test:coverage": "vitest run --coverage --watch=false"
+        "test": "vitest --config vitest.config.ts",
+        "test:coverage": "vitest run vitest.config.ts --coverage --watch=false"
     },
     "eslintConfig": {
         "extends": "react-app",
@@ -54,6 +53,12 @@
         ]
     },
     "devDependencies": {
+        "@testing-library/dom": "^10.4.0",
+        "@testing-library/react": "^16.0.1",
+        "@vitejs/plugin-react-swc": "^3.7.2",
+        "@testing-library/react-hooks": "^8.0.1",
+        "@testing-library/user-event": "^14.5.2",
+        "@vitejs/plugin-react": "^4.3.4",
         "@vitest/coverage-v8": "^2.1.6",
         "jsdom": "^25.0.1",
         "sass-embedded": "^1.81.0",

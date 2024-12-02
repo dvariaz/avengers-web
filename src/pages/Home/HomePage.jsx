@@ -10,7 +10,9 @@ import "./Home.scss";
 
 const HomePage = () => {
   return (
-    <div className="Container SlidesContainer">
+    <div
+      className="Container SlidesContainer"
+      data-testid="home-sections-container">
       <WakandaSection />
       <TitanSection />
       <KnowhereSection />
