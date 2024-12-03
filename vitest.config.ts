@@ -15,7 +15,7 @@ export default defineConfig({
     css: true,
     reporters: ['verbose'],
     coverage: {
-      reporter: ['text', 'json', 'html'],
+      reporter: ['text', 'json', 'html', 'json-summary'],
       include: ['src/**/*'],
       exclude: [],
     }
