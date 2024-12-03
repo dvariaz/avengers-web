@@ -15,9 +15,15 @@ export default defineConfig({
     css: true,
     reporters: ['verbose'],
     coverage: {
-      reporter: ['text', 'json', 'html'],
+      reporter: ['text', 'json', 'html', 'json-summary'],
       include: ['src/**/*'],
       exclude: [],
+      thresholds: {
+        lines: 90,
+        branches: 90,
+        functions: 90,
+        statements: 90
+      }
     }
   }
 });
