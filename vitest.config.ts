@@ -1,14 +1,8 @@
 /// <reference types="vitest/config" />
-import react from '@vitejs/plugin-react-swc';
-import { defineConfig } from 'vite';
+import { defineConfig, mergeConfig } from 'vitest/config'
+import viteConfig from './vite.config'
 
-export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      '@': '/src',
-    }
-  },
+export default mergeConfig(viteConfig, defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
@@ -26,4 +20,4 @@ export default defineConfig({
       }
     }
   }
-});
+}));

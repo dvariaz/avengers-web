@@ -40,7 +40,7 @@ jobs:
       - name: Build and run tests
         run: |
           yarn build
-          yarn test:coverage
+          yarn test:coverage --changed
 
       - name: Report coverage
         if: always()
