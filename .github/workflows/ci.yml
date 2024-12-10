@@ -46,7 +46,7 @@ jobs:
         run: yarn build
 
       - name: Run tests
-        run: yarn test:coverage --coverage.include=${{ steps.changed-files.outputs.all_changed_files }} --coverage.all=false --changed --run
+        run: 'yarn test --coverage.enabled --coverage.all=false --coverage.include=${{ steps.changed-files.outputs.all_changed_files }} --changed --run'
 
       - name: Report coverage
         if: always()
