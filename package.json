@@ -28,7 +28,7 @@
         "build": "vite build",
         "serve": "vite preview",
         "test": "vitest --config vitest.config.ts",
-        "test:coverage": "vitest related --config vitest.config.ts --coverage --run"
+        "test:coverage": "vitest --config vitest.config.ts --coverage.enabled"
     },
     "eslintConfig": {
         "extends": "react-app",
