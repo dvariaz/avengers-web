@@ -23,12 +23,15 @@ const CastLink = ({ id, name, image, color, onClick }) => {
   const ref = useRef();
   const match = useRouteMatch("/cast/:character");
 
+  const isActive = id === match.params.character;
+
   return (
     <>
       <motion.button
         ref={ref}
+        data-testid={`cast-link-${id}`}
         initial="inactive"
-        animate={id === match.params.character ? "active" : "inactive"}
+        animate={ isActive ? "active" : "inactive"}
         transition={{ type: "tween" }}
         variants={variants}
         className={styles.Link}
