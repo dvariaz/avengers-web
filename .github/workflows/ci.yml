@@ -36,9 +36,14 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v45
         with:
-          safe_output: false
-          separator: ';'
           files: '**/*.{test,spec}.{js,jsx,ts,tsx}'
+
+      - name: Prepare coverage include paths
+        id: prepare-coverage
+        run: |
+          changed_files="${{ steps.changed-files.outputs.all_changed_files }}"
+          coverage_include=$(echo "$changed_files" | sed 's|[^ ]*|--coverage.include=&|g')
+          echo "COVERAGE_INCLUDE=$coverage_include" >> $GITHUB_ENV
 
       - name: Install dependencies
         run: yarn
@@ -47,7 +52,7 @@ jobs:
         run: yarn build
 
       - name: Run tests
-        run: 'yarn test:coverage --coverage.all=false --coverage.include=${{ steps.changed-files.outputs.all_changed_files }} --changed --run'
+        run: 'yarn test --run --coverage.enabled --coverage.all=false $COVERAGE_INCLUDE'
 
       - name: Report coverage
         if: always()
