@@ -41,6 +41,7 @@ const CastNav = ({ links, onChange }) => {
           name={link.name.text}
           image={link.profile}
           color={colors[link.color].flat}
+          data-testid={`cast-link-${link.id}`}
           onClick={(path, targetElement) => {
             centerNavOnTarget(targetElement);
             onChange(path);
